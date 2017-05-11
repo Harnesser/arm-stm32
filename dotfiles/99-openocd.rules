@@ -1,0 +1,3 @@
+
+# STLINKv1
+ATTRS{idVendor}=="0483", ATTRS{idProduct}=="3744", GROUP="plugdev", MODE:="660"
