@@ -10,3 +10,10 @@ sw_cfg:
 	cat ${CFG}
 
 
+check:
+	lsusb; \
+	ls -l /dev/usb/002/007
+
+
+
+

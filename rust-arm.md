@@ -140,3 +140,46 @@ crw-rw-r-- 1 root sharers 189, 133 05-May-17 /dev/bus/usb/002/006
 kartoffel% groups                    
 harnesser sharers
 ```
+
+Don't remember what I did to 'fix'.  Added the `udev` file, and then
+got USB mass storage errors.
+
+Added myself to `plugdev`.
+
+```
+kartoffel% pls
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+/etc/udev/rules.d
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+52-digilent-usb.rules  70-persistent-net.rules  99-openocd.rules  README
+kartoffel% cat 99-openocd.rules 
+
+# STLINKv1
+ATTRS{idVendor}=="0483", ATTRS{idProduct}=="3744", GROUP="plugdev", MODE:="660"
+```
+
+
+## USB Mass Storage
+
+After googling, something is screwy with the STLINKv1 firmware, and the
+best thing to avoid this issue is to tell Linux not to bother with the
+mass-storage endpoint on the board.
+
+```
+kartoffel% pwd
+/etc/modprobe.d
+kartoffel% cat stlink.conf 
+# stlink/v1 ignore mass storage
+options usb-storage quirks=0x0483:0x3744:i
+```
+
+Tried rebooting, but this didn't quite work.
+
+```
+sudo modprobe -r uas usb-storage
+sudo modprobe usb-storage
+```
+
+This worked. Hope I don't have to do this all the time.
+
+
