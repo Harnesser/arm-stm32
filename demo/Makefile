@@ -6,6 +6,9 @@ build_hello:
 build_crash:
 	xargo build -j1 --example crash
 
+build_blinky01:
+	xargo build -j1 --example blinky01
+
 upload:
 	openocd -f board/stm32vldiscovery.cfg
 	#openocd -f board/stm32vldiscovery.cfg -d3
