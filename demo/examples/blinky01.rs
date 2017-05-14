@@ -20,6 +20,15 @@ fn main() {
     cortex_m::interrupt::free(
         |cs| {
 
+            // initialisation
+            let gpioe = GPIOE.borrow(cs);
+            let rcc = RCC.borrow(cs); // R_eset and C_lock C_ontrol
+            let tim7 = TIM7.borrow(cs);
+
+            // power up the relevant peripherals
+            rcc.apb2enr.modify(|_,w| w.iopeen().enabled());
+            rcc.apb1enr.modify(|_,w| w.tim7en().enabled());
+
 
         }
     );
