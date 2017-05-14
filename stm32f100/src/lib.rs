@@ -10094,15 +10094,42 @@ pub mod rcc {
                 self.bits
             }
         }
-        # [ doc = r" Value of the field" ]
-        pub struct IopeenR {
-            bits: u8,
+        # [ doc = "Possible values of the field `IOPEEN`" ]
+        # [ derive ( Clone , Copy , Debug , PartialEq ) ]
+        pub enum IopeenR {
+            # [ doc = "Disabled." ]
+            Disabled,
+            # [ doc = "Enabled." ]
+            Enabled,
         }
         impl IopeenR {
             # [ doc = r" Value of the field as raw bits" ]
             # [ inline ( always ) ]
             pub fn bits(&self) -> u8 {
-                self.bits
+                match *self {
+                    IopeenR::Disabled => 0,
+                    IopeenR::Enabled => 1,
+                }
+            }
+            # [ allow ( missing_docs ) ]
+            # [ doc ( hidden ) ]
+            # [ inline ( always ) ]
+            pub fn _from(bits: u8) -> IopeenR {
+                match bits {
+                    0 => IopeenR::Disabled,
+                    1 => IopeenR::Enabled,
+                    _ => unreachable!(),
+                }
+            }
+            # [ doc = "Checks if the value of the field is `Disabled`" ]
+            # [ inline ( always ) ]
+            pub fn is_disabled(&self) -> bool {
+                *self == IopeenR::Disabled
+            }
+            # [ doc = "Checks if the value of the field is `Enabled`" ]
+            # [ inline ( always ) ]
+            pub fn is_enabled(&self) -> bool {
+                *self == IopeenR::Enabled
             }
         }
         # [ doc = r" Value of the field" ]
@@ -10279,14 +10306,49 @@ pub mod rcc {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `IOPEEN`" ]
+        pub enum IopeenW {
+            # [ doc = "Disabled." ]
+            Disabled,
+            # [ doc = "Enabled." ]
+            Enabled,
+        }
+        impl IopeenW {
+            # [ allow ( missing_docs ) ]
+            # [ doc ( hidden ) ]
+            # [ inline ( always ) ]
+            pub fn _bits(&self) -> u8 {
+                match *self {
+                    IopeenW::Disabled => 0,
+                    IopeenW::Enabled => 1,
+                }
+            }
+        }
         # [ doc = r" Proxy" ]
         pub struct _IopeenW<'a> {
             w: &'a mut W,
         }
         impl<'a> _IopeenW<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: IopeenW) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Disabled." ]
+            # [ inline ( always ) ]
+            pub fn disabled(self) -> &'a mut W {
+                self.variant(IopeenW::Disabled)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(IopeenW::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 6;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -10488,12 +10550,11 @@ pub mod rcc {
             # [ doc = "Bit 6 - I/O port E clock enable" ]
             # [ inline ( always ) ]
             pub fn iopeen(&self) -> IopeenR {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 6;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                IopeenR { bits }
+                IopeenR::_from({
+                                   const MASK: u8 = 1;
+                                   const OFFSET: u8 = 6;
+                                   ((self.bits >> OFFSET) & MASK as u32) as u8
+                               })
             }
             # [ doc = "Bit 7 - I/O port F clock enable" ]
             # [ inline ( always ) ]
@@ -10771,15 +10832,42 @@ pub mod rcc {
                 self.bits
             }
         }
-        # [ doc = r" Value of the field" ]
-        pub struct Tim7enR {
-            bits: u8,
+        # [ doc = "Possible values of the field `TIM7EN`" ]
+        # [ derive ( Clone , Copy , Debug , PartialEq ) ]
+        pub enum Tim7enR {
+            # [ doc = "Disabled." ]
+            Disabled,
+            # [ doc = "Enabled." ]
+            Enabled,
         }
         impl Tim7enR {
             # [ doc = r" Value of the field as raw bits" ]
             # [ inline ( always ) ]
             pub fn bits(&self) -> u8 {
-                self.bits
+                match *self {
+                    Tim7enR::Disabled => 0,
+                    Tim7enR::Enabled => 1,
+                }
+            }
+            # [ allow ( missing_docs ) ]
+            # [ doc ( hidden ) ]
+            # [ inline ( always ) ]
+            pub fn _from(bits: u8) -> Tim7enR {
+                match bits {
+                    0 => Tim7enR::Disabled,
+                    1 => Tim7enR::Enabled,
+                    _ => unreachable!(),
+                }
+            }
+            # [ doc = "Checks if the value of the field is `Disabled`" ]
+            # [ inline ( always ) ]
+            pub fn is_disabled(&self) -> bool {
+                *self == Tim7enR::Disabled
+            }
+            # [ doc = "Checks if the value of the field is `Enabled`" ]
+            # [ inline ( always ) ]
+            pub fn is_enabled(&self) -> bool {
+                *self == Tim7enR::Enabled
             }
         }
         # [ doc = r" Value of the field" ]
@@ -11033,14 +11121,49 @@ pub mod rcc {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `TIM7EN`" ]
+        pub enum Tim7enW {
+            # [ doc = "Disabled." ]
+            Disabled,
+            # [ doc = "Enabled." ]
+            Enabled,
+        }
+        impl Tim7enW {
+            # [ allow ( missing_docs ) ]
+            # [ doc ( hidden ) ]
+            # [ inline ( always ) ]
+            pub fn _bits(&self) -> u8 {
+                match *self {
+                    Tim7enW::Disabled => 0,
+                    Tim7enW::Enabled => 1,
+                }
+            }
+        }
         # [ doc = r" Proxy" ]
         pub struct _Tim7enW<'a> {
             w: &'a mut W,
         }
         impl<'a> _Tim7enW<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Tim7enW) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Disabled." ]
+            # [ inline ( always ) ]
+            pub fn disabled(self) -> &'a mut W {
+                self.variant(Tim7enW::Disabled)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(Tim7enW::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 5;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -11347,12 +11470,11 @@ pub mod rcc {
             # [ doc = "Bit 5 - Timer 7 clock enable" ]
             # [ inline ( always ) ]
             pub fn tim7en(&self) -> Tim7enR {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 5;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Tim7enR { bits }
+                Tim7enR::_from({
+                                   const MASK: u8 = 1;
+                                   const OFFSET: u8 = 5;
+                                   ((self.bits >> OFFSET) & MASK as u32) as u8
+                               })
             }
             # [ doc = "Bit 6 - Timer 12 clock enable" ]
             # [ inline ( always ) ]
