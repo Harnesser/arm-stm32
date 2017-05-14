@@ -33,6 +33,7 @@
 #![feature(used)]
 #![no_std]
 
+#[macro_use]
 extern crate cortex_m;
 extern crate cortex_m_rt;
 
@@ -41,6 +42,7 @@ use core::ptr;
 use cortex_m::asm;
 
 fn main() {
+    hprintln!("Crashing soon...");
     // Read an invalid memory address
     unsafe {
         ptr::read_volatile(0x2FFF_FFFF as *const u32);
