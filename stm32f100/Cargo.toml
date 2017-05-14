@@ -1,6 +1,8 @@
 [package]
+authors = ["Marty <harnesser+kartoffel@gmail.com>"]
 name = "stm32f100"
 version = "0.1.0"
-authors = ["Marty <harnesser+kartoffel@gmail.com>"]
 
 [dependencies]
+cortex-m = "0.2.6"
+vcell = "0.1.0"
