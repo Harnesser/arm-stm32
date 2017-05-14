@@ -9,8 +9,10 @@ extern crate cortex_m_rt;
 extern crate stm32f100;
 
 use cortex_m::asm;
-use stm32f100::{GPIOE, RCC, TIM7};
+use stm32f100::{GPIOC, RCC, TIM7};
 
+// LED blue: PC8
+// LED green: PC9
 
 #[inline(never)]
 fn main() {
@@ -21,13 +23,16 @@ fn main() {
         |cs| {
 
             // initialisation
-            let gpioe = GPIOE.borrow(cs);
+            let gpioc = GPIOC.borrow(cs);
             let rcc = RCC.borrow(cs); // R_eset and C_lock C_ontrol
             let tim7 = TIM7.borrow(cs);
 
             // power up the relevant peripherals
-            rcc.apb2enr.modify(|_,w| w.iopeen().enabled());
+            rcc.apb2enr.modify(|_,w| w.iopcen().enabled());
             rcc.apb1enr.modify(|_,w| w.tim7en().enabled());
+
+            // configure PC9 as an output
+            gpioc.moder.modify(|_,w| w.moder9().output());
 
 
         }

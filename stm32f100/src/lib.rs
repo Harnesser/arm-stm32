@@ -10072,15 +10072,42 @@ pub mod rcc {
                 self.bits
             }
         }
-        # [ doc = r" Value of the field" ]
-        pub struct IopcenR {
-            bits: u8,
+        # [ doc = "Possible values of the field `IOPCEN`" ]
+        # [ derive ( Clone , Copy , Debug , PartialEq ) ]
+        pub enum IopcenR {
+            # [ doc = "Disabled." ]
+            Disabled,
+            # [ doc = "Enabled." ]
+            Enabled,
         }
         impl IopcenR {
             # [ doc = r" Value of the field as raw bits" ]
             # [ inline ( always ) ]
             pub fn bits(&self) -> u8 {
-                self.bits
+                match *self {
+                    IopcenR::Disabled => 0,
+                    IopcenR::Enabled => 1,
+                }
+            }
+            # [ allow ( missing_docs ) ]
+            # [ doc ( hidden ) ]
+            # [ inline ( always ) ]
+            pub fn _from(bits: u8) -> IopcenR {
+                match bits {
+                    0 => IopcenR::Disabled,
+                    1 => IopcenR::Enabled,
+                    _ => unreachable!(),
+                }
+            }
+            # [ doc = "Checks if the value of the field is `Disabled`" ]
+            # [ inline ( always ) ]
+            pub fn is_disabled(&self) -> bool {
+                *self == IopcenR::Disabled
+            }
+            # [ doc = "Checks if the value of the field is `Enabled`" ]
+            # [ inline ( always ) ]
+            pub fn is_enabled(&self) -> bool {
+                *self == IopcenR::Enabled
             }
         }
         # [ doc = r" Value of the field" ]
@@ -10276,14 +10303,49 @@ pub mod rcc {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `IOPCEN`" ]
+        pub enum IopcenW {
+            # [ doc = "Disabled." ]
+            Disabled,
+            # [ doc = "Enabled." ]
+            Enabled,
+        }
+        impl IopcenW {
+            # [ allow ( missing_docs ) ]
+            # [ doc ( hidden ) ]
+            # [ inline ( always ) ]
+            pub fn _bits(&self) -> u8 {
+                match *self {
+                    IopcenW::Disabled => 0,
+                    IopcenW::Enabled => 1,
+                }
+            }
+        }
         # [ doc = r" Proxy" ]
         pub struct _IopcenW<'a> {
             w: &'a mut W,
         }
         impl<'a> _IopcenW<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: IopcenW) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Disabled." ]
+            # [ inline ( always ) ]
+            pub fn disabled(self) -> &'a mut W {
+                self.variant(IopcenW::Disabled)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(IopcenW::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 4;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -10530,12 +10592,11 @@ pub mod rcc {
             # [ doc = "Bit 4 - I/O port C clock enable" ]
             # [ inline ( always ) ]
             pub fn iopcen(&self) -> IopcenR {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 4;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                IopcenR { bits }
+                IopcenR::_from({
+                                   const MASK: u8 = 1;
+                                   const OFFSET: u8 = 4;
+                                   ((self.bits >> OFFSET) & MASK as u32) as u8
+                               })
             }
             # [ doc = "Bit 5 - I/O port D clock enable" ]
             # [ inline ( always ) ]
