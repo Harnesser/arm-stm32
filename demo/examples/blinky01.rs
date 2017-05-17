@@ -66,6 +66,18 @@ fn main() {
                 // wait for an update event
                 while tim7.sr.read().uif().is_no_update() {}
 
+                // clear the update flag
+                tim7.sr.modify(|_,w| w.uif().clear());
+
+                // toggle the state
+                state = !state;
+
+                // blink the LED
+                if state {
+                    gpioc.bsrr.write(|w| w.bs7().set());
+                } else {
+                    gpioc.bsrr.write(|w| w.br7().reset());
+                }
             }
 
         }
