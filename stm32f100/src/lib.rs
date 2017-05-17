@@ -54908,15 +54908,42 @@ pub mod tim6 {
                 self.bits
             }
         }
-        # [ doc = r" Value of the field" ]
-        pub struct OpmR {
-            bits: u8,
+        # [ doc = "Possible values of the field `OPM`" ]
+        # [ derive ( Clone , Copy , Debug , PartialEq ) ]
+        pub enum OpmR {
+            # [ doc = "Counter is not stopped at update event" ]
+            Continuous,
+            # [ doc = "Counter stops counting at the next update event (clearing the CEN bit)" ]
+            OnePulse,
         }
         impl OpmR {
             # [ doc = r" Value of the field as raw bits" ]
             # [ inline ( always ) ]
             pub fn bits(&self) -> u8 {
-                self.bits
+                match *self {
+                    OpmR::Continuous => 0,
+                    OpmR::OnePulse => 1,
+                }
+            }
+            # [ allow ( missing_docs ) ]
+            # [ doc ( hidden ) ]
+            # [ inline ( always ) ]
+            pub fn _from(bits: u8) -> OpmR {
+                match bits {
+                    0 => OpmR::Continuous,
+                    1 => OpmR::OnePulse,
+                    _ => unreachable!(),
+                }
+            }
+            # [ doc = "Checks if the value of the field is `Continuous`" ]
+            # [ inline ( always ) ]
+            pub fn is_continuous(&self) -> bool {
+                *self == OpmR::Continuous
+            }
+            # [ doc = "Checks if the value of the field is `OnePulse`" ]
+            # [ inline ( always ) ]
+            pub fn is_one_pulse(&self) -> bool {
+                *self == OpmR::OnePulse
             }
         }
         # [ doc = r" Value of the field" ]
@@ -54967,14 +54994,49 @@ pub mod tim6 {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `OPM`" ]
+        pub enum OpmW {
+            # [ doc = "Counter is not stopped at update event" ]
+            Continuous,
+            # [ doc = "Counter stops counting at the next update event (clearing the CEN bit)" ]
+            OnePulse,
+        }
+        impl OpmW {
+            # [ allow ( missing_docs ) ]
+            # [ doc ( hidden ) ]
+            # [ inline ( always ) ]
+            pub fn _bits(&self) -> u8 {
+                match *self {
+                    OpmW::Continuous => 0,
+                    OpmW::OnePulse => 1,
+                }
+            }
+        }
         # [ doc = r" Proxy" ]
         pub struct _OpmW<'a> {
             w: &'a mut W,
         }
         impl<'a> _OpmW<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: OpmW) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Counter is not stopped at update event" ]
+            # [ inline ( always ) ]
+            pub fn continuous(self) -> &'a mut W {
+                self.variant(OpmW::Continuous)
+            }
+            # [ doc = "Counter stops counting at the next update event (clearing the CEN bit)" ]
+            # [ inline ( always ) ]
+            pub fn one_pulse(self) -> &'a mut W {
+                self.variant(OpmW::OnePulse)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 3;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -55046,12 +55108,11 @@ pub mod tim6 {
             # [ doc = "Bit 3 - One-pulse mode" ]
             # [ inline ( always ) ]
             pub fn opm(&self) -> OpmR {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 3;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                OpmR { bits }
+                OpmR::_from({
+                                const MASK: u8 = 1;
+                                const OFFSET: u8 = 3;
+                                ((self.bits >> OFFSET) & MASK as u32) as u8
+                            })
             }
             # [ doc = "Bit 2 - Update request source" ]
             # [ inline ( always ) ]

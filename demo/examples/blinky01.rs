@@ -50,7 +50,15 @@ fn main() {
             // configure TIM7 for periodic timeouts
             let ratio = frequency::APB1 / FREQUENCY;
             let psc = u16((ratio-1) / u32(u16::MAX)).unwrap();
-            //tim7.psc.write(|w| w.psc().bits(psc));
+            let arr = u16(ratio / u32(psc + 1)).unwrap();
+            unsafe {
+                // japaric didn't need unsafe here...
+                tim7.psc.write(|w| w.psc().bits(psc));
+                tim7.arr.write(|w| w.arr().bits(arr));
+            }
+            tim7.cr1.write(|w| w.opm().continuous());
+
+            // start the timer
 
 
         }
