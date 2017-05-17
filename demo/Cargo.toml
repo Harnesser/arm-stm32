@@ -8,6 +8,7 @@ version = "0.1.0"
 cortex-m = "0.2.4"
 cortex-m-rt = "0.2.0"
 stm32f100 = { path = "../stm32f100" }
+cast = { version = "*", default-features = false }
 
 [profile.release]
 lto = true

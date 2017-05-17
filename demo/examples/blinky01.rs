@@ -3,16 +3,28 @@
 #![feature(used)]
 #![no_std]
 
+extern crate cast;
 extern crate cortex_m;
 extern crate cortex_m_rt;
 
 extern crate stm32f100;
+
+use core::u16;
+use cast::{u16,u32};
 
 use cortex_m::asm;
 use stm32f100::{GPIOC, RCC, TIM7};
 
 // LED blue: PC8
 // LED green: PC9
+
+mod frequency {
+    /// Frequency of APB1 bus (TIM7 is connected to this)
+    pub const APB1: u32 = 8_000_000; // Hz
+}
+
+/// Timer Frequency
+const FREQUENCY: u32 = 1; // Hz
 
 #[inline(never)]
 fn main() {
@@ -34,6 +46,11 @@ fn main() {
             // configure PC9 as an output
             // 0=A 1=B 2=C
             gpioc.crh.modify(|_,w| w.mode9().output_10mhz());
+
+            // configure TIM7 for periodic timeouts
+            let ratio = frequency::APB1 / FREQUENCY;
+            let psc = u16((ratio-1) / u32(u16::MAX)).unwrap();
+            //tim7.psc.write(|w| w.psc().bits(psc));
 
 
         }
