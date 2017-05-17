@@ -32,7 +32,8 @@ fn main() {
             rcc.apb1enr.modify(|_,w| w.tim7en().enabled());
 
             // configure PC9 as an output
-            gpioc.moder.modify(|_,w| w.moder9().output());
+            // 0=A 1=B 2=C
+            gpioc.crh.modify(|_,w| w.mode9().output_10mhz());
 
 
         }

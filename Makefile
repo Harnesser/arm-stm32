@@ -15,5 +15,3 @@ check:
 	ls -l /dev/usb/002/007
 
 
-
-

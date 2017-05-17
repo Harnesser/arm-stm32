@@ -12699,15 +12699,60 @@ pub mod gpioa {
                 self.register.set(w.bits);
             }
         }
-        # [ doc = r" Value of the field" ]
-        pub struct Mode0R {
-            bits: u8,
+        # [ doc = "Possible values of the field `MODE0`" ]
+        # [ derive ( Clone , Copy , Debug , PartialEq ) ]
+        pub enum Mode0R {
+            # [ doc = "Input mode (reset state)" ]
+            Input,
+            # [ doc = "Output mode, max speed 10MHz" ]
+            Output10mhz,
+            # [ doc = "Output mode, max speed 2MHz" ]
+            Output2mhz,
+            # [ doc = "Output mode, max speed 50MHz" ]
+            Output50mhz,
         }
         impl Mode0R {
             # [ doc = r" Value of the field as raw bits" ]
             # [ inline ( always ) ]
             pub fn bits(&self) -> u8 {
-                self.bits
+                match *self {
+                    Mode0R::Input => 0,
+                    Mode0R::Output10mhz => 1,
+                    Mode0R::Output2mhz => 2,
+                    Mode0R::Output50mhz => 3,
+                }
+            }
+            # [ allow ( missing_docs ) ]
+            # [ doc ( hidden ) ]
+            # [ inline ( always ) ]
+            pub fn _from(bits: u8) -> Mode0R {
+                match bits {
+                    0 => Mode0R::Input,
+                    1 => Mode0R::Output10mhz,
+                    2 => Mode0R::Output2mhz,
+                    3 => Mode0R::Output50mhz,
+                    _ => unreachable!(),
+                }
+            }
+            # [ doc = "Checks if the value of the field is `Input`" ]
+            # [ inline ( always ) ]
+            pub fn is_input(&self) -> bool {
+                *self == Mode0R::Input
+            }
+            # [ doc = "Checks if the value of the field is `Output10mhz`" ]
+            # [ inline ( always ) ]
+            pub fn is_output_10mhz(&self) -> bool {
+                *self == Mode0R::Output10mhz
+            }
+            # [ doc = "Checks if the value of the field is `Output2mhz`" ]
+            # [ inline ( always ) ]
+            pub fn is_output_2mhz(&self) -> bool {
+                *self == Mode0R::Output2mhz
+            }
+            # [ doc = "Checks if the value of the field is `Output50mhz`" ]
+            # [ inline ( always ) ]
+            pub fn is_output_50mhz(&self) -> bool {
+                *self == Mode0R::Output50mhz
             }
         }
         # [ doc = r" Value of the field" ]
@@ -12721,17 +12766,8 @@ pub mod gpioa {
                 self.bits
             }
         }
-        # [ doc = r" Value of the field" ]
-        pub struct Mode1R {
-            bits: u8,
-        }
-        impl Mode1R {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
+        # [ doc = "Possible values of the field `MODE1`" ]
+        pub type Mode1R = Mode0R;
         # [ doc = r" Value of the field" ]
         pub struct Cnf1R {
             bits: u8,
@@ -12743,17 +12779,8 @@ pub mod gpioa {
                 self.bits
             }
         }
-        # [ doc = r" Value of the field" ]
-        pub struct Mode2R {
-            bits: u8,
-        }
-        impl Mode2R {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
+        # [ doc = "Possible values of the field `MODE2`" ]
+        pub type Mode2R = Mode0R;
         # [ doc = r" Value of the field" ]
         pub struct Cnf2R {
             bits: u8,
@@ -12765,17 +12792,8 @@ pub mod gpioa {
                 self.bits
             }
         }
-        # [ doc = r" Value of the field" ]
-        pub struct Mode3R {
-            bits: u8,
-        }
-        impl Mode3R {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
+        # [ doc = "Possible values of the field `MODE3`" ]
+        pub type Mode3R = Mode0R;
         # [ doc = r" Value of the field" ]
         pub struct Cnf3R {
             bits: u8,
@@ -12787,17 +12805,8 @@ pub mod gpioa {
                 self.bits
             }
         }
-        # [ doc = r" Value of the field" ]
-        pub struct Mode4R {
-            bits: u8,
-        }
-        impl Mode4R {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
+        # [ doc = "Possible values of the field `MODE4`" ]
+        pub type Mode4R = Mode0R;
         # [ doc = r" Value of the field" ]
         pub struct Cnf4R {
             bits: u8,
@@ -12809,17 +12818,8 @@ pub mod gpioa {
                 self.bits
             }
         }
-        # [ doc = r" Value of the field" ]
-        pub struct Mode5R {
-            bits: u8,
-        }
-        impl Mode5R {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
+        # [ doc = "Possible values of the field `MODE5`" ]
+        pub type Mode5R = Mode0R;
         # [ doc = r" Value of the field" ]
         pub struct Cnf5R {
             bits: u8,
@@ -12831,17 +12831,8 @@ pub mod gpioa {
                 self.bits
             }
         }
-        # [ doc = r" Value of the field" ]
-        pub struct Mode6R {
-            bits: u8,
-        }
-        impl Mode6R {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
+        # [ doc = "Possible values of the field `MODE6`" ]
+        pub type Mode6R = Mode0R;
         # [ doc = r" Value of the field" ]
         pub struct Cnf6R {
             bits: u8,
@@ -12853,17 +12844,8 @@ pub mod gpioa {
                 self.bits
             }
         }
-        # [ doc = r" Value of the field" ]
-        pub struct Mode7R {
-            bits: u8,
-        }
-        impl Mode7R {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
+        # [ doc = "Possible values of the field `MODE7`" ]
+        pub type Mode7R = Mode0R;
         # [ doc = r" Value of the field" ]
         pub struct Cnf7R {
             bits: u8,
@@ -12875,14 +12857,65 @@ pub mod gpioa {
                 self.bits
             }
         }
+        # [ doc = "Values that can be written to the field `MODE0`" ]
+        pub enum Mode0W {
+            # [ doc = "Input mode (reset state)" ]
+            Input,
+            # [ doc = "Output mode, max speed 10MHz" ]
+            Output10mhz,
+            # [ doc = "Output mode, max speed 2MHz" ]
+            Output2mhz,
+            # [ doc = "Output mode, max speed 50MHz" ]
+            Output50mhz,
+        }
+        impl Mode0W {
+            # [ allow ( missing_docs ) ]
+            # [ doc ( hidden ) ]
+            # [ inline ( always ) ]
+            pub fn _bits(&self) -> u8 {
+                match *self {
+                    Mode0W::Input => 0,
+                    Mode0W::Output10mhz => 1,
+                    Mode0W::Output2mhz => 2,
+                    Mode0W::Output50mhz => 3,
+                }
+            }
+        }
         # [ doc = r" Proxy" ]
         pub struct _Mode0W<'a> {
             w: &'a mut W,
         }
         impl<'a> _Mode0W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Mode0W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Input mode (reset state)" ]
+            # [ inline ( always ) ]
+            pub fn input(self) -> &'a mut W {
+                self.variant(Mode0W::Input)
+            }
+            # [ doc = "Output mode, max speed 10MHz" ]
+            # [ inline ( always ) ]
+            pub fn output_10mhz(self) -> &'a mut W {
+                self.variant(Mode0W::Output10mhz)
+            }
+            # [ doc = "Output mode, max speed 2MHz" ]
+            # [ inline ( always ) ]
+            pub fn output_2mhz(self) -> &'a mut W {
+                self.variant(Mode0W::Output2mhz)
+            }
+            # [ doc = "Output mode, max speed 50MHz" ]
+            # [ inline ( always ) ]
+            pub fn output_50mhz(self) -> &'a mut W {
+                self.variant(Mode0W::Output50mhz)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 3;
                 const OFFSET: u8 = 0;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -12905,14 +12938,43 @@ pub mod gpioa {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `MODE1`" ]
+        pub type Mode1W = Mode0W;
         # [ doc = r" Proxy" ]
         pub struct _Mode1W<'a> {
             w: &'a mut W,
         }
         impl<'a> _Mode1W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Mode1W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Input mode (reset state)" ]
+            # [ inline ( always ) ]
+            pub fn input(self) -> &'a mut W {
+                self.variant(Mode0W::Input)
+            }
+            # [ doc = "Output mode, max speed 10MHz" ]
+            # [ inline ( always ) ]
+            pub fn output_10mhz(self) -> &'a mut W {
+                self.variant(Mode0W::Output10mhz)
+            }
+            # [ doc = "Output mode, max speed 2MHz" ]
+            # [ inline ( always ) ]
+            pub fn output_2mhz(self) -> &'a mut W {
+                self.variant(Mode0W::Output2mhz)
+            }
+            # [ doc = "Output mode, max speed 50MHz" ]
+            # [ inline ( always ) ]
+            pub fn output_50mhz(self) -> &'a mut W {
+                self.variant(Mode0W::Output50mhz)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 3;
                 const OFFSET: u8 = 4;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -12935,14 +12997,43 @@ pub mod gpioa {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `MODE2`" ]
+        pub type Mode2W = Mode0W;
         # [ doc = r" Proxy" ]
         pub struct _Mode2W<'a> {
             w: &'a mut W,
         }
         impl<'a> _Mode2W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Mode2W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Input mode (reset state)" ]
+            # [ inline ( always ) ]
+            pub fn input(self) -> &'a mut W {
+                self.variant(Mode0W::Input)
+            }
+            # [ doc = "Output mode, max speed 10MHz" ]
+            # [ inline ( always ) ]
+            pub fn output_10mhz(self) -> &'a mut W {
+                self.variant(Mode0W::Output10mhz)
+            }
+            # [ doc = "Output mode, max speed 2MHz" ]
+            # [ inline ( always ) ]
+            pub fn output_2mhz(self) -> &'a mut W {
+                self.variant(Mode0W::Output2mhz)
+            }
+            # [ doc = "Output mode, max speed 50MHz" ]
+            # [ inline ( always ) ]
+            pub fn output_50mhz(self) -> &'a mut W {
+                self.variant(Mode0W::Output50mhz)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 3;
                 const OFFSET: u8 = 8;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -12965,14 +13056,43 @@ pub mod gpioa {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `MODE3`" ]
+        pub type Mode3W = Mode0W;
         # [ doc = r" Proxy" ]
         pub struct _Mode3W<'a> {
             w: &'a mut W,
         }
         impl<'a> _Mode3W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Mode3W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Input mode (reset state)" ]
+            # [ inline ( always ) ]
+            pub fn input(self) -> &'a mut W {
+                self.variant(Mode0W::Input)
+            }
+            # [ doc = "Output mode, max speed 10MHz" ]
+            # [ inline ( always ) ]
+            pub fn output_10mhz(self) -> &'a mut W {
+                self.variant(Mode0W::Output10mhz)
+            }
+            # [ doc = "Output mode, max speed 2MHz" ]
+            # [ inline ( always ) ]
+            pub fn output_2mhz(self) -> &'a mut W {
+                self.variant(Mode0W::Output2mhz)
+            }
+            # [ doc = "Output mode, max speed 50MHz" ]
+            # [ inline ( always ) ]
+            pub fn output_50mhz(self) -> &'a mut W {
+                self.variant(Mode0W::Output50mhz)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 3;
                 const OFFSET: u8 = 12;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -12995,14 +13115,43 @@ pub mod gpioa {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `MODE4`" ]
+        pub type Mode4W = Mode0W;
         # [ doc = r" Proxy" ]
         pub struct _Mode4W<'a> {
             w: &'a mut W,
         }
         impl<'a> _Mode4W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Mode4W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Input mode (reset state)" ]
+            # [ inline ( always ) ]
+            pub fn input(self) -> &'a mut W {
+                self.variant(Mode0W::Input)
+            }
+            # [ doc = "Output mode, max speed 10MHz" ]
+            # [ inline ( always ) ]
+            pub fn output_10mhz(self) -> &'a mut W {
+                self.variant(Mode0W::Output10mhz)
+            }
+            # [ doc = "Output mode, max speed 2MHz" ]
+            # [ inline ( always ) ]
+            pub fn output_2mhz(self) -> &'a mut W {
+                self.variant(Mode0W::Output2mhz)
+            }
+            # [ doc = "Output mode, max speed 50MHz" ]
+            # [ inline ( always ) ]
+            pub fn output_50mhz(self) -> &'a mut W {
+                self.variant(Mode0W::Output50mhz)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 3;
                 const OFFSET: u8 = 16;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -13025,14 +13174,43 @@ pub mod gpioa {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `MODE5`" ]
+        pub type Mode5W = Mode0W;
         # [ doc = r" Proxy" ]
         pub struct _Mode5W<'a> {
             w: &'a mut W,
         }
         impl<'a> _Mode5W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Mode5W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Input mode (reset state)" ]
+            # [ inline ( always ) ]
+            pub fn input(self) -> &'a mut W {
+                self.variant(Mode0W::Input)
+            }
+            # [ doc = "Output mode, max speed 10MHz" ]
+            # [ inline ( always ) ]
+            pub fn output_10mhz(self) -> &'a mut W {
+                self.variant(Mode0W::Output10mhz)
+            }
+            # [ doc = "Output mode, max speed 2MHz" ]
+            # [ inline ( always ) ]
+            pub fn output_2mhz(self) -> &'a mut W {
+                self.variant(Mode0W::Output2mhz)
+            }
+            # [ doc = "Output mode, max speed 50MHz" ]
+            # [ inline ( always ) ]
+            pub fn output_50mhz(self) -> &'a mut W {
+                self.variant(Mode0W::Output50mhz)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 3;
                 const OFFSET: u8 = 20;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -13055,14 +13233,43 @@ pub mod gpioa {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `MODE6`" ]
+        pub type Mode6W = Mode0W;
         # [ doc = r" Proxy" ]
         pub struct _Mode6W<'a> {
             w: &'a mut W,
         }
         impl<'a> _Mode6W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Mode6W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Input mode (reset state)" ]
+            # [ inline ( always ) ]
+            pub fn input(self) -> &'a mut W {
+                self.variant(Mode0W::Input)
+            }
+            # [ doc = "Output mode, max speed 10MHz" ]
+            # [ inline ( always ) ]
+            pub fn output_10mhz(self) -> &'a mut W {
+                self.variant(Mode0W::Output10mhz)
+            }
+            # [ doc = "Output mode, max speed 2MHz" ]
+            # [ inline ( always ) ]
+            pub fn output_2mhz(self) -> &'a mut W {
+                self.variant(Mode0W::Output2mhz)
+            }
+            # [ doc = "Output mode, max speed 50MHz" ]
+            # [ inline ( always ) ]
+            pub fn output_50mhz(self) -> &'a mut W {
+                self.variant(Mode0W::Output50mhz)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 3;
                 const OFFSET: u8 = 24;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -13085,14 +13292,43 @@ pub mod gpioa {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `MODE7`" ]
+        pub type Mode7W = Mode0W;
         # [ doc = r" Proxy" ]
         pub struct _Mode7W<'a> {
             w: &'a mut W,
         }
         impl<'a> _Mode7W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Mode7W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Input mode (reset state)" ]
+            # [ inline ( always ) ]
+            pub fn input(self) -> &'a mut W {
+                self.variant(Mode0W::Input)
+            }
+            # [ doc = "Output mode, max speed 10MHz" ]
+            # [ inline ( always ) ]
+            pub fn output_10mhz(self) -> &'a mut W {
+                self.variant(Mode0W::Output10mhz)
+            }
+            # [ doc = "Output mode, max speed 2MHz" ]
+            # [ inline ( always ) ]
+            pub fn output_2mhz(self) -> &'a mut W {
+                self.variant(Mode0W::Output2mhz)
+            }
+            # [ doc = "Output mode, max speed 50MHz" ]
+            # [ inline ( always ) ]
+            pub fn output_50mhz(self) -> &'a mut W {
+                self.variant(Mode0W::Output50mhz)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 3;
                 const OFFSET: u8 = 28;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -13124,12 +13360,11 @@ pub mod gpioa {
             # [ doc = "Bits 0:1 - Port n.0 mode bits" ]
             # [ inline ( always ) ]
             pub fn mode0(&self) -> Mode0R {
-                let bits = {
-                    const MASK: u8 = 3;
-                    const OFFSET: u8 = 0;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Mode0R { bits }
+                Mode0R::_from({
+                                  const MASK: u8 = 3;
+                                  const OFFSET: u8 = 0;
+                                  ((self.bits >> OFFSET) & MASK as u32) as u8
+                              })
             }
             # [ doc = "Bits 2:3 - Port n.0 configuration bits" ]
             # [ inline ( always ) ]
@@ -13144,12 +13379,11 @@ pub mod gpioa {
             # [ doc = "Bits 4:5 - Port n.1 mode bits" ]
             # [ inline ( always ) ]
             pub fn mode1(&self) -> Mode1R {
-                let bits = {
-                    const MASK: u8 = 3;
-                    const OFFSET: u8 = 4;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Mode1R { bits }
+                Mode1R::_from({
+                                  const MASK: u8 = 3;
+                                  const OFFSET: u8 = 4;
+                                  ((self.bits >> OFFSET) & MASK as u32) as u8
+                              })
             }
             # [ doc = "Bits 6:7 - Port n.1 configuration bits" ]
             # [ inline ( always ) ]
@@ -13164,12 +13398,11 @@ pub mod gpioa {
             # [ doc = "Bits 8:9 - Port n.2 mode bits" ]
             # [ inline ( always ) ]
             pub fn mode2(&self) -> Mode2R {
-                let bits = {
-                    const MASK: u8 = 3;
-                    const OFFSET: u8 = 8;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Mode2R { bits }
+                Mode2R::_from({
+                                  const MASK: u8 = 3;
+                                  const OFFSET: u8 = 8;
+                                  ((self.bits >> OFFSET) & MASK as u32) as u8
+                              })
             }
             # [ doc = "Bits 10:11 - Port n.2 configuration bits" ]
             # [ inline ( always ) ]
@@ -13184,12 +13417,11 @@ pub mod gpioa {
             # [ doc = "Bits 12:13 - Port n.3 mode bits" ]
             # [ inline ( always ) ]
             pub fn mode3(&self) -> Mode3R {
-                let bits = {
-                    const MASK: u8 = 3;
-                    const OFFSET: u8 = 12;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Mode3R { bits }
+                Mode3R::_from({
+                                  const MASK: u8 = 3;
+                                  const OFFSET: u8 = 12;
+                                  ((self.bits >> OFFSET) & MASK as u32) as u8
+                              })
             }
             # [ doc = "Bits 14:15 - Port n.3 configuration bits" ]
             # [ inline ( always ) ]
@@ -13204,12 +13436,11 @@ pub mod gpioa {
             # [ doc = "Bits 16:17 - Port n.4 mode bits" ]
             # [ inline ( always ) ]
             pub fn mode4(&self) -> Mode4R {
-                let bits = {
-                    const MASK: u8 = 3;
-                    const OFFSET: u8 = 16;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Mode4R { bits }
+                Mode4R::_from({
+                                  const MASK: u8 = 3;
+                                  const OFFSET: u8 = 16;
+                                  ((self.bits >> OFFSET) & MASK as u32) as u8
+                              })
             }
             # [ doc = "Bits 18:19 - Port n.4 configuration bits" ]
             # [ inline ( always ) ]
@@ -13224,12 +13455,11 @@ pub mod gpioa {
             # [ doc = "Bits 20:21 - Port n.5 mode bits" ]
             # [ inline ( always ) ]
             pub fn mode5(&self) -> Mode5R {
-                let bits = {
-                    const MASK: u8 = 3;
-                    const OFFSET: u8 = 20;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Mode5R { bits }
+                Mode5R::_from({
+                                  const MASK: u8 = 3;
+                                  const OFFSET: u8 = 20;
+                                  ((self.bits >> OFFSET) & MASK as u32) as u8
+                              })
             }
             # [ doc = "Bits 22:23 - Port n.5 configuration bits" ]
             # [ inline ( always ) ]
@@ -13244,12 +13474,11 @@ pub mod gpioa {
             # [ doc = "Bits 24:25 - Port n.6 mode bits" ]
             # [ inline ( always ) ]
             pub fn mode6(&self) -> Mode6R {
-                let bits = {
-                    const MASK: u8 = 3;
-                    const OFFSET: u8 = 24;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Mode6R { bits }
+                Mode6R::_from({
+                                  const MASK: u8 = 3;
+                                  const OFFSET: u8 = 24;
+                                  ((self.bits >> OFFSET) & MASK as u32) as u8
+                              })
             }
             # [ doc = "Bits 26:27 - Port n.6 configuration bits" ]
             # [ inline ( always ) ]
@@ -13264,12 +13493,11 @@ pub mod gpioa {
             # [ doc = "Bits 28:29 - Port n.7 mode bits" ]
             # [ inline ( always ) ]
             pub fn mode7(&self) -> Mode7R {
-                let bits = {
-                    const MASK: u8 = 3;
-                    const OFFSET: u8 = 28;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Mode7R { bits }
+                Mode7R::_from({
+                                  const MASK: u8 = 3;
+                                  const OFFSET: u8 = 28;
+                                  ((self.bits >> OFFSET) & MASK as u32) as u8
+                              })
             }
             # [ doc = "Bits 30:31 - Port n.7 configuration bits" ]
             # [ inline ( always ) ]
@@ -13417,15 +13645,60 @@ pub mod gpioa {
                 self.register.set(w.bits);
             }
         }
-        # [ doc = r" Value of the field" ]
-        pub struct Mode8R {
-            bits: u8,
+        # [ doc = "Possible values of the field `MODE8`" ]
+        # [ derive ( Clone , Copy , Debug , PartialEq ) ]
+        pub enum Mode8R {
+            # [ doc = "Input mode (reset state)" ]
+            Input,
+            # [ doc = "Output mode, max speed 10MHz" ]
+            Output10mhz,
+            # [ doc = "Output mode, max speed 2MHz" ]
+            Output2mhz,
+            # [ doc = "Output mode, max speed 50MHz" ]
+            Output50mhz,
         }
         impl Mode8R {
             # [ doc = r" Value of the field as raw bits" ]
             # [ inline ( always ) ]
             pub fn bits(&self) -> u8 {
-                self.bits
+                match *self {
+                    Mode8R::Input => 0,
+                    Mode8R::Output10mhz => 1,
+                    Mode8R::Output2mhz => 2,
+                    Mode8R::Output50mhz => 3,
+                }
+            }
+            # [ allow ( missing_docs ) ]
+            # [ doc ( hidden ) ]
+            # [ inline ( always ) ]
+            pub fn _from(bits: u8) -> Mode8R {
+                match bits {
+                    0 => Mode8R::Input,
+                    1 => Mode8R::Output10mhz,
+                    2 => Mode8R::Output2mhz,
+                    3 => Mode8R::Output50mhz,
+                    _ => unreachable!(),
+                }
+            }
+            # [ doc = "Checks if the value of the field is `Input`" ]
+            # [ inline ( always ) ]
+            pub fn is_input(&self) -> bool {
+                *self == Mode8R::Input
+            }
+            # [ doc = "Checks if the value of the field is `Output10mhz`" ]
+            # [ inline ( always ) ]
+            pub fn is_output_10mhz(&self) -> bool {
+                *self == Mode8R::Output10mhz
+            }
+            # [ doc = "Checks if the value of the field is `Output2mhz`" ]
+            # [ inline ( always ) ]
+            pub fn is_output_2mhz(&self) -> bool {
+                *self == Mode8R::Output2mhz
+            }
+            # [ doc = "Checks if the value of the field is `Output50mhz`" ]
+            # [ inline ( always ) ]
+            pub fn is_output_50mhz(&self) -> bool {
+                *self == Mode8R::Output50mhz
             }
         }
         # [ doc = r" Value of the field" ]
@@ -13439,17 +13712,8 @@ pub mod gpioa {
                 self.bits
             }
         }
-        # [ doc = r" Value of the field" ]
-        pub struct Mode9R {
-            bits: u8,
-        }
-        impl Mode9R {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
+        # [ doc = "Possible values of the field `MODE9`" ]
+        pub type Mode9R = Mode8R;
         # [ doc = r" Value of the field" ]
         pub struct Cnf9R {
             bits: u8,
@@ -13461,17 +13725,8 @@ pub mod gpioa {
                 self.bits
             }
         }
-        # [ doc = r" Value of the field" ]
-        pub struct Mode10R {
-            bits: u8,
-        }
-        impl Mode10R {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
+        # [ doc = "Possible values of the field `MODE10`" ]
+        pub type Mode10R = Mode8R;
         # [ doc = r" Value of the field" ]
         pub struct Cnf10R {
             bits: u8,
@@ -13483,17 +13738,8 @@ pub mod gpioa {
                 self.bits
             }
         }
-        # [ doc = r" Value of the field" ]
-        pub struct Mode11R {
-            bits: u8,
-        }
-        impl Mode11R {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
+        # [ doc = "Possible values of the field `MODE11`" ]
+        pub type Mode11R = Mode8R;
         # [ doc = r" Value of the field" ]
         pub struct Cnf11R {
             bits: u8,
@@ -13505,17 +13751,8 @@ pub mod gpioa {
                 self.bits
             }
         }
-        # [ doc = r" Value of the field" ]
-        pub struct Mode12R {
-            bits: u8,
-        }
-        impl Mode12R {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
+        # [ doc = "Possible values of the field `MODE12`" ]
+        pub type Mode12R = Mode8R;
         # [ doc = r" Value of the field" ]
         pub struct Cnf12R {
             bits: u8,
@@ -13527,17 +13764,8 @@ pub mod gpioa {
                 self.bits
             }
         }
-        # [ doc = r" Value of the field" ]
-        pub struct Mode13R {
-            bits: u8,
-        }
-        impl Mode13R {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
+        # [ doc = "Possible values of the field `MODE13`" ]
+        pub type Mode13R = Mode8R;
         # [ doc = r" Value of the field" ]
         pub struct Cnf13R {
             bits: u8,
@@ -13549,17 +13777,8 @@ pub mod gpioa {
                 self.bits
             }
         }
-        # [ doc = r" Value of the field" ]
-        pub struct Mode14R {
-            bits: u8,
-        }
-        impl Mode14R {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
+        # [ doc = "Possible values of the field `MODE14`" ]
+        pub type Mode14R = Mode8R;
         # [ doc = r" Value of the field" ]
         pub struct Cnf14R {
             bits: u8,
@@ -13571,17 +13790,8 @@ pub mod gpioa {
                 self.bits
             }
         }
-        # [ doc = r" Value of the field" ]
-        pub struct Mode15R {
-            bits: u8,
-        }
-        impl Mode15R {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
+        # [ doc = "Possible values of the field `MODE15`" ]
+        pub type Mode15R = Mode8R;
         # [ doc = r" Value of the field" ]
         pub struct Cnf15R {
             bits: u8,
@@ -13593,14 +13803,65 @@ pub mod gpioa {
                 self.bits
             }
         }
+        # [ doc = "Values that can be written to the field `MODE8`" ]
+        pub enum Mode8W {
+            # [ doc = "Input mode (reset state)" ]
+            Input,
+            # [ doc = "Output mode, max speed 10MHz" ]
+            Output10mhz,
+            # [ doc = "Output mode, max speed 2MHz" ]
+            Output2mhz,
+            # [ doc = "Output mode, max speed 50MHz" ]
+            Output50mhz,
+        }
+        impl Mode8W {
+            # [ allow ( missing_docs ) ]
+            # [ doc ( hidden ) ]
+            # [ inline ( always ) ]
+            pub fn _bits(&self) -> u8 {
+                match *self {
+                    Mode8W::Input => 0,
+                    Mode8W::Output10mhz => 1,
+                    Mode8W::Output2mhz => 2,
+                    Mode8W::Output50mhz => 3,
+                }
+            }
+        }
         # [ doc = r" Proxy" ]
         pub struct _Mode8W<'a> {
             w: &'a mut W,
         }
         impl<'a> _Mode8W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Mode8W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Input mode (reset state)" ]
+            # [ inline ( always ) ]
+            pub fn input(self) -> &'a mut W {
+                self.variant(Mode8W::Input)
+            }
+            # [ doc = "Output mode, max speed 10MHz" ]
+            # [ inline ( always ) ]
+            pub fn output_10mhz(self) -> &'a mut W {
+                self.variant(Mode8W::Output10mhz)
+            }
+            # [ doc = "Output mode, max speed 2MHz" ]
+            # [ inline ( always ) ]
+            pub fn output_2mhz(self) -> &'a mut W {
+                self.variant(Mode8W::Output2mhz)
+            }
+            # [ doc = "Output mode, max speed 50MHz" ]
+            # [ inline ( always ) ]
+            pub fn output_50mhz(self) -> &'a mut W {
+                self.variant(Mode8W::Output50mhz)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 3;
                 const OFFSET: u8 = 0;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -13623,14 +13884,43 @@ pub mod gpioa {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `MODE9`" ]
+        pub type Mode9W = Mode8W;
         # [ doc = r" Proxy" ]
         pub struct _Mode9W<'a> {
             w: &'a mut W,
         }
         impl<'a> _Mode9W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Mode9W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Input mode (reset state)" ]
+            # [ inline ( always ) ]
+            pub fn input(self) -> &'a mut W {
+                self.variant(Mode8W::Input)
+            }
+            # [ doc = "Output mode, max speed 10MHz" ]
+            # [ inline ( always ) ]
+            pub fn output_10mhz(self) -> &'a mut W {
+                self.variant(Mode8W::Output10mhz)
+            }
+            # [ doc = "Output mode, max speed 2MHz" ]
+            # [ inline ( always ) ]
+            pub fn output_2mhz(self) -> &'a mut W {
+                self.variant(Mode8W::Output2mhz)
+            }
+            # [ doc = "Output mode, max speed 50MHz" ]
+            # [ inline ( always ) ]
+            pub fn output_50mhz(self) -> &'a mut W {
+                self.variant(Mode8W::Output50mhz)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 3;
                 const OFFSET: u8 = 4;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -13653,14 +13943,43 @@ pub mod gpioa {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `MODE10`" ]
+        pub type Mode10W = Mode8W;
         # [ doc = r" Proxy" ]
         pub struct _Mode10W<'a> {
             w: &'a mut W,
         }
         impl<'a> _Mode10W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Mode10W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Input mode (reset state)" ]
+            # [ inline ( always ) ]
+            pub fn input(self) -> &'a mut W {
+                self.variant(Mode8W::Input)
+            }
+            # [ doc = "Output mode, max speed 10MHz" ]
+            # [ inline ( always ) ]
+            pub fn output_10mhz(self) -> &'a mut W {
+                self.variant(Mode8W::Output10mhz)
+            }
+            # [ doc = "Output mode, max speed 2MHz" ]
+            # [ inline ( always ) ]
+            pub fn output_2mhz(self) -> &'a mut W {
+                self.variant(Mode8W::Output2mhz)
+            }
+            # [ doc = "Output mode, max speed 50MHz" ]
+            # [ inline ( always ) ]
+            pub fn output_50mhz(self) -> &'a mut W {
+                self.variant(Mode8W::Output50mhz)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 3;
                 const OFFSET: u8 = 8;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -13683,14 +14002,43 @@ pub mod gpioa {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `MODE11`" ]
+        pub type Mode11W = Mode8W;
         # [ doc = r" Proxy" ]
         pub struct _Mode11W<'a> {
             w: &'a mut W,
         }
         impl<'a> _Mode11W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Mode11W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Input mode (reset state)" ]
+            # [ inline ( always ) ]
+            pub fn input(self) -> &'a mut W {
+                self.variant(Mode8W::Input)
+            }
+            # [ doc = "Output mode, max speed 10MHz" ]
+            # [ inline ( always ) ]
+            pub fn output_10mhz(self) -> &'a mut W {
+                self.variant(Mode8W::Output10mhz)
+            }
+            # [ doc = "Output mode, max speed 2MHz" ]
+            # [ inline ( always ) ]
+            pub fn output_2mhz(self) -> &'a mut W {
+                self.variant(Mode8W::Output2mhz)
+            }
+            # [ doc = "Output mode, max speed 50MHz" ]
+            # [ inline ( always ) ]
+            pub fn output_50mhz(self) -> &'a mut W {
+                self.variant(Mode8W::Output50mhz)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 3;
                 const OFFSET: u8 = 12;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -13713,14 +14061,43 @@ pub mod gpioa {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `MODE12`" ]
+        pub type Mode12W = Mode8W;
         # [ doc = r" Proxy" ]
         pub struct _Mode12W<'a> {
             w: &'a mut W,
         }
         impl<'a> _Mode12W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Mode12W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Input mode (reset state)" ]
+            # [ inline ( always ) ]
+            pub fn input(self) -> &'a mut W {
+                self.variant(Mode8W::Input)
+            }
+            # [ doc = "Output mode, max speed 10MHz" ]
+            # [ inline ( always ) ]
+            pub fn output_10mhz(self) -> &'a mut W {
+                self.variant(Mode8W::Output10mhz)
+            }
+            # [ doc = "Output mode, max speed 2MHz" ]
+            # [ inline ( always ) ]
+            pub fn output_2mhz(self) -> &'a mut W {
+                self.variant(Mode8W::Output2mhz)
+            }
+            # [ doc = "Output mode, max speed 50MHz" ]
+            # [ inline ( always ) ]
+            pub fn output_50mhz(self) -> &'a mut W {
+                self.variant(Mode8W::Output50mhz)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 3;
                 const OFFSET: u8 = 16;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -13743,14 +14120,43 @@ pub mod gpioa {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `MODE13`" ]
+        pub type Mode13W = Mode8W;
         # [ doc = r" Proxy" ]
         pub struct _Mode13W<'a> {
             w: &'a mut W,
         }
         impl<'a> _Mode13W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Mode13W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Input mode (reset state)" ]
+            # [ inline ( always ) ]
+            pub fn input(self) -> &'a mut W {
+                self.variant(Mode8W::Input)
+            }
+            # [ doc = "Output mode, max speed 10MHz" ]
+            # [ inline ( always ) ]
+            pub fn output_10mhz(self) -> &'a mut W {
+                self.variant(Mode8W::Output10mhz)
+            }
+            # [ doc = "Output mode, max speed 2MHz" ]
+            # [ inline ( always ) ]
+            pub fn output_2mhz(self) -> &'a mut W {
+                self.variant(Mode8W::Output2mhz)
+            }
+            # [ doc = "Output mode, max speed 50MHz" ]
+            # [ inline ( always ) ]
+            pub fn output_50mhz(self) -> &'a mut W {
+                self.variant(Mode8W::Output50mhz)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 3;
                 const OFFSET: u8 = 20;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -13773,14 +14179,43 @@ pub mod gpioa {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `MODE14`" ]
+        pub type Mode14W = Mode8W;
         # [ doc = r" Proxy" ]
         pub struct _Mode14W<'a> {
             w: &'a mut W,
         }
         impl<'a> _Mode14W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Mode14W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Input mode (reset state)" ]
+            # [ inline ( always ) ]
+            pub fn input(self) -> &'a mut W {
+                self.variant(Mode8W::Input)
+            }
+            # [ doc = "Output mode, max speed 10MHz" ]
+            # [ inline ( always ) ]
+            pub fn output_10mhz(self) -> &'a mut W {
+                self.variant(Mode8W::Output10mhz)
+            }
+            # [ doc = "Output mode, max speed 2MHz" ]
+            # [ inline ( always ) ]
+            pub fn output_2mhz(self) -> &'a mut W {
+                self.variant(Mode8W::Output2mhz)
+            }
+            # [ doc = "Output mode, max speed 50MHz" ]
+            # [ inline ( always ) ]
+            pub fn output_50mhz(self) -> &'a mut W {
+                self.variant(Mode8W::Output50mhz)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 3;
                 const OFFSET: u8 = 24;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -13803,14 +14238,43 @@ pub mod gpioa {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `MODE15`" ]
+        pub type Mode15W = Mode8W;
         # [ doc = r" Proxy" ]
         pub struct _Mode15W<'a> {
             w: &'a mut W,
         }
         impl<'a> _Mode15W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Mode15W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Input mode (reset state)" ]
+            # [ inline ( always ) ]
+            pub fn input(self) -> &'a mut W {
+                self.variant(Mode8W::Input)
+            }
+            # [ doc = "Output mode, max speed 10MHz" ]
+            # [ inline ( always ) ]
+            pub fn output_10mhz(self) -> &'a mut W {
+                self.variant(Mode8W::Output10mhz)
+            }
+            # [ doc = "Output mode, max speed 2MHz" ]
+            # [ inline ( always ) ]
+            pub fn output_2mhz(self) -> &'a mut W {
+                self.variant(Mode8W::Output2mhz)
+            }
+            # [ doc = "Output mode, max speed 50MHz" ]
+            # [ inline ( always ) ]
+            pub fn output_50mhz(self) -> &'a mut W {
+                self.variant(Mode8W::Output50mhz)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 3;
                 const OFFSET: u8 = 28;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -13842,12 +14306,11 @@ pub mod gpioa {
             # [ doc = "Bits 0:1 - Port n.8 mode bits" ]
             # [ inline ( always ) ]
             pub fn mode8(&self) -> Mode8R {
-                let bits = {
-                    const MASK: u8 = 3;
-                    const OFFSET: u8 = 0;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Mode8R { bits }
+                Mode8R::_from({
+                                  const MASK: u8 = 3;
+                                  const OFFSET: u8 = 0;
+                                  ((self.bits >> OFFSET) & MASK as u32) as u8
+                              })
             }
             # [ doc = "Bits 2:3 - Port n.8 configuration bits" ]
             # [ inline ( always ) ]
@@ -13862,12 +14325,11 @@ pub mod gpioa {
             # [ doc = "Bits 4:5 - Port n.9 mode bits" ]
             # [ inline ( always ) ]
             pub fn mode9(&self) -> Mode9R {
-                let bits = {
-                    const MASK: u8 = 3;
-                    const OFFSET: u8 = 4;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Mode9R { bits }
+                Mode9R::_from({
+                                  const MASK: u8 = 3;
+                                  const OFFSET: u8 = 4;
+                                  ((self.bits >> OFFSET) & MASK as u32) as u8
+                              })
             }
             # [ doc = "Bits 6:7 - Port n.9 configuration bits" ]
             # [ inline ( always ) ]
@@ -13882,12 +14344,11 @@ pub mod gpioa {
             # [ doc = "Bits 8:9 - Port n.10 mode bits" ]
             # [ inline ( always ) ]
             pub fn mode10(&self) -> Mode10R {
-                let bits = {
-                    const MASK: u8 = 3;
-                    const OFFSET: u8 = 8;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Mode10R { bits }
+                Mode10R::_from({
+                                   const MASK: u8 = 3;
+                                   const OFFSET: u8 = 8;
+                                   ((self.bits >> OFFSET) & MASK as u32) as u8
+                               })
             }
             # [ doc = "Bits 10:11 - Port n.10 configuration bits" ]
             # [ inline ( always ) ]
@@ -13902,12 +14363,11 @@ pub mod gpioa {
             # [ doc = "Bits 12:13 - Port n.11 mode bits" ]
             # [ inline ( always ) ]
             pub fn mode11(&self) -> Mode11R {
-                let bits = {
-                    const MASK: u8 = 3;
-                    const OFFSET: u8 = 12;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Mode11R { bits }
+                Mode11R::_from({
+                                   const MASK: u8 = 3;
+                                   const OFFSET: u8 = 12;
+                                   ((self.bits >> OFFSET) & MASK as u32) as u8
+                               })
             }
             # [ doc = "Bits 14:15 - Port n.11 configuration bits" ]
             # [ inline ( always ) ]
@@ -13922,12 +14382,11 @@ pub mod gpioa {
             # [ doc = "Bits 16:17 - Port n.12 mode bits" ]
             # [ inline ( always ) ]
             pub fn mode12(&self) -> Mode12R {
-                let bits = {
-                    const MASK: u8 = 3;
-                    const OFFSET: u8 = 16;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Mode12R { bits }
+                Mode12R::_from({
+                                   const MASK: u8 = 3;
+                                   const OFFSET: u8 = 16;
+                                   ((self.bits >> OFFSET) & MASK as u32) as u8
+                               })
             }
             # [ doc = "Bits 18:19 - Port n.12 configuration bits" ]
             # [ inline ( always ) ]
@@ -13942,12 +14401,11 @@ pub mod gpioa {
             # [ doc = "Bits 20:21 - Port n.13 mode bits" ]
             # [ inline ( always ) ]
             pub fn mode13(&self) -> Mode13R {
-                let bits = {
-                    const MASK: u8 = 3;
-                    const OFFSET: u8 = 20;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Mode13R { bits }
+                Mode13R::_from({
+                                   const MASK: u8 = 3;
+                                   const OFFSET: u8 = 20;
+                                   ((self.bits >> OFFSET) & MASK as u32) as u8
+                               })
             }
             # [ doc = "Bits 22:23 - Port n.13 configuration bits" ]
             # [ inline ( always ) ]
@@ -13962,12 +14420,11 @@ pub mod gpioa {
             # [ doc = "Bits 24:25 - Port n.14 mode bits" ]
             # [ inline ( always ) ]
             pub fn mode14(&self) -> Mode14R {
-                let bits = {
-                    const MASK: u8 = 3;
-                    const OFFSET: u8 = 24;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Mode14R { bits }
+                Mode14R::_from({
+                                   const MASK: u8 = 3;
+                                   const OFFSET: u8 = 24;
+                                   ((self.bits >> OFFSET) & MASK as u32) as u8
+                               })
             }
             # [ doc = "Bits 26:27 - Port n.14 configuration bits" ]
             # [ inline ( always ) ]
@@ -13982,12 +14439,11 @@ pub mod gpioa {
             # [ doc = "Bits 28:29 - Port n.15 mode bits" ]
             # [ inline ( always ) ]
             pub fn mode15(&self) -> Mode15R {
-                let bits = {
-                    const MASK: u8 = 3;
-                    const OFFSET: u8 = 28;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Mode15R { bits }
+                Mode15R::_from({
+                                   const MASK: u8 = 3;
+                                   const OFFSET: u8 = 28;
+                                   ((self.bits >> OFFSET) & MASK as u32) as u8
+                               })
             }
             # [ doc = "Bits 30:31 - Port n.15 configuration bits" ]
             # [ inline ( always ) ]
