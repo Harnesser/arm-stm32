@@ -59,7 +59,14 @@ fn main() {
             tim7.cr1.write(|w| w.opm().continuous());
 
             // start the timer
+            tim7.cr1.modify(|_,w| w.cen().enabled());
 
+            let mut state = false;
+            loop {
+                // wait for an update event
+                while tim7.sr.read().uif().is_no_update() {}
+
+            }
 
         }
     );

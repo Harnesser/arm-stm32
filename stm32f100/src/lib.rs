@@ -54968,15 +54968,42 @@ pub mod tim6 {
                 self.bits
             }
         }
-        # [ doc = r" Value of the field" ]
-        pub struct CenR {
-            bits: u8,
+        # [ doc = "Possible values of the field `CEN`" ]
+        # [ derive ( Clone , Copy , Debug , PartialEq ) ]
+        pub enum CenR {
+            # [ doc = "Counter disabled" ]
+            Disabled,
+            # [ doc = "Counter enabled" ]
+            Enabled,
         }
         impl CenR {
             # [ doc = r" Value of the field as raw bits" ]
             # [ inline ( always ) ]
             pub fn bits(&self) -> u8 {
-                self.bits
+                match *self {
+                    CenR::Disabled => 0,
+                    CenR::Enabled => 1,
+                }
+            }
+            # [ allow ( missing_docs ) ]
+            # [ doc ( hidden ) ]
+            # [ inline ( always ) ]
+            pub fn _from(bits: u8) -> CenR {
+                match bits {
+                    0 => CenR::Disabled,
+                    1 => CenR::Enabled,
+                    _ => unreachable!(),
+                }
+            }
+            # [ doc = "Checks if the value of the field is `Disabled`" ]
+            # [ inline ( always ) ]
+            pub fn is_disabled(&self) -> bool {
+                *self == CenR::Disabled
+            }
+            # [ doc = "Checks if the value of the field is `Enabled`" ]
+            # [ inline ( always ) ]
+            pub fn is_enabled(&self) -> bool {
+                *self == CenR::Enabled
             }
         }
         # [ doc = r" Proxy" ]
@@ -55074,14 +55101,49 @@ pub mod tim6 {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `CEN`" ]
+        pub enum CenW {
+            # [ doc = "Counter disabled" ]
+            Disabled,
+            # [ doc = "Counter enabled" ]
+            Enabled,
+        }
+        impl CenW {
+            # [ allow ( missing_docs ) ]
+            # [ doc ( hidden ) ]
+            # [ inline ( always ) ]
+            pub fn _bits(&self) -> u8 {
+                match *self {
+                    CenW::Disabled => 0,
+                    CenW::Enabled => 1,
+                }
+            }
+        }
         # [ doc = r" Proxy" ]
         pub struct _CenW<'a> {
             w: &'a mut W,
         }
         impl<'a> _CenW<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: CenW) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Counter disabled" ]
+            # [ inline ( always ) ]
+            pub fn disabled(self) -> &'a mut W {
+                self.variant(CenW::Disabled)
+            }
+            # [ doc = "Counter enabled" ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(CenW::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 0;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -55137,12 +55199,11 @@ pub mod tim6 {
             # [ doc = "Bit 0 - Counter enable" ]
             # [ inline ( always ) ]
             pub fn cen(&self) -> CenR {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 0;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                CenR { bits }
+                CenR::_from({
+                                const MASK: u8 = 1;
+                                const OFFSET: u8 = 0;
+                                ((self.bits >> OFFSET) & MASK as u32) as u8
+                            })
             }
         }
         impl W {
@@ -55472,15 +55533,60 @@ pub mod tim6 {
                 self.register.set(w.bits);
             }
         }
-        # [ doc = r" Value of the field" ]
-        pub struct UifR {
-            bits: u8,
+        # [ doc = "Possible values of the field `UIF`" ]
+        # [ derive ( Clone , Copy , Debug , PartialEq ) ]
+        pub enum UifR {
+            # [ doc = "No update occurred" ]
+            NoUpdate,
+            # [ doc = "Update interrupt pending" ]
+            Pending,
         }
         impl UifR {
             # [ doc = r" Value of the field as raw bits" ]
             # [ inline ( always ) ]
             pub fn bits(&self) -> u8 {
-                self.bits
+                match *self {
+                    UifR::NoUpdate => 0,
+                    UifR::Pending => 1,
+                }
+            }
+            # [ allow ( missing_docs ) ]
+            # [ doc ( hidden ) ]
+            # [ inline ( always ) ]
+            pub fn _from(bits: u8) -> UifR {
+                match bits {
+                    0 => UifR::NoUpdate,
+                    1 => UifR::Pending,
+                    _ => unreachable!(),
+                }
+            }
+            # [ doc = "Checks if the value of the field is `NoUpdate`" ]
+            # [ inline ( always ) ]
+            pub fn is_no_update(&self) -> bool {
+                *self == UifR::NoUpdate
+            }
+            # [ doc = "Checks if the value of the field is `Pending`" ]
+            # [ inline ( always ) ]
+            pub fn is_pending(&self) -> bool {
+                *self == UifR::Pending
+            }
+        }
+        # [ doc = "Values that can be written to the field `UIF`" ]
+        pub enum UifW {
+            # [ doc = "No update occurred" ]
+            NoUpdate,
+            # [ doc = "Update interrupt pending" ]
+            Pending,
+        }
+        impl UifW {
+            # [ allow ( missing_docs ) ]
+            # [ doc ( hidden ) ]
+            # [ inline ( always ) ]
+            pub fn _bits(&self) -> u8 {
+                match *self {
+                    UifW::NoUpdate => 0,
+                    UifW::Pending => 1,
+                }
             }
         }
         # [ doc = r" Proxy" ]
@@ -55488,9 +55594,26 @@ pub mod tim6 {
             w: &'a mut W,
         }
         impl<'a> _UifW<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: UifW) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "No update occurred" ]
+            # [ inline ( always ) ]
+            pub fn no_update(self) -> &'a mut W {
+                self.variant(UifW::NoUpdate)
+            }
+            # [ doc = "Update interrupt pending" ]
+            # [ inline ( always ) ]
+            pub fn pending(self) -> &'a mut W {
+                self.variant(UifW::Pending)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 0;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -55507,12 +55630,11 @@ pub mod tim6 {
             # [ doc = "Bit 0 - Update interrupt flag" ]
             # [ inline ( always ) ]
             pub fn uif(&self) -> UifR {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 0;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                UifR { bits }
+                UifR::_from({
+                                const MASK: u8 = 1;
+                                const OFFSET: u8 = 0;
+                                ((self.bits >> OFFSET) & MASK as u32) as u8
+                            })
             }
         }
         impl W {
