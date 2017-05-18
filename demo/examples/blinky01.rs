@@ -43,9 +43,13 @@ fn main() {
             rcc.apb2enr.modify(|_,w| w.iopcen().enabled());
             rcc.apb1enr.modify(|_,w| w.tim7en().enabled());
 
-            // configure PC9 as an output
+            // configure PC8 & PC9 as outputs
             // 0=A 1=B 2=C
+            // defaults to open-drain, so make it push-pull
+            gpioc.crh.modify(|_,w| w.mode8().output_10mhz());
+            gpioc.crh.modify(|_,w| w.cnf8().push_pull());
             gpioc.crh.modify(|_,w| w.mode9().output_10mhz());
+            gpioc.crh.modify(|_,w| w.cnf9().push_pull());
 
             // configure TIM7 for periodic timeouts
             let ratio = frequency::APB1 / FREQUENCY;
@@ -72,11 +76,13 @@ fn main() {
                 // toggle the state
                 state = !state;
 
-                // blink the LED
+                // blink the LEDs
                 if state {
-                    gpioc.bsrr.write(|w| w.bs7().set());
+                    gpioc.bsrr.write(|w| w.bs9().set());
+                    gpioc.bsrr.write(|w| w.br8().reset());
                 } else {
-                    gpioc.bsrr.write(|w| w.br7().reset());
+                    gpioc.bsrr.write(|w| w.bs8().set());
+                    gpioc.bsrr.write(|w| w.br9().reset());
                 }
             }
 

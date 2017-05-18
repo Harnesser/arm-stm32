@@ -12755,108 +12755,90 @@ pub mod gpioa {
                 *self == Mode0R::Output50mhz
             }
         }
-        # [ doc = r" Value of the field" ]
-        pub struct Cnf0R {
-            bits: u8,
+        # [ doc = "Possible values of the field `CNF0`" ]
+        # [ derive ( Clone , Copy , Debug , PartialEq ) ]
+        pub enum Cnf0R {
+            # [ doc = "Push-Pull" ]
+            PushPull,
+            # [ doc = "Open-Drain (reset state)" ]
+            OpenDrain,
+            # [ doc = "Alternate Function Push-Pull" ]
+            AltPushPull,
+            # [ doc = "Alternate Function Open-Drain" ]
+            AltOpenDrain,
         }
         impl Cnf0R {
             # [ doc = r" Value of the field as raw bits" ]
             # [ inline ( always ) ]
             pub fn bits(&self) -> u8 {
-                self.bits
+                match *self {
+                    Cnf0R::PushPull => 0,
+                    Cnf0R::OpenDrain => 1,
+                    Cnf0R::AltPushPull => 2,
+                    Cnf0R::AltOpenDrain => 3,
+                }
+            }
+            # [ allow ( missing_docs ) ]
+            # [ doc ( hidden ) ]
+            # [ inline ( always ) ]
+            pub fn _from(bits: u8) -> Cnf0R {
+                match bits {
+                    0 => Cnf0R::PushPull,
+                    1 => Cnf0R::OpenDrain,
+                    2 => Cnf0R::AltPushPull,
+                    3 => Cnf0R::AltOpenDrain,
+                    _ => unreachable!(),
+                }
+            }
+            # [ doc = "Checks if the value of the field is `PushPull`" ]
+            # [ inline ( always ) ]
+            pub fn is_push_pull(&self) -> bool {
+                *self == Cnf0R::PushPull
+            }
+            # [ doc = "Checks if the value of the field is `OpenDrain`" ]
+            # [ inline ( always ) ]
+            pub fn is_open_drain(&self) -> bool {
+                *self == Cnf0R::OpenDrain
+            }
+            # [ doc = "Checks if the value of the field is `AltPushPull`" ]
+            # [ inline ( always ) ]
+            pub fn is_alt_push_pull(&self) -> bool {
+                *self == Cnf0R::AltPushPull
+            }
+            # [ doc = "Checks if the value of the field is `AltOpenDrain`" ]
+            # [ inline ( always ) ]
+            pub fn is_alt_open_drain(&self) -> bool {
+                *self == Cnf0R::AltOpenDrain
             }
         }
         # [ doc = "Possible values of the field `MODE1`" ]
         pub type Mode1R = Mode0R;
-        # [ doc = r" Value of the field" ]
-        pub struct Cnf1R {
-            bits: u8,
-        }
-        impl Cnf1R {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
+        # [ doc = "Possible values of the field `CNF1`" ]
+        pub type Cnf1R = Cnf0R;
         # [ doc = "Possible values of the field `MODE2`" ]
         pub type Mode2R = Mode0R;
-        # [ doc = r" Value of the field" ]
-        pub struct Cnf2R {
-            bits: u8,
-        }
-        impl Cnf2R {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
+        # [ doc = "Possible values of the field `CNF2`" ]
+        pub type Cnf2R = Cnf0R;
         # [ doc = "Possible values of the field `MODE3`" ]
         pub type Mode3R = Mode0R;
-        # [ doc = r" Value of the field" ]
-        pub struct Cnf3R {
-            bits: u8,
-        }
-        impl Cnf3R {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
+        # [ doc = "Possible values of the field `CNF3`" ]
+        pub type Cnf3R = Cnf0R;
         # [ doc = "Possible values of the field `MODE4`" ]
         pub type Mode4R = Mode0R;
-        # [ doc = r" Value of the field" ]
-        pub struct Cnf4R {
-            bits: u8,
-        }
-        impl Cnf4R {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
+        # [ doc = "Possible values of the field `CNF4`" ]
+        pub type Cnf4R = Cnf0R;
         # [ doc = "Possible values of the field `MODE5`" ]
         pub type Mode5R = Mode0R;
-        # [ doc = r" Value of the field" ]
-        pub struct Cnf5R {
-            bits: u8,
-        }
-        impl Cnf5R {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
+        # [ doc = "Possible values of the field `CNF5`" ]
+        pub type Cnf5R = Cnf0R;
         # [ doc = "Possible values of the field `MODE6`" ]
         pub type Mode6R = Mode0R;
-        # [ doc = r" Value of the field" ]
-        pub struct Cnf6R {
-            bits: u8,
-        }
-        impl Cnf6R {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
+        # [ doc = "Possible values of the field `CNF6`" ]
+        pub type Cnf6R = Cnf0R;
         # [ doc = "Possible values of the field `MODE7`" ]
         pub type Mode7R = Mode0R;
-        # [ doc = r" Value of the field" ]
-        pub struct Cnf7R {
-            bits: u8,
-        }
-        impl Cnf7R {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
+        # [ doc = "Possible values of the field `CNF7`" ]
+        pub type Cnf7R = Cnf0R;
         # [ doc = "Values that can be written to the field `MODE0`" ]
         pub enum Mode0W {
             # [ doc = "Input mode (reset state)" ]
@@ -12923,14 +12905,65 @@ pub mod gpioa {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `CNF0`" ]
+        pub enum Cnf0W {
+            # [ doc = "Push-Pull" ]
+            PushPull,
+            # [ doc = "Open-Drain (reset state)" ]
+            OpenDrain,
+            # [ doc = "Alternate Function Push-Pull" ]
+            AltPushPull,
+            # [ doc = "Alternate Function Open-Drain" ]
+            AltOpenDrain,
+        }
+        impl Cnf0W {
+            # [ allow ( missing_docs ) ]
+            # [ doc ( hidden ) ]
+            # [ inline ( always ) ]
+            pub fn _bits(&self) -> u8 {
+                match *self {
+                    Cnf0W::PushPull => 0,
+                    Cnf0W::OpenDrain => 1,
+                    Cnf0W::AltPushPull => 2,
+                    Cnf0W::AltOpenDrain => 3,
+                }
+            }
+        }
         # [ doc = r" Proxy" ]
         pub struct _Cnf0W<'a> {
             w: &'a mut W,
         }
         impl<'a> _Cnf0W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Cnf0W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Push-Pull" ]
+            # [ inline ( always ) ]
+            pub fn push_pull(self) -> &'a mut W {
+                self.variant(Cnf0W::PushPull)
+            }
+            # [ doc = "Open-Drain (reset state)" ]
+            # [ inline ( always ) ]
+            pub fn open_drain(self) -> &'a mut W {
+                self.variant(Cnf0W::OpenDrain)
+            }
+            # [ doc = "Alternate Function Push-Pull" ]
+            # [ inline ( always ) ]
+            pub fn alt_push_pull(self) -> &'a mut W {
+                self.variant(Cnf0W::AltPushPull)
+            }
+            # [ doc = "Alternate Function Open-Drain" ]
+            # [ inline ( always ) ]
+            pub fn alt_open_drain(self) -> &'a mut W {
+                self.variant(Cnf0W::AltOpenDrain)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 3;
                 const OFFSET: u8 = 2;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -12982,14 +13015,43 @@ pub mod gpioa {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `CNF1`" ]
+        pub type Cnf1W = Cnf0W;
         # [ doc = r" Proxy" ]
         pub struct _Cnf1W<'a> {
             w: &'a mut W,
         }
         impl<'a> _Cnf1W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Cnf1W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Push-Pull" ]
+            # [ inline ( always ) ]
+            pub fn push_pull(self) -> &'a mut W {
+                self.variant(Cnf0W::PushPull)
+            }
+            # [ doc = "Open-Drain (reset state)" ]
+            # [ inline ( always ) ]
+            pub fn open_drain(self) -> &'a mut W {
+                self.variant(Cnf0W::OpenDrain)
+            }
+            # [ doc = "Alternate Function Push-Pull" ]
+            # [ inline ( always ) ]
+            pub fn alt_push_pull(self) -> &'a mut W {
+                self.variant(Cnf0W::AltPushPull)
+            }
+            # [ doc = "Alternate Function Open-Drain" ]
+            # [ inline ( always ) ]
+            pub fn alt_open_drain(self) -> &'a mut W {
+                self.variant(Cnf0W::AltOpenDrain)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 3;
                 const OFFSET: u8 = 6;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -13041,14 +13103,43 @@ pub mod gpioa {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `CNF2`" ]
+        pub type Cnf2W = Cnf0W;
         # [ doc = r" Proxy" ]
         pub struct _Cnf2W<'a> {
             w: &'a mut W,
         }
         impl<'a> _Cnf2W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Cnf2W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Push-Pull" ]
+            # [ inline ( always ) ]
+            pub fn push_pull(self) -> &'a mut W {
+                self.variant(Cnf0W::PushPull)
+            }
+            # [ doc = "Open-Drain (reset state)" ]
+            # [ inline ( always ) ]
+            pub fn open_drain(self) -> &'a mut W {
+                self.variant(Cnf0W::OpenDrain)
+            }
+            # [ doc = "Alternate Function Push-Pull" ]
+            # [ inline ( always ) ]
+            pub fn alt_push_pull(self) -> &'a mut W {
+                self.variant(Cnf0W::AltPushPull)
+            }
+            # [ doc = "Alternate Function Open-Drain" ]
+            # [ inline ( always ) ]
+            pub fn alt_open_drain(self) -> &'a mut W {
+                self.variant(Cnf0W::AltOpenDrain)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 3;
                 const OFFSET: u8 = 10;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -13100,14 +13191,43 @@ pub mod gpioa {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `CNF3`" ]
+        pub type Cnf3W = Cnf0W;
         # [ doc = r" Proxy" ]
         pub struct _Cnf3W<'a> {
             w: &'a mut W,
         }
         impl<'a> _Cnf3W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Cnf3W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Push-Pull" ]
+            # [ inline ( always ) ]
+            pub fn push_pull(self) -> &'a mut W {
+                self.variant(Cnf0W::PushPull)
+            }
+            # [ doc = "Open-Drain (reset state)" ]
+            # [ inline ( always ) ]
+            pub fn open_drain(self) -> &'a mut W {
+                self.variant(Cnf0W::OpenDrain)
+            }
+            # [ doc = "Alternate Function Push-Pull" ]
+            # [ inline ( always ) ]
+            pub fn alt_push_pull(self) -> &'a mut W {
+                self.variant(Cnf0W::AltPushPull)
+            }
+            # [ doc = "Alternate Function Open-Drain" ]
+            # [ inline ( always ) ]
+            pub fn alt_open_drain(self) -> &'a mut W {
+                self.variant(Cnf0W::AltOpenDrain)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 3;
                 const OFFSET: u8 = 14;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -13159,14 +13279,43 @@ pub mod gpioa {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `CNF4`" ]
+        pub type Cnf4W = Cnf0W;
         # [ doc = r" Proxy" ]
         pub struct _Cnf4W<'a> {
             w: &'a mut W,
         }
         impl<'a> _Cnf4W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Cnf4W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Push-Pull" ]
+            # [ inline ( always ) ]
+            pub fn push_pull(self) -> &'a mut W {
+                self.variant(Cnf0W::PushPull)
+            }
+            # [ doc = "Open-Drain (reset state)" ]
+            # [ inline ( always ) ]
+            pub fn open_drain(self) -> &'a mut W {
+                self.variant(Cnf0W::OpenDrain)
+            }
+            # [ doc = "Alternate Function Push-Pull" ]
+            # [ inline ( always ) ]
+            pub fn alt_push_pull(self) -> &'a mut W {
+                self.variant(Cnf0W::AltPushPull)
+            }
+            # [ doc = "Alternate Function Open-Drain" ]
+            # [ inline ( always ) ]
+            pub fn alt_open_drain(self) -> &'a mut W {
+                self.variant(Cnf0W::AltOpenDrain)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 3;
                 const OFFSET: u8 = 18;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -13218,14 +13367,43 @@ pub mod gpioa {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `CNF5`" ]
+        pub type Cnf5W = Cnf0W;
         # [ doc = r" Proxy" ]
         pub struct _Cnf5W<'a> {
             w: &'a mut W,
         }
         impl<'a> _Cnf5W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Cnf5W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Push-Pull" ]
+            # [ inline ( always ) ]
+            pub fn push_pull(self) -> &'a mut W {
+                self.variant(Cnf0W::PushPull)
+            }
+            # [ doc = "Open-Drain (reset state)" ]
+            # [ inline ( always ) ]
+            pub fn open_drain(self) -> &'a mut W {
+                self.variant(Cnf0W::OpenDrain)
+            }
+            # [ doc = "Alternate Function Push-Pull" ]
+            # [ inline ( always ) ]
+            pub fn alt_push_pull(self) -> &'a mut W {
+                self.variant(Cnf0W::AltPushPull)
+            }
+            # [ doc = "Alternate Function Open-Drain" ]
+            # [ inline ( always ) ]
+            pub fn alt_open_drain(self) -> &'a mut W {
+                self.variant(Cnf0W::AltOpenDrain)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 3;
                 const OFFSET: u8 = 22;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -13277,14 +13455,43 @@ pub mod gpioa {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `CNF6`" ]
+        pub type Cnf6W = Cnf0W;
         # [ doc = r" Proxy" ]
         pub struct _Cnf6W<'a> {
             w: &'a mut W,
         }
         impl<'a> _Cnf6W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Cnf6W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Push-Pull" ]
+            # [ inline ( always ) ]
+            pub fn push_pull(self) -> &'a mut W {
+                self.variant(Cnf0W::PushPull)
+            }
+            # [ doc = "Open-Drain (reset state)" ]
+            # [ inline ( always ) ]
+            pub fn open_drain(self) -> &'a mut W {
+                self.variant(Cnf0W::OpenDrain)
+            }
+            # [ doc = "Alternate Function Push-Pull" ]
+            # [ inline ( always ) ]
+            pub fn alt_push_pull(self) -> &'a mut W {
+                self.variant(Cnf0W::AltPushPull)
+            }
+            # [ doc = "Alternate Function Open-Drain" ]
+            # [ inline ( always ) ]
+            pub fn alt_open_drain(self) -> &'a mut W {
+                self.variant(Cnf0W::AltOpenDrain)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 3;
                 const OFFSET: u8 = 26;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -13336,14 +13543,43 @@ pub mod gpioa {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `CNF7`" ]
+        pub type Cnf7W = Cnf0W;
         # [ doc = r" Proxy" ]
         pub struct _Cnf7W<'a> {
             w: &'a mut W,
         }
         impl<'a> _Cnf7W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Cnf7W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Push-Pull" ]
+            # [ inline ( always ) ]
+            pub fn push_pull(self) -> &'a mut W {
+                self.variant(Cnf0W::PushPull)
+            }
+            # [ doc = "Open-Drain (reset state)" ]
+            # [ inline ( always ) ]
+            pub fn open_drain(self) -> &'a mut W {
+                self.variant(Cnf0W::OpenDrain)
+            }
+            # [ doc = "Alternate Function Push-Pull" ]
+            # [ inline ( always ) ]
+            pub fn alt_push_pull(self) -> &'a mut W {
+                self.variant(Cnf0W::AltPushPull)
+            }
+            # [ doc = "Alternate Function Open-Drain" ]
+            # [ inline ( always ) ]
+            pub fn alt_open_drain(self) -> &'a mut W {
+                self.variant(Cnf0W::AltOpenDrain)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 3;
                 const OFFSET: u8 = 30;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -13369,12 +13605,11 @@ pub mod gpioa {
             # [ doc = "Bits 2:3 - Port n.0 configuration bits" ]
             # [ inline ( always ) ]
             pub fn cnf0(&self) -> Cnf0R {
-                let bits = {
-                    const MASK: u8 = 3;
-                    const OFFSET: u8 = 2;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Cnf0R { bits }
+                Cnf0R::_from({
+                                 const MASK: u8 = 3;
+                                 const OFFSET: u8 = 2;
+                                 ((self.bits >> OFFSET) & MASK as u32) as u8
+                             })
             }
             # [ doc = "Bits 4:5 - Port n.1 mode bits" ]
             # [ inline ( always ) ]
@@ -13388,12 +13623,11 @@ pub mod gpioa {
             # [ doc = "Bits 6:7 - Port n.1 configuration bits" ]
             # [ inline ( always ) ]
             pub fn cnf1(&self) -> Cnf1R {
-                let bits = {
-                    const MASK: u8 = 3;
-                    const OFFSET: u8 = 6;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Cnf1R { bits }
+                Cnf1R::_from({
+                                 const MASK: u8 = 3;
+                                 const OFFSET: u8 = 6;
+                                 ((self.bits >> OFFSET) & MASK as u32) as u8
+                             })
             }
             # [ doc = "Bits 8:9 - Port n.2 mode bits" ]
             # [ inline ( always ) ]
@@ -13407,12 +13641,11 @@ pub mod gpioa {
             # [ doc = "Bits 10:11 - Port n.2 configuration bits" ]
             # [ inline ( always ) ]
             pub fn cnf2(&self) -> Cnf2R {
-                let bits = {
-                    const MASK: u8 = 3;
-                    const OFFSET: u8 = 10;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Cnf2R { bits }
+                Cnf2R::_from({
+                                 const MASK: u8 = 3;
+                                 const OFFSET: u8 = 10;
+                                 ((self.bits >> OFFSET) & MASK as u32) as u8
+                             })
             }
             # [ doc = "Bits 12:13 - Port n.3 mode bits" ]
             # [ inline ( always ) ]
@@ -13426,12 +13659,11 @@ pub mod gpioa {
             # [ doc = "Bits 14:15 - Port n.3 configuration bits" ]
             # [ inline ( always ) ]
             pub fn cnf3(&self) -> Cnf3R {
-                let bits = {
-                    const MASK: u8 = 3;
-                    const OFFSET: u8 = 14;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Cnf3R { bits }
+                Cnf3R::_from({
+                                 const MASK: u8 = 3;
+                                 const OFFSET: u8 = 14;
+                                 ((self.bits >> OFFSET) & MASK as u32) as u8
+                             })
             }
             # [ doc = "Bits 16:17 - Port n.4 mode bits" ]
             # [ inline ( always ) ]
@@ -13445,12 +13677,11 @@ pub mod gpioa {
             # [ doc = "Bits 18:19 - Port n.4 configuration bits" ]
             # [ inline ( always ) ]
             pub fn cnf4(&self) -> Cnf4R {
-                let bits = {
-                    const MASK: u8 = 3;
-                    const OFFSET: u8 = 18;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Cnf4R { bits }
+                Cnf4R::_from({
+                                 const MASK: u8 = 3;
+                                 const OFFSET: u8 = 18;
+                                 ((self.bits >> OFFSET) & MASK as u32) as u8
+                             })
             }
             # [ doc = "Bits 20:21 - Port n.5 mode bits" ]
             # [ inline ( always ) ]
@@ -13464,12 +13695,11 @@ pub mod gpioa {
             # [ doc = "Bits 22:23 - Port n.5 configuration bits" ]
             # [ inline ( always ) ]
             pub fn cnf5(&self) -> Cnf5R {
-                let bits = {
-                    const MASK: u8 = 3;
-                    const OFFSET: u8 = 22;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Cnf5R { bits }
+                Cnf5R::_from({
+                                 const MASK: u8 = 3;
+                                 const OFFSET: u8 = 22;
+                                 ((self.bits >> OFFSET) & MASK as u32) as u8
+                             })
             }
             # [ doc = "Bits 24:25 - Port n.6 mode bits" ]
             # [ inline ( always ) ]
@@ -13483,12 +13713,11 @@ pub mod gpioa {
             # [ doc = "Bits 26:27 - Port n.6 configuration bits" ]
             # [ inline ( always ) ]
             pub fn cnf6(&self) -> Cnf6R {
-                let bits = {
-                    const MASK: u8 = 3;
-                    const OFFSET: u8 = 26;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Cnf6R { bits }
+                Cnf6R::_from({
+                                 const MASK: u8 = 3;
+                                 const OFFSET: u8 = 26;
+                                 ((self.bits >> OFFSET) & MASK as u32) as u8
+                             })
             }
             # [ doc = "Bits 28:29 - Port n.7 mode bits" ]
             # [ inline ( always ) ]
@@ -13502,12 +13731,11 @@ pub mod gpioa {
             # [ doc = "Bits 30:31 - Port n.7 configuration bits" ]
             # [ inline ( always ) ]
             pub fn cnf7(&self) -> Cnf7R {
-                let bits = {
-                    const MASK: u8 = 3;
-                    const OFFSET: u8 = 30;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Cnf7R { bits }
+                Cnf7R::_from({
+                                 const MASK: u8 = 3;
+                                 const OFFSET: u8 = 30;
+                                 ((self.bits >> OFFSET) & MASK as u32) as u8
+                             })
             }
         }
         impl W {
@@ -13701,108 +13929,90 @@ pub mod gpioa {
                 *self == Mode8R::Output50mhz
             }
         }
-        # [ doc = r" Value of the field" ]
-        pub struct Cnf8R {
-            bits: u8,
+        # [ doc = "Possible values of the field `CNF8`" ]
+        # [ derive ( Clone , Copy , Debug , PartialEq ) ]
+        pub enum Cnf8R {
+            # [ doc = "Push-Pull" ]
+            PushPull,
+            # [ doc = "Open-Drain (reset state)" ]
+            OpenDrain,
+            # [ doc = "Alternate Function Push-Pull" ]
+            AltPushPull,
+            # [ doc = "Alternate Function Open-Drain" ]
+            AltOpenDrain,
         }
         impl Cnf8R {
             # [ doc = r" Value of the field as raw bits" ]
             # [ inline ( always ) ]
             pub fn bits(&self) -> u8 {
-                self.bits
+                match *self {
+                    Cnf8R::PushPull => 0,
+                    Cnf8R::OpenDrain => 1,
+                    Cnf8R::AltPushPull => 2,
+                    Cnf8R::AltOpenDrain => 3,
+                }
+            }
+            # [ allow ( missing_docs ) ]
+            # [ doc ( hidden ) ]
+            # [ inline ( always ) ]
+            pub fn _from(bits: u8) -> Cnf8R {
+                match bits {
+                    0 => Cnf8R::PushPull,
+                    1 => Cnf8R::OpenDrain,
+                    2 => Cnf8R::AltPushPull,
+                    3 => Cnf8R::AltOpenDrain,
+                    _ => unreachable!(),
+                }
+            }
+            # [ doc = "Checks if the value of the field is `PushPull`" ]
+            # [ inline ( always ) ]
+            pub fn is_push_pull(&self) -> bool {
+                *self == Cnf8R::PushPull
+            }
+            # [ doc = "Checks if the value of the field is `OpenDrain`" ]
+            # [ inline ( always ) ]
+            pub fn is_open_drain(&self) -> bool {
+                *self == Cnf8R::OpenDrain
+            }
+            # [ doc = "Checks if the value of the field is `AltPushPull`" ]
+            # [ inline ( always ) ]
+            pub fn is_alt_push_pull(&self) -> bool {
+                *self == Cnf8R::AltPushPull
+            }
+            # [ doc = "Checks if the value of the field is `AltOpenDrain`" ]
+            # [ inline ( always ) ]
+            pub fn is_alt_open_drain(&self) -> bool {
+                *self == Cnf8R::AltOpenDrain
             }
         }
         # [ doc = "Possible values of the field `MODE9`" ]
         pub type Mode9R = Mode8R;
-        # [ doc = r" Value of the field" ]
-        pub struct Cnf9R {
-            bits: u8,
-        }
-        impl Cnf9R {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
+        # [ doc = "Possible values of the field `CNF9`" ]
+        pub type Cnf9R = Cnf8R;
         # [ doc = "Possible values of the field `MODE10`" ]
         pub type Mode10R = Mode8R;
-        # [ doc = r" Value of the field" ]
-        pub struct Cnf10R {
-            bits: u8,
-        }
-        impl Cnf10R {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
+        # [ doc = "Possible values of the field `CNF10`" ]
+        pub type Cnf10R = Cnf8R;
         # [ doc = "Possible values of the field `MODE11`" ]
         pub type Mode11R = Mode8R;
-        # [ doc = r" Value of the field" ]
-        pub struct Cnf11R {
-            bits: u8,
-        }
-        impl Cnf11R {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
+        # [ doc = "Possible values of the field `CNF11`" ]
+        pub type Cnf11R = Cnf8R;
         # [ doc = "Possible values of the field `MODE12`" ]
         pub type Mode12R = Mode8R;
-        # [ doc = r" Value of the field" ]
-        pub struct Cnf12R {
-            bits: u8,
-        }
-        impl Cnf12R {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
+        # [ doc = "Possible values of the field `CNF12`" ]
+        pub type Cnf12R = Cnf8R;
         # [ doc = "Possible values of the field `MODE13`" ]
         pub type Mode13R = Mode8R;
-        # [ doc = r" Value of the field" ]
-        pub struct Cnf13R {
-            bits: u8,
-        }
-        impl Cnf13R {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
+        # [ doc = "Possible values of the field `CNF13`" ]
+        pub type Cnf13R = Cnf8R;
         # [ doc = "Possible values of the field `MODE14`" ]
         pub type Mode14R = Mode8R;
-        # [ doc = r" Value of the field" ]
-        pub struct Cnf14R {
-            bits: u8,
-        }
-        impl Cnf14R {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
+        # [ doc = "Possible values of the field `CNF14`" ]
+        pub type Cnf14R = Cnf8R;
         # [ doc = "Possible values of the field `MODE15`" ]
         pub type Mode15R = Mode8R;
-        # [ doc = r" Value of the field" ]
-        pub struct Cnf15R {
-            bits: u8,
-        }
-        impl Cnf15R {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
+        # [ doc = "Possible values of the field `CNF15`" ]
+        pub type Cnf15R = Cnf8R;
         # [ doc = "Values that can be written to the field `MODE8`" ]
         pub enum Mode8W {
             # [ doc = "Input mode (reset state)" ]
@@ -13869,14 +14079,65 @@ pub mod gpioa {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `CNF8`" ]
+        pub enum Cnf8W {
+            # [ doc = "Push-Pull" ]
+            PushPull,
+            # [ doc = "Open-Drain (reset state)" ]
+            OpenDrain,
+            # [ doc = "Alternate Function Push-Pull" ]
+            AltPushPull,
+            # [ doc = "Alternate Function Open-Drain" ]
+            AltOpenDrain,
+        }
+        impl Cnf8W {
+            # [ allow ( missing_docs ) ]
+            # [ doc ( hidden ) ]
+            # [ inline ( always ) ]
+            pub fn _bits(&self) -> u8 {
+                match *self {
+                    Cnf8W::PushPull => 0,
+                    Cnf8W::OpenDrain => 1,
+                    Cnf8W::AltPushPull => 2,
+                    Cnf8W::AltOpenDrain => 3,
+                }
+            }
+        }
         # [ doc = r" Proxy" ]
         pub struct _Cnf8W<'a> {
             w: &'a mut W,
         }
         impl<'a> _Cnf8W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Cnf8W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Push-Pull" ]
+            # [ inline ( always ) ]
+            pub fn push_pull(self) -> &'a mut W {
+                self.variant(Cnf8W::PushPull)
+            }
+            # [ doc = "Open-Drain (reset state)" ]
+            # [ inline ( always ) ]
+            pub fn open_drain(self) -> &'a mut W {
+                self.variant(Cnf8W::OpenDrain)
+            }
+            # [ doc = "Alternate Function Push-Pull" ]
+            # [ inline ( always ) ]
+            pub fn alt_push_pull(self) -> &'a mut W {
+                self.variant(Cnf8W::AltPushPull)
+            }
+            # [ doc = "Alternate Function Open-Drain" ]
+            # [ inline ( always ) ]
+            pub fn alt_open_drain(self) -> &'a mut W {
+                self.variant(Cnf8W::AltOpenDrain)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 3;
                 const OFFSET: u8 = 2;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -13928,14 +14189,43 @@ pub mod gpioa {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `CNF9`" ]
+        pub type Cnf9W = Cnf8W;
         # [ doc = r" Proxy" ]
         pub struct _Cnf9W<'a> {
             w: &'a mut W,
         }
         impl<'a> _Cnf9W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Cnf9W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Push-Pull" ]
+            # [ inline ( always ) ]
+            pub fn push_pull(self) -> &'a mut W {
+                self.variant(Cnf8W::PushPull)
+            }
+            # [ doc = "Open-Drain (reset state)" ]
+            # [ inline ( always ) ]
+            pub fn open_drain(self) -> &'a mut W {
+                self.variant(Cnf8W::OpenDrain)
+            }
+            # [ doc = "Alternate Function Push-Pull" ]
+            # [ inline ( always ) ]
+            pub fn alt_push_pull(self) -> &'a mut W {
+                self.variant(Cnf8W::AltPushPull)
+            }
+            # [ doc = "Alternate Function Open-Drain" ]
+            # [ inline ( always ) ]
+            pub fn alt_open_drain(self) -> &'a mut W {
+                self.variant(Cnf8W::AltOpenDrain)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 3;
                 const OFFSET: u8 = 6;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -13987,14 +14277,43 @@ pub mod gpioa {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `CNF10`" ]
+        pub type Cnf10W = Cnf8W;
         # [ doc = r" Proxy" ]
         pub struct _Cnf10W<'a> {
             w: &'a mut W,
         }
         impl<'a> _Cnf10W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Cnf10W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Push-Pull" ]
+            # [ inline ( always ) ]
+            pub fn push_pull(self) -> &'a mut W {
+                self.variant(Cnf8W::PushPull)
+            }
+            # [ doc = "Open-Drain (reset state)" ]
+            # [ inline ( always ) ]
+            pub fn open_drain(self) -> &'a mut W {
+                self.variant(Cnf8W::OpenDrain)
+            }
+            # [ doc = "Alternate Function Push-Pull" ]
+            # [ inline ( always ) ]
+            pub fn alt_push_pull(self) -> &'a mut W {
+                self.variant(Cnf8W::AltPushPull)
+            }
+            # [ doc = "Alternate Function Open-Drain" ]
+            # [ inline ( always ) ]
+            pub fn alt_open_drain(self) -> &'a mut W {
+                self.variant(Cnf8W::AltOpenDrain)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 3;
                 const OFFSET: u8 = 10;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -14046,14 +14365,43 @@ pub mod gpioa {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `CNF11`" ]
+        pub type Cnf11W = Cnf8W;
         # [ doc = r" Proxy" ]
         pub struct _Cnf11W<'a> {
             w: &'a mut W,
         }
         impl<'a> _Cnf11W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Cnf11W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Push-Pull" ]
+            # [ inline ( always ) ]
+            pub fn push_pull(self) -> &'a mut W {
+                self.variant(Cnf8W::PushPull)
+            }
+            # [ doc = "Open-Drain (reset state)" ]
+            # [ inline ( always ) ]
+            pub fn open_drain(self) -> &'a mut W {
+                self.variant(Cnf8W::OpenDrain)
+            }
+            # [ doc = "Alternate Function Push-Pull" ]
+            # [ inline ( always ) ]
+            pub fn alt_push_pull(self) -> &'a mut W {
+                self.variant(Cnf8W::AltPushPull)
+            }
+            # [ doc = "Alternate Function Open-Drain" ]
+            # [ inline ( always ) ]
+            pub fn alt_open_drain(self) -> &'a mut W {
+                self.variant(Cnf8W::AltOpenDrain)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 3;
                 const OFFSET: u8 = 14;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -14105,14 +14453,43 @@ pub mod gpioa {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `CNF12`" ]
+        pub type Cnf12W = Cnf8W;
         # [ doc = r" Proxy" ]
         pub struct _Cnf12W<'a> {
             w: &'a mut W,
         }
         impl<'a> _Cnf12W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Cnf12W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Push-Pull" ]
+            # [ inline ( always ) ]
+            pub fn push_pull(self) -> &'a mut W {
+                self.variant(Cnf8W::PushPull)
+            }
+            # [ doc = "Open-Drain (reset state)" ]
+            # [ inline ( always ) ]
+            pub fn open_drain(self) -> &'a mut W {
+                self.variant(Cnf8W::OpenDrain)
+            }
+            # [ doc = "Alternate Function Push-Pull" ]
+            # [ inline ( always ) ]
+            pub fn alt_push_pull(self) -> &'a mut W {
+                self.variant(Cnf8W::AltPushPull)
+            }
+            # [ doc = "Alternate Function Open-Drain" ]
+            # [ inline ( always ) ]
+            pub fn alt_open_drain(self) -> &'a mut W {
+                self.variant(Cnf8W::AltOpenDrain)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 3;
                 const OFFSET: u8 = 18;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -14164,14 +14541,43 @@ pub mod gpioa {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `CNF13`" ]
+        pub type Cnf13W = Cnf8W;
         # [ doc = r" Proxy" ]
         pub struct _Cnf13W<'a> {
             w: &'a mut W,
         }
         impl<'a> _Cnf13W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Cnf13W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Push-Pull" ]
+            # [ inline ( always ) ]
+            pub fn push_pull(self) -> &'a mut W {
+                self.variant(Cnf8W::PushPull)
+            }
+            # [ doc = "Open-Drain (reset state)" ]
+            # [ inline ( always ) ]
+            pub fn open_drain(self) -> &'a mut W {
+                self.variant(Cnf8W::OpenDrain)
+            }
+            # [ doc = "Alternate Function Push-Pull" ]
+            # [ inline ( always ) ]
+            pub fn alt_push_pull(self) -> &'a mut W {
+                self.variant(Cnf8W::AltPushPull)
+            }
+            # [ doc = "Alternate Function Open-Drain" ]
+            # [ inline ( always ) ]
+            pub fn alt_open_drain(self) -> &'a mut W {
+                self.variant(Cnf8W::AltOpenDrain)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 3;
                 const OFFSET: u8 = 22;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -14223,14 +14629,43 @@ pub mod gpioa {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `CNF14`" ]
+        pub type Cnf14W = Cnf8W;
         # [ doc = r" Proxy" ]
         pub struct _Cnf14W<'a> {
             w: &'a mut W,
         }
         impl<'a> _Cnf14W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Cnf14W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Push-Pull" ]
+            # [ inline ( always ) ]
+            pub fn push_pull(self) -> &'a mut W {
+                self.variant(Cnf8W::PushPull)
+            }
+            # [ doc = "Open-Drain (reset state)" ]
+            # [ inline ( always ) ]
+            pub fn open_drain(self) -> &'a mut W {
+                self.variant(Cnf8W::OpenDrain)
+            }
+            # [ doc = "Alternate Function Push-Pull" ]
+            # [ inline ( always ) ]
+            pub fn alt_push_pull(self) -> &'a mut W {
+                self.variant(Cnf8W::AltPushPull)
+            }
+            # [ doc = "Alternate Function Open-Drain" ]
+            # [ inline ( always ) ]
+            pub fn alt_open_drain(self) -> &'a mut W {
+                self.variant(Cnf8W::AltOpenDrain)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 3;
                 const OFFSET: u8 = 26;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -14282,14 +14717,43 @@ pub mod gpioa {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `CNF15`" ]
+        pub type Cnf15W = Cnf8W;
         # [ doc = r" Proxy" ]
         pub struct _Cnf15W<'a> {
             w: &'a mut W,
         }
         impl<'a> _Cnf15W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Cnf15W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Push-Pull" ]
+            # [ inline ( always ) ]
+            pub fn push_pull(self) -> &'a mut W {
+                self.variant(Cnf8W::PushPull)
+            }
+            # [ doc = "Open-Drain (reset state)" ]
+            # [ inline ( always ) ]
+            pub fn open_drain(self) -> &'a mut W {
+                self.variant(Cnf8W::OpenDrain)
+            }
+            # [ doc = "Alternate Function Push-Pull" ]
+            # [ inline ( always ) ]
+            pub fn alt_push_pull(self) -> &'a mut W {
+                self.variant(Cnf8W::AltPushPull)
+            }
+            # [ doc = "Alternate Function Open-Drain" ]
+            # [ inline ( always ) ]
+            pub fn alt_open_drain(self) -> &'a mut W {
+                self.variant(Cnf8W::AltOpenDrain)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 3;
                 const OFFSET: u8 = 30;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -14315,12 +14779,11 @@ pub mod gpioa {
             # [ doc = "Bits 2:3 - Port n.8 configuration bits" ]
             # [ inline ( always ) ]
             pub fn cnf8(&self) -> Cnf8R {
-                let bits = {
-                    const MASK: u8 = 3;
-                    const OFFSET: u8 = 2;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Cnf8R { bits }
+                Cnf8R::_from({
+                                 const MASK: u8 = 3;
+                                 const OFFSET: u8 = 2;
+                                 ((self.bits >> OFFSET) & MASK as u32) as u8
+                             })
             }
             # [ doc = "Bits 4:5 - Port n.9 mode bits" ]
             # [ inline ( always ) ]
@@ -14334,12 +14797,11 @@ pub mod gpioa {
             # [ doc = "Bits 6:7 - Port n.9 configuration bits" ]
             # [ inline ( always ) ]
             pub fn cnf9(&self) -> Cnf9R {
-                let bits = {
-                    const MASK: u8 = 3;
-                    const OFFSET: u8 = 6;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Cnf9R { bits }
+                Cnf9R::_from({
+                                 const MASK: u8 = 3;
+                                 const OFFSET: u8 = 6;
+                                 ((self.bits >> OFFSET) & MASK as u32) as u8
+                             })
             }
             # [ doc = "Bits 8:9 - Port n.10 mode bits" ]
             # [ inline ( always ) ]
@@ -14353,12 +14815,11 @@ pub mod gpioa {
             # [ doc = "Bits 10:11 - Port n.10 configuration bits" ]
             # [ inline ( always ) ]
             pub fn cnf10(&self) -> Cnf10R {
-                let bits = {
-                    const MASK: u8 = 3;
-                    const OFFSET: u8 = 10;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Cnf10R { bits }
+                Cnf10R::_from({
+                                  const MASK: u8 = 3;
+                                  const OFFSET: u8 = 10;
+                                  ((self.bits >> OFFSET) & MASK as u32) as u8
+                              })
             }
             # [ doc = "Bits 12:13 - Port n.11 mode bits" ]
             # [ inline ( always ) ]
@@ -14372,12 +14833,11 @@ pub mod gpioa {
             # [ doc = "Bits 14:15 - Port n.11 configuration bits" ]
             # [ inline ( always ) ]
             pub fn cnf11(&self) -> Cnf11R {
-                let bits = {
-                    const MASK: u8 = 3;
-                    const OFFSET: u8 = 14;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Cnf11R { bits }
+                Cnf11R::_from({
+                                  const MASK: u8 = 3;
+                                  const OFFSET: u8 = 14;
+                                  ((self.bits >> OFFSET) & MASK as u32) as u8
+                              })
             }
             # [ doc = "Bits 16:17 - Port n.12 mode bits" ]
             # [ inline ( always ) ]
@@ -14391,12 +14851,11 @@ pub mod gpioa {
             # [ doc = "Bits 18:19 - Port n.12 configuration bits" ]
             # [ inline ( always ) ]
             pub fn cnf12(&self) -> Cnf12R {
-                let bits = {
-                    const MASK: u8 = 3;
-                    const OFFSET: u8 = 18;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Cnf12R { bits }
+                Cnf12R::_from({
+                                  const MASK: u8 = 3;
+                                  const OFFSET: u8 = 18;
+                                  ((self.bits >> OFFSET) & MASK as u32) as u8
+                              })
             }
             # [ doc = "Bits 20:21 - Port n.13 mode bits" ]
             # [ inline ( always ) ]
@@ -14410,12 +14869,11 @@ pub mod gpioa {
             # [ doc = "Bits 22:23 - Port n.13 configuration bits" ]
             # [ inline ( always ) ]
             pub fn cnf13(&self) -> Cnf13R {
-                let bits = {
-                    const MASK: u8 = 3;
-                    const OFFSET: u8 = 22;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Cnf13R { bits }
+                Cnf13R::_from({
+                                  const MASK: u8 = 3;
+                                  const OFFSET: u8 = 22;
+                                  ((self.bits >> OFFSET) & MASK as u32) as u8
+                              })
             }
             # [ doc = "Bits 24:25 - Port n.14 mode bits" ]
             # [ inline ( always ) ]
@@ -14429,12 +14887,11 @@ pub mod gpioa {
             # [ doc = "Bits 26:27 - Port n.14 configuration bits" ]
             # [ inline ( always ) ]
             pub fn cnf14(&self) -> Cnf14R {
-                let bits = {
-                    const MASK: u8 = 3;
-                    const OFFSET: u8 = 26;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Cnf14R { bits }
+                Cnf14R::_from({
+                                  const MASK: u8 = 3;
+                                  const OFFSET: u8 = 26;
+                                  ((self.bits >> OFFSET) & MASK as u32) as u8
+                              })
             }
             # [ doc = "Bits 28:29 - Port n.15 mode bits" ]
             # [ inline ( always ) ]
@@ -14448,12 +14905,11 @@ pub mod gpioa {
             # [ doc = "Bits 30:31 - Port n.15 configuration bits" ]
             # [ inline ( always ) ]
             pub fn cnf15(&self) -> Cnf15R {
-                let bits = {
-                    const MASK: u8 = 3;
-                    const OFFSET: u8 = 30;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Cnf15R { bits }
+                Cnf15R::_from({
+                                  const MASK: u8 = 3;
+                                  const OFFSET: u8 = 30;
+                                  ((self.bits >> OFFSET) & MASK as u32) as u8
+                              })
             }
         }
         impl W {
