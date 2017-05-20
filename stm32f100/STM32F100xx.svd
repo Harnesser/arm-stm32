@@ -3642,109 +3642,156 @@ xs:noNamespaceSchemaLocation="CMSIS-SVD_Schema_1_1.xsd">
               <name>MR0</name>
               <description>Interrupt Mask on line 0</description>
               <bitOffset>0</bitOffset>
-              <bitWidth>1</bitWidth>
+	      <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <name>ENABLED</name>
+                <enumeratedValue>
+                  <name>Masked</name>
+                  <description>Masked.</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enabled</name>
+                  <description>Enabled.</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>MR1</name>
               <description>Interrupt Mask on line 1</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="ENABLED">
+              </enumeratedValues>
             </field>
             <field>
               <name>MR2</name>
               <description>Interrupt Mask on line 2</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="ENABLED">
+              </enumeratedValues>
             </field>
             <field>
               <name>MR3</name>
               <description>Interrupt Mask on line 3</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="ENABLED">
+              </enumeratedValues>
             </field>
             <field>
               <name>MR4</name>
               <description>Interrupt Mask on line 4</description>
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="ENABLED">
+              </enumeratedValues>
             </field>
             <field>
               <name>MR5</name>
               <description>Interrupt Mask on line 5</description>
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="ENABLED">
+              </enumeratedValues>
             </field>
             <field>
               <name>MR6</name>
               <description>Interrupt Mask on line 6</description>
               <bitOffset>6</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="ENABLED">
+              </enumeratedValues>
             </field>
             <field>
               <name>MR7</name>
               <description>Interrupt Mask on line 7</description>
               <bitOffset>7</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="ENABLED">
+              </enumeratedValues>
             </field>
             <field>
               <name>MR8</name>
               <description>Interrupt Mask on line 8</description>
               <bitOffset>8</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="ENABLED">
+              </enumeratedValues>
             </field>
             <field>
               <name>MR9</name>
               <description>Interrupt Mask on line 9</description>
               <bitOffset>9</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="ENABLED">
+              </enumeratedValues>
             </field>
             <field>
               <name>MR10</name>
               <description>Interrupt Mask on line 10</description>
               <bitOffset>10</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="ENABLED">
+              </enumeratedValues>
             </field>
             <field>
               <name>MR11</name>
               <description>Interrupt Mask on line 11</description>
               <bitOffset>11</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="ENABLED">
+              </enumeratedValues>
             </field>
             <field>
               <name>MR12</name>
               <description>Interrupt Mask on line 12</description>
               <bitOffset>12</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="ENABLED">
+              </enumeratedValues>
             </field>
             <field>
               <name>MR13</name>
               <description>Interrupt Mask on line 13</description>
               <bitOffset>13</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="ENABLED">
+              </enumeratedValues>
             </field>
             <field>
               <name>MR14</name>
               <description>Interrupt Mask on line 14</description>
               <bitOffset>14</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="ENABLED">
+              </enumeratedValues>
             </field>
             <field>
               <name>MR15</name>
               <description>Interrupt Mask on line 15</description>
               <bitOffset>15</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="ENABLED">
+              </enumeratedValues>
             </field>
             <field>
               <name>MR16</name>
               <description>Interrupt Mask on line 16</description>
               <bitOffset>16</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="ENABLED">
+              </enumeratedValues>
             </field>
             <field>
               <name>MR17</name>
               <description>Interrupt Mask on line 17</description>
               <bitOffset>17</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues derivedFrom="ENABLED">
+              </enumeratedValues>
             </field>
           </fields>
         </register>

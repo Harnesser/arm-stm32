@@ -17272,7 +17272,7 @@ pub mod gpioa {
             pub fn bs1(&mut self) -> _Bs1W {
                 _Bs1W { w: self }
             }
-            # [ doc = "Bit 2 - Set bit 1" ]
+            # [ doc = "Bit 2 - Set bit 2" ]
             # [ inline ( always ) ]
             pub fn bs2(&mut self) -> _Bs2W {
                 _Bs2W { w: self }
@@ -20853,202 +20853,94 @@ pub mod exti {
                 self.register.set(w.bits);
             }
         }
-        # [ doc = r" Value of the field" ]
-        pub struct Mr0R {
-            bits: u8,
+        # [ doc = "Possible values of the field `MR0`" ]
+        # [ derive ( Clone , Copy , Debug , PartialEq ) ]
+        pub enum Mr0R {
+            # [ doc = "Masked." ]
+            Masked,
+            # [ doc = "Enabled." ]
+            Enabled,
         }
         impl Mr0R {
             # [ doc = r" Value of the field as raw bits" ]
             # [ inline ( always ) ]
             pub fn bits(&self) -> u8 {
-                self.bits
+                match *self {
+                    Mr0R::Masked => 0,
+                    Mr0R::Enabled => 1,
+                }
+            }
+            # [ allow ( missing_docs ) ]
+            # [ doc ( hidden ) ]
+            # [ inline ( always ) ]
+            pub fn _from(bits: u8) -> Mr0R {
+                match bits {
+                    0 => Mr0R::Masked,
+                    1 => Mr0R::Enabled,
+                    _ => unreachable!(),
+                }
+            }
+            # [ doc = "Checks if the value of the field is `Masked`" ]
+            # [ inline ( always ) ]
+            pub fn is_masked(&self) -> bool {
+                *self == Mr0R::Masked
+            }
+            # [ doc = "Checks if the value of the field is `Enabled`" ]
+            # [ inline ( always ) ]
+            pub fn is_enabled(&self) -> bool {
+                *self == Mr0R::Enabled
             }
         }
-        # [ doc = r" Value of the field" ]
-        pub struct Mr1R {
-            bits: u8,
+        # [ doc = "Possible values of the field `MR1`" ]
+        pub type Mr1R = Mr0R;
+        # [ doc = "Possible values of the field `MR2`" ]
+        pub type Mr2R = Mr0R;
+        # [ doc = "Possible values of the field `MR3`" ]
+        pub type Mr3R = Mr0R;
+        # [ doc = "Possible values of the field `MR4`" ]
+        pub type Mr4R = Mr0R;
+        # [ doc = "Possible values of the field `MR5`" ]
+        pub type Mr5R = Mr0R;
+        # [ doc = "Possible values of the field `MR6`" ]
+        pub type Mr6R = Mr0R;
+        # [ doc = "Possible values of the field `MR7`" ]
+        pub type Mr7R = Mr0R;
+        # [ doc = "Possible values of the field `MR8`" ]
+        pub type Mr8R = Mr0R;
+        # [ doc = "Possible values of the field `MR9`" ]
+        pub type Mr9R = Mr0R;
+        # [ doc = "Possible values of the field `MR10`" ]
+        pub type Mr10R = Mr0R;
+        # [ doc = "Possible values of the field `MR11`" ]
+        pub type Mr11R = Mr0R;
+        # [ doc = "Possible values of the field `MR12`" ]
+        pub type Mr12R = Mr0R;
+        # [ doc = "Possible values of the field `MR13`" ]
+        pub type Mr13R = Mr0R;
+        # [ doc = "Possible values of the field `MR14`" ]
+        pub type Mr14R = Mr0R;
+        # [ doc = "Possible values of the field `MR15`" ]
+        pub type Mr15R = Mr0R;
+        # [ doc = "Possible values of the field `MR16`" ]
+        pub type Mr16R = Mr0R;
+        # [ doc = "Possible values of the field `MR17`" ]
+        pub type Mr17R = Mr0R;
+        # [ doc = "Values that can be written to the field `MR0`" ]
+        pub enum Mr0W {
+            # [ doc = "Masked." ]
+            Masked,
+            # [ doc = "Enabled." ]
+            Enabled,
         }
-        impl Mr1R {
-            # [ doc = r" Value of the field as raw bits" ]
+        impl Mr0W {
+            # [ allow ( missing_docs ) ]
+            # [ doc ( hidden ) ]
             # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
-        # [ doc = r" Value of the field" ]
-        pub struct Mr2R {
-            bits: u8,
-        }
-        impl Mr2R {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
-        # [ doc = r" Value of the field" ]
-        pub struct Mr3R {
-            bits: u8,
-        }
-        impl Mr3R {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
-        # [ doc = r" Value of the field" ]
-        pub struct Mr4R {
-            bits: u8,
-        }
-        impl Mr4R {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
-        # [ doc = r" Value of the field" ]
-        pub struct Mr5R {
-            bits: u8,
-        }
-        impl Mr5R {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
-        # [ doc = r" Value of the field" ]
-        pub struct Mr6R {
-            bits: u8,
-        }
-        impl Mr6R {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
-        # [ doc = r" Value of the field" ]
-        pub struct Mr7R {
-            bits: u8,
-        }
-        impl Mr7R {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
-        # [ doc = r" Value of the field" ]
-        pub struct Mr8R {
-            bits: u8,
-        }
-        impl Mr8R {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
-        # [ doc = r" Value of the field" ]
-        pub struct Mr9R {
-            bits: u8,
-        }
-        impl Mr9R {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
-        # [ doc = r" Value of the field" ]
-        pub struct Mr10R {
-            bits: u8,
-        }
-        impl Mr10R {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
-        # [ doc = r" Value of the field" ]
-        pub struct Mr11R {
-            bits: u8,
-        }
-        impl Mr11R {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
-        # [ doc = r" Value of the field" ]
-        pub struct Mr12R {
-            bits: u8,
-        }
-        impl Mr12R {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
-        # [ doc = r" Value of the field" ]
-        pub struct Mr13R {
-            bits: u8,
-        }
-        impl Mr13R {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
-        # [ doc = r" Value of the field" ]
-        pub struct Mr14R {
-            bits: u8,
-        }
-        impl Mr14R {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
-        # [ doc = r" Value of the field" ]
-        pub struct Mr15R {
-            bits: u8,
-        }
-        impl Mr15R {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
-        # [ doc = r" Value of the field" ]
-        pub struct Mr16R {
-            bits: u8,
-        }
-        impl Mr16R {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
-        # [ doc = r" Value of the field" ]
-        pub struct Mr17R {
-            bits: u8,
-        }
-        impl Mr17R {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
+            pub fn _bits(&self) -> u8 {
+                match *self {
+                    Mr0W::Masked => 0,
+                    Mr0W::Enabled => 1,
+                }
             }
         }
         # [ doc = r" Proxy" ]
@@ -21056,9 +20948,26 @@ pub mod exti {
             w: &'a mut W,
         }
         impl<'a> _Mr0W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Mr0W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Masked." ]
+            # [ inline ( always ) ]
+            pub fn masked(self) -> &'a mut W {
+                self.variant(Mr0W::Masked)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(Mr0W::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 0;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -21066,14 +20975,33 @@ pub mod exti {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `MR1`" ]
+        pub type Mr1W = Mr0W;
         # [ doc = r" Proxy" ]
         pub struct _Mr1W<'a> {
             w: &'a mut W,
         }
         impl<'a> _Mr1W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Mr1W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Masked." ]
+            # [ inline ( always ) ]
+            pub fn masked(self) -> &'a mut W {
+                self.variant(Mr0W::Masked)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(Mr0W::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 1;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -21081,14 +21009,33 @@ pub mod exti {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `MR2`" ]
+        pub type Mr2W = Mr0W;
         # [ doc = r" Proxy" ]
         pub struct _Mr2W<'a> {
             w: &'a mut W,
         }
         impl<'a> _Mr2W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Mr2W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Masked." ]
+            # [ inline ( always ) ]
+            pub fn masked(self) -> &'a mut W {
+                self.variant(Mr0W::Masked)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(Mr0W::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 2;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -21096,14 +21043,33 @@ pub mod exti {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `MR3`" ]
+        pub type Mr3W = Mr0W;
         # [ doc = r" Proxy" ]
         pub struct _Mr3W<'a> {
             w: &'a mut W,
         }
         impl<'a> _Mr3W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Mr3W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Masked." ]
+            # [ inline ( always ) ]
+            pub fn masked(self) -> &'a mut W {
+                self.variant(Mr0W::Masked)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(Mr0W::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 3;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -21111,14 +21077,33 @@ pub mod exti {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `MR4`" ]
+        pub type Mr4W = Mr0W;
         # [ doc = r" Proxy" ]
         pub struct _Mr4W<'a> {
             w: &'a mut W,
         }
         impl<'a> _Mr4W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Mr4W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Masked." ]
+            # [ inline ( always ) ]
+            pub fn masked(self) -> &'a mut W {
+                self.variant(Mr0W::Masked)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(Mr0W::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 4;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -21126,14 +21111,33 @@ pub mod exti {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `MR5`" ]
+        pub type Mr5W = Mr0W;
         # [ doc = r" Proxy" ]
         pub struct _Mr5W<'a> {
             w: &'a mut W,
         }
         impl<'a> _Mr5W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Mr5W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Masked." ]
+            # [ inline ( always ) ]
+            pub fn masked(self) -> &'a mut W {
+                self.variant(Mr0W::Masked)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(Mr0W::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 5;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -21141,14 +21145,33 @@ pub mod exti {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `MR6`" ]
+        pub type Mr6W = Mr0W;
         # [ doc = r" Proxy" ]
         pub struct _Mr6W<'a> {
             w: &'a mut W,
         }
         impl<'a> _Mr6W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Mr6W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Masked." ]
+            # [ inline ( always ) ]
+            pub fn masked(self) -> &'a mut W {
+                self.variant(Mr0W::Masked)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(Mr0W::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 6;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -21156,14 +21179,33 @@ pub mod exti {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `MR7`" ]
+        pub type Mr7W = Mr0W;
         # [ doc = r" Proxy" ]
         pub struct _Mr7W<'a> {
             w: &'a mut W,
         }
         impl<'a> _Mr7W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Mr7W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Masked." ]
+            # [ inline ( always ) ]
+            pub fn masked(self) -> &'a mut W {
+                self.variant(Mr0W::Masked)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(Mr0W::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 7;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -21171,14 +21213,33 @@ pub mod exti {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `MR8`" ]
+        pub type Mr8W = Mr0W;
         # [ doc = r" Proxy" ]
         pub struct _Mr8W<'a> {
             w: &'a mut W,
         }
         impl<'a> _Mr8W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Mr8W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Masked." ]
+            # [ inline ( always ) ]
+            pub fn masked(self) -> &'a mut W {
+                self.variant(Mr0W::Masked)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(Mr0W::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 8;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -21186,14 +21247,33 @@ pub mod exti {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `MR9`" ]
+        pub type Mr9W = Mr0W;
         # [ doc = r" Proxy" ]
         pub struct _Mr9W<'a> {
             w: &'a mut W,
         }
         impl<'a> _Mr9W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Mr9W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Masked." ]
+            # [ inline ( always ) ]
+            pub fn masked(self) -> &'a mut W {
+                self.variant(Mr0W::Masked)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(Mr0W::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 9;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -21201,14 +21281,33 @@ pub mod exti {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `MR10`" ]
+        pub type Mr10W = Mr0W;
         # [ doc = r" Proxy" ]
         pub struct _Mr10W<'a> {
             w: &'a mut W,
         }
         impl<'a> _Mr10W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Mr10W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Masked." ]
+            # [ inline ( always ) ]
+            pub fn masked(self) -> &'a mut W {
+                self.variant(Mr0W::Masked)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(Mr0W::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 10;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -21216,14 +21315,33 @@ pub mod exti {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `MR11`" ]
+        pub type Mr11W = Mr0W;
         # [ doc = r" Proxy" ]
         pub struct _Mr11W<'a> {
             w: &'a mut W,
         }
         impl<'a> _Mr11W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Mr11W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Masked." ]
+            # [ inline ( always ) ]
+            pub fn masked(self) -> &'a mut W {
+                self.variant(Mr0W::Masked)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(Mr0W::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 11;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -21231,14 +21349,33 @@ pub mod exti {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `MR12`" ]
+        pub type Mr12W = Mr0W;
         # [ doc = r" Proxy" ]
         pub struct _Mr12W<'a> {
             w: &'a mut W,
         }
         impl<'a> _Mr12W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Mr12W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Masked." ]
+            # [ inline ( always ) ]
+            pub fn masked(self) -> &'a mut W {
+                self.variant(Mr0W::Masked)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(Mr0W::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 12;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -21246,14 +21383,33 @@ pub mod exti {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `MR13`" ]
+        pub type Mr13W = Mr0W;
         # [ doc = r" Proxy" ]
         pub struct _Mr13W<'a> {
             w: &'a mut W,
         }
         impl<'a> _Mr13W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Mr13W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Masked." ]
+            # [ inline ( always ) ]
+            pub fn masked(self) -> &'a mut W {
+                self.variant(Mr0W::Masked)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(Mr0W::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 13;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -21261,14 +21417,33 @@ pub mod exti {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `MR14`" ]
+        pub type Mr14W = Mr0W;
         # [ doc = r" Proxy" ]
         pub struct _Mr14W<'a> {
             w: &'a mut W,
         }
         impl<'a> _Mr14W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Mr14W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Masked." ]
+            # [ inline ( always ) ]
+            pub fn masked(self) -> &'a mut W {
+                self.variant(Mr0W::Masked)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(Mr0W::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 14;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -21276,14 +21451,33 @@ pub mod exti {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `MR15`" ]
+        pub type Mr15W = Mr0W;
         # [ doc = r" Proxy" ]
         pub struct _Mr15W<'a> {
             w: &'a mut W,
         }
         impl<'a> _Mr15W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Mr15W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Masked." ]
+            # [ inline ( always ) ]
+            pub fn masked(self) -> &'a mut W {
+                self.variant(Mr0W::Masked)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(Mr0W::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 15;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -21291,14 +21485,33 @@ pub mod exti {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `MR16`" ]
+        pub type Mr16W = Mr0W;
         # [ doc = r" Proxy" ]
         pub struct _Mr16W<'a> {
             w: &'a mut W,
         }
         impl<'a> _Mr16W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Mr16W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Masked." ]
+            # [ inline ( always ) ]
+            pub fn masked(self) -> &'a mut W {
+                self.variant(Mr0W::Masked)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(Mr0W::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 16;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -21306,14 +21519,33 @@ pub mod exti {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `MR17`" ]
+        pub type Mr17W = Mr0W;
         # [ doc = r" Proxy" ]
         pub struct _Mr17W<'a> {
             w: &'a mut W,
         }
         impl<'a> _Mr17W<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Mr17W) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Masked." ]
+            # [ inline ( always ) ]
+            pub fn masked(self) -> &'a mut W {
+                self.variant(Mr0W::Masked)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(Mr0W::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 17;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -21330,182 +21562,164 @@ pub mod exti {
             # [ doc = "Bit 0 - Interrupt Mask on line 0" ]
             # [ inline ( always ) ]
             pub fn mr0(&self) -> Mr0R {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 0;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Mr0R { bits }
+                Mr0R::_from({
+                                const MASK: u8 = 1;
+                                const OFFSET: u8 = 0;
+                                ((self.bits >> OFFSET) & MASK as u32) as u8
+                            })
             }
             # [ doc = "Bit 1 - Interrupt Mask on line 1" ]
             # [ inline ( always ) ]
             pub fn mr1(&self) -> Mr1R {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 1;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Mr1R { bits }
+                Mr1R::_from({
+                                const MASK: u8 = 1;
+                                const OFFSET: u8 = 1;
+                                ((self.bits >> OFFSET) & MASK as u32) as u8
+                            })
             }
             # [ doc = "Bit 2 - Interrupt Mask on line 2" ]
             # [ inline ( always ) ]
             pub fn mr2(&self) -> Mr2R {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 2;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Mr2R { bits }
+                Mr2R::_from({
+                                const MASK: u8 = 1;
+                                const OFFSET: u8 = 2;
+                                ((self.bits >> OFFSET) & MASK as u32) as u8
+                            })
             }
             # [ doc = "Bit 3 - Interrupt Mask on line 3" ]
             # [ inline ( always ) ]
             pub fn mr3(&self) -> Mr3R {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 3;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Mr3R { bits }
+                Mr3R::_from({
+                                const MASK: u8 = 1;
+                                const OFFSET: u8 = 3;
+                                ((self.bits >> OFFSET) & MASK as u32) as u8
+                            })
             }
             # [ doc = "Bit 4 - Interrupt Mask on line 4" ]
             # [ inline ( always ) ]
             pub fn mr4(&self) -> Mr4R {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 4;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Mr4R { bits }
+                Mr4R::_from({
+                                const MASK: u8 = 1;
+                                const OFFSET: u8 = 4;
+                                ((self.bits >> OFFSET) & MASK as u32) as u8
+                            })
             }
             # [ doc = "Bit 5 - Interrupt Mask on line 5" ]
             # [ inline ( always ) ]
             pub fn mr5(&self) -> Mr5R {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 5;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Mr5R { bits }
+                Mr5R::_from({
+                                const MASK: u8 = 1;
+                                const OFFSET: u8 = 5;
+                                ((self.bits >> OFFSET) & MASK as u32) as u8
+                            })
             }
             # [ doc = "Bit 6 - Interrupt Mask on line 6" ]
             # [ inline ( always ) ]
             pub fn mr6(&self) -> Mr6R {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 6;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Mr6R { bits }
+                Mr6R::_from({
+                                const MASK: u8 = 1;
+                                const OFFSET: u8 = 6;
+                                ((self.bits >> OFFSET) & MASK as u32) as u8
+                            })
             }
             # [ doc = "Bit 7 - Interrupt Mask on line 7" ]
             # [ inline ( always ) ]
             pub fn mr7(&self) -> Mr7R {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 7;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Mr7R { bits }
+                Mr7R::_from({
+                                const MASK: u8 = 1;
+                                const OFFSET: u8 = 7;
+                                ((self.bits >> OFFSET) & MASK as u32) as u8
+                            })
             }
             # [ doc = "Bit 8 - Interrupt Mask on line 8" ]
             # [ inline ( always ) ]
             pub fn mr8(&self) -> Mr8R {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 8;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Mr8R { bits }
+                Mr8R::_from({
+                                const MASK: u8 = 1;
+                                const OFFSET: u8 = 8;
+                                ((self.bits >> OFFSET) & MASK as u32) as u8
+                            })
             }
             # [ doc = "Bit 9 - Interrupt Mask on line 9" ]
             # [ inline ( always ) ]
             pub fn mr9(&self) -> Mr9R {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 9;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Mr9R { bits }
+                Mr9R::_from({
+                                const MASK: u8 = 1;
+                                const OFFSET: u8 = 9;
+                                ((self.bits >> OFFSET) & MASK as u32) as u8
+                            })
             }
             # [ doc = "Bit 10 - Interrupt Mask on line 10" ]
             # [ inline ( always ) ]
             pub fn mr10(&self) -> Mr10R {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 10;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Mr10R { bits }
+                Mr10R::_from({
+                                 const MASK: u8 = 1;
+                                 const OFFSET: u8 = 10;
+                                 ((self.bits >> OFFSET) & MASK as u32) as u8
+                             })
             }
             # [ doc = "Bit 11 - Interrupt Mask on line 11" ]
             # [ inline ( always ) ]
             pub fn mr11(&self) -> Mr11R {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 11;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Mr11R { bits }
+                Mr11R::_from({
+                                 const MASK: u8 = 1;
+                                 const OFFSET: u8 = 11;
+                                 ((self.bits >> OFFSET) & MASK as u32) as u8
+                             })
             }
             # [ doc = "Bit 12 - Interrupt Mask on line 12" ]
             # [ inline ( always ) ]
             pub fn mr12(&self) -> Mr12R {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 12;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Mr12R { bits }
+                Mr12R::_from({
+                                 const MASK: u8 = 1;
+                                 const OFFSET: u8 = 12;
+                                 ((self.bits >> OFFSET) & MASK as u32) as u8
+                             })
             }
             # [ doc = "Bit 13 - Interrupt Mask on line 13" ]
             # [ inline ( always ) ]
             pub fn mr13(&self) -> Mr13R {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 13;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Mr13R { bits }
+                Mr13R::_from({
+                                 const MASK: u8 = 1;
+                                 const OFFSET: u8 = 13;
+                                 ((self.bits >> OFFSET) & MASK as u32) as u8
+                             })
             }
             # [ doc = "Bit 14 - Interrupt Mask on line 14" ]
             # [ inline ( always ) ]
             pub fn mr14(&self) -> Mr14R {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 14;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Mr14R { bits }
+                Mr14R::_from({
+                                 const MASK: u8 = 1;
+                                 const OFFSET: u8 = 14;
+                                 ((self.bits >> OFFSET) & MASK as u32) as u8
+                             })
             }
             # [ doc = "Bit 15 - Interrupt Mask on line 15" ]
             # [ inline ( always ) ]
             pub fn mr15(&self) -> Mr15R {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 15;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Mr15R { bits }
+                Mr15R::_from({
+                                 const MASK: u8 = 1;
+                                 const OFFSET: u8 = 15;
+                                 ((self.bits >> OFFSET) & MASK as u32) as u8
+                             })
             }
             # [ doc = "Bit 16 - Interrupt Mask on line 16" ]
             # [ inline ( always ) ]
             pub fn mr16(&self) -> Mr16R {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 16;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Mr16R { bits }
+                Mr16R::_from({
+                                 const MASK: u8 = 1;
+                                 const OFFSET: u8 = 16;
+                                 ((self.bits >> OFFSET) & MASK as u32) as u8
+                             })
             }
             # [ doc = "Bit 17 - Interrupt Mask on line 17" ]
             # [ inline ( always ) ]
             pub fn mr17(&self) -> Mr17R {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 17;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Mr17R { bits }
+                Mr17R::_from({
+                                 const MASK: u8 = 1;
+                                 const OFFSET: u8 = 17;
+                                 ((self.bits >> OFFSET) & MASK as u32) as u8
+                             })
             }
         }
         impl W {
