@@ -2131,6 +2131,29 @@ xs:noNamespaceSchemaLocation="CMSIS-SVD_Schema_1_1.xsd">
                   <value>3</value>
                 </enumeratedValue>
               </enumeratedValues>
+              <enumeratedValues>
+                <name>CNF_IN</name>
+                <enumeratedValue>
+                  <name>Analog_Input</name>
+		  <description>Analog Input</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Digital_Input</name>
+                  <description>Digital Floating Input (reset state)</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Digital_Input_Pull</name>
+                  <description>Digital Input with a weak pull resistor</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Reserved</name>
+                  <description>Reserved</description>
+                  <value>3</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>MODE1</name>
@@ -2694,7 +2717,7 @@ xs:noNamespaceSchemaLocation="CMSIS-SVD_Schema_1_1.xsd">
             </field>
             <field>
               <name>BS2</name>
-              <description>Set bit 1</description>
+              <description>Set bit 2</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
               <enumeratedValues derivedFrom="SET">
