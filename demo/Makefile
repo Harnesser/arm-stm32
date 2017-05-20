@@ -1,5 +1,6 @@
 #default: upload
-default: build_blinky01
+#default: build_blinky01
+default: build_rotary_encoder
 
 build_hello:
 	xargo build -j1 --example hello
@@ -9,6 +10,9 @@ build_crash:
 
 build_blinky01:
 	xargo build -j1 --example blinky01
+
+build_rotary_encoder:
+	xargo build -j1 --example rotary-encoder
 
 upload:
 	openocd -f board/stm32vldiscovery.cfg
