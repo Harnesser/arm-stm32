@@ -50,7 +50,7 @@ extern crate cortex_m_rt;
 extern crate stm32f100;
 
 use cortex_m::asm;
-use stm32f100::{GPIOA, RCC, EXTI};
+use stm32f100::{GPIOA, RCC, EXTI, AFIO};
 
 
 #[inline(never)]
@@ -65,6 +65,7 @@ fn main() {
             let rcc = RCC.borrow(cs); // R_eset and C_lock C_ontrol
             let gpioa = GPIOA.borrow(cs);
             let exti = EXTI.borrow(cs);
+            let afio = AFIO.borrow(cs);
 
             // power up the relevant peripherals
             rcc.apb2enr.modify(|_,w| w.iopaen().enabled());
@@ -91,7 +92,9 @@ fn main() {
 
             // set up posedge interrupt on PA0
             exti.imr.modify(|_,w| w.mr0().enabled());
-
+            unsafe {
+                afio.exticr1.modify(|_,w| w.exti0().bits(0));
+            }
 
             }
     );
