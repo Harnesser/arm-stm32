@@ -10039,223 +10039,88 @@ pub mod rcc {
                 self.register.set(w.bits);
             }
         }
-        # [ doc = r" Value of the field" ]
-        pub struct AfioenR {
-            bits: u8,
+        # [ doc = "Possible values of the field `AFIOEN`" ]
+        # [ derive ( Clone , Copy , Debug , PartialEq ) ]
+        pub enum AfioenR {
+            # [ doc = "Disabled." ]
+            Disabled,
+            # [ doc = "Enabled." ]
+            Enabled,
         }
         impl AfioenR {
             # [ doc = r" Value of the field as raw bits" ]
             # [ inline ( always ) ]
             pub fn bits(&self) -> u8 {
-                self.bits
+                match *self {
+                    AfioenR::Disabled => 0,
+                    AfioenR::Enabled => 1,
+                }
             }
-        }
-        # [ doc = r" Value of the field" ]
-        pub struct IopaenR {
-            bits: u8,
-        }
-        impl IopaenR {
-            # [ doc = r" Value of the field as raw bits" ]
+            # [ allow ( missing_docs ) ]
+            # [ doc ( hidden ) ]
             # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
+            pub fn _from(bits: u8) -> AfioenR {
+                match bits {
+                    0 => AfioenR::Disabled,
+                    1 => AfioenR::Enabled,
+                    _ => unreachable!(),
+                }
             }
-        }
-        # [ doc = r" Value of the field" ]
-        pub struct IopbenR {
-            bits: u8,
-        }
-        impl IopbenR {
-            # [ doc = r" Value of the field as raw bits" ]
+            # [ doc = "Checks if the value of the field is `Disabled`" ]
             # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
+            pub fn is_disabled(&self) -> bool {
+                *self == AfioenR::Disabled
+            }
+            # [ doc = "Checks if the value of the field is `Enabled`" ]
+            # [ inline ( always ) ]
+            pub fn is_enabled(&self) -> bool {
+                *self == AfioenR::Enabled
             }
         }
+        # [ doc = "Possible values of the field `IOPAEN`" ]
+        pub type IopaenR = AfioenR;
+        # [ doc = "Possible values of the field `IOPBEN`" ]
+        pub type IopbenR = AfioenR;
         # [ doc = "Possible values of the field `IOPCEN`" ]
-        # [ derive ( Clone , Copy , Debug , PartialEq ) ]
-        pub enum IopcenR {
-            # [ doc = "Disabled." ]
-            Disabled,
-            # [ doc = "Enabled." ]
-            Enabled,
-        }
-        impl IopcenR {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                match *self {
-                    IopcenR::Disabled => 0,
-                    IopcenR::Enabled => 1,
-                }
-            }
-            # [ allow ( missing_docs ) ]
-            # [ doc ( hidden ) ]
-            # [ inline ( always ) ]
-            pub fn _from(bits: u8) -> IopcenR {
-                match bits {
-                    0 => IopcenR::Disabled,
-                    1 => IopcenR::Enabled,
-                    _ => unreachable!(),
-                }
-            }
-            # [ doc = "Checks if the value of the field is `Disabled`" ]
-            # [ inline ( always ) ]
-            pub fn is_disabled(&self) -> bool {
-                *self == IopcenR::Disabled
-            }
-            # [ doc = "Checks if the value of the field is `Enabled`" ]
-            # [ inline ( always ) ]
-            pub fn is_enabled(&self) -> bool {
-                *self == IopcenR::Enabled
-            }
-        }
-        # [ doc = r" Value of the field" ]
-        pub struct IopdenR {
-            bits: u8,
-        }
-        impl IopdenR {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
+        pub type IopcenR = AfioenR;
+        # [ doc = "Possible values of the field `IOPDEN`" ]
+        pub type IopdenR = AfioenR;
         # [ doc = "Possible values of the field `IOPEEN`" ]
-        # [ derive ( Clone , Copy , Debug , PartialEq ) ]
-        pub enum IopeenR {
+        pub type IopeenR = AfioenR;
+        # [ doc = "Possible values of the field `IOPFEN`" ]
+        pub type IopfenR = AfioenR;
+        # [ doc = "Possible values of the field `IOPGEN`" ]
+        pub type IopgenR = AfioenR;
+        # [ doc = "Possible values of the field `ADC1EN`" ]
+        pub type Adc1enR = AfioenR;
+        # [ doc = "Possible values of the field `TIM1EN`" ]
+        pub type Tim1enR = AfioenR;
+        # [ doc = "Possible values of the field `SPI1EN`" ]
+        pub type Spi1enR = AfioenR;
+        # [ doc = "Possible values of the field `USART1EN`" ]
+        pub type Usart1enR = AfioenR;
+        # [ doc = "Possible values of the field `TIM15EN`" ]
+        pub type Tim15enR = AfioenR;
+        # [ doc = "Possible values of the field `TIM16EN`" ]
+        pub type Tim16enR = AfioenR;
+        # [ doc = "Possible values of the field `TIM17EN`" ]
+        pub type Tim17enR = AfioenR;
+        # [ doc = "Values that can be written to the field `AFIOEN`" ]
+        pub enum AfioenW {
             # [ doc = "Disabled." ]
             Disabled,
             # [ doc = "Enabled." ]
             Enabled,
         }
-        impl IopeenR {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                match *self {
-                    IopeenR::Disabled => 0,
-                    IopeenR::Enabled => 1,
-                }
-            }
+        impl AfioenW {
             # [ allow ( missing_docs ) ]
             # [ doc ( hidden ) ]
             # [ inline ( always ) ]
-            pub fn _from(bits: u8) -> IopeenR {
-                match bits {
-                    0 => IopeenR::Disabled,
-                    1 => IopeenR::Enabled,
-                    _ => unreachable!(),
+            pub fn _bits(&self) -> u8 {
+                match *self {
+                    AfioenW::Disabled => 0,
+                    AfioenW::Enabled => 1,
                 }
-            }
-            # [ doc = "Checks if the value of the field is `Disabled`" ]
-            # [ inline ( always ) ]
-            pub fn is_disabled(&self) -> bool {
-                *self == IopeenR::Disabled
-            }
-            # [ doc = "Checks if the value of the field is `Enabled`" ]
-            # [ inline ( always ) ]
-            pub fn is_enabled(&self) -> bool {
-                *self == IopeenR::Enabled
-            }
-        }
-        # [ doc = r" Value of the field" ]
-        pub struct IopfenR {
-            bits: u8,
-        }
-        impl IopfenR {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
-        # [ doc = r" Value of the field" ]
-        pub struct IopgenR {
-            bits: u8,
-        }
-        impl IopgenR {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
-        # [ doc = r" Value of the field" ]
-        pub struct Adc1enR {
-            bits: u8,
-        }
-        impl Adc1enR {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
-        # [ doc = r" Value of the field" ]
-        pub struct Tim1enR {
-            bits: u8,
-        }
-        impl Tim1enR {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
-        # [ doc = r" Value of the field" ]
-        pub struct Spi1enR {
-            bits: u8,
-        }
-        impl Spi1enR {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
-        # [ doc = r" Value of the field" ]
-        pub struct Usart1enR {
-            bits: u8,
-        }
-        impl Usart1enR {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
-        # [ doc = r" Value of the field" ]
-        pub struct Tim15enR {
-            bits: u8,
-        }
-        impl Tim15enR {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
-        # [ doc = r" Value of the field" ]
-        pub struct Tim16enR {
-            bits: u8,
-        }
-        impl Tim16enR {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
-        # [ doc = r" Value of the field" ]
-        pub struct Tim17enR {
-            bits: u8,
-        }
-        impl Tim17enR {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
             }
         }
         # [ doc = r" Proxy" ]
@@ -10263,9 +10128,26 @@ pub mod rcc {
             w: &'a mut W,
         }
         impl<'a> _AfioenW<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: AfioenW) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Disabled." ]
+            # [ inline ( always ) ]
+            pub fn disabled(self) -> &'a mut W {
+                self.variant(AfioenW::Disabled)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(AfioenW::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 0;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -10273,14 +10155,33 @@ pub mod rcc {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `IOPAEN`" ]
+        pub type IopaenW = AfioenW;
         # [ doc = r" Proxy" ]
         pub struct _IopaenW<'a> {
             w: &'a mut W,
         }
         impl<'a> _IopaenW<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: IopaenW) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Disabled." ]
+            # [ inline ( always ) ]
+            pub fn disabled(self) -> &'a mut W {
+                self.variant(AfioenW::Disabled)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(AfioenW::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 2;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -10288,14 +10189,33 @@ pub mod rcc {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `IOPBEN`" ]
+        pub type IopbenW = AfioenW;
         # [ doc = r" Proxy" ]
         pub struct _IopbenW<'a> {
             w: &'a mut W,
         }
         impl<'a> _IopbenW<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: IopbenW) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Disabled." ]
+            # [ inline ( always ) ]
+            pub fn disabled(self) -> &'a mut W {
+                self.variant(AfioenW::Disabled)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(AfioenW::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 3;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -10304,23 +10224,7 @@ pub mod rcc {
             }
         }
         # [ doc = "Values that can be written to the field `IOPCEN`" ]
-        pub enum IopcenW {
-            # [ doc = "Disabled." ]
-            Disabled,
-            # [ doc = "Enabled." ]
-            Enabled,
-        }
-        impl IopcenW {
-            # [ allow ( missing_docs ) ]
-            # [ doc ( hidden ) ]
-            # [ inline ( always ) ]
-            pub fn _bits(&self) -> u8 {
-                match *self {
-                    IopcenW::Disabled => 0,
-                    IopcenW::Enabled => 1,
-                }
-            }
-        }
+        pub type IopcenW = AfioenW;
         # [ doc = r" Proxy" ]
         pub struct _IopcenW<'a> {
             w: &'a mut W,
@@ -10336,12 +10240,12 @@ pub mod rcc {
             # [ doc = "Disabled." ]
             # [ inline ( always ) ]
             pub fn disabled(self) -> &'a mut W {
-                self.variant(IopcenW::Disabled)
+                self.variant(AfioenW::Disabled)
             }
             # [ doc = "Enabled." ]
             # [ inline ( always ) ]
             pub fn enabled(self) -> &'a mut W {
-                self.variant(IopcenW::Enabled)
+                self.variant(AfioenW::Enabled)
             }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
@@ -10353,14 +10257,33 @@ pub mod rcc {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `IOPDEN`" ]
+        pub type IopdenW = AfioenW;
         # [ doc = r" Proxy" ]
         pub struct _IopdenW<'a> {
             w: &'a mut W,
         }
         impl<'a> _IopdenW<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: IopdenW) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Disabled." ]
+            # [ inline ( always ) ]
+            pub fn disabled(self) -> &'a mut W {
+                self.variant(AfioenW::Disabled)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(AfioenW::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 5;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -10369,23 +10292,7 @@ pub mod rcc {
             }
         }
         # [ doc = "Values that can be written to the field `IOPEEN`" ]
-        pub enum IopeenW {
-            # [ doc = "Disabled." ]
-            Disabled,
-            # [ doc = "Enabled." ]
-            Enabled,
-        }
-        impl IopeenW {
-            # [ allow ( missing_docs ) ]
-            # [ doc ( hidden ) ]
-            # [ inline ( always ) ]
-            pub fn _bits(&self) -> u8 {
-                match *self {
-                    IopeenW::Disabled => 0,
-                    IopeenW::Enabled => 1,
-                }
-            }
-        }
+        pub type IopeenW = AfioenW;
         # [ doc = r" Proxy" ]
         pub struct _IopeenW<'a> {
             w: &'a mut W,
@@ -10401,12 +10308,12 @@ pub mod rcc {
             # [ doc = "Disabled." ]
             # [ inline ( always ) ]
             pub fn disabled(self) -> &'a mut W {
-                self.variant(IopeenW::Disabled)
+                self.variant(AfioenW::Disabled)
             }
             # [ doc = "Enabled." ]
             # [ inline ( always ) ]
             pub fn enabled(self) -> &'a mut W {
-                self.variant(IopeenW::Enabled)
+                self.variant(AfioenW::Enabled)
             }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
@@ -10418,14 +10325,33 @@ pub mod rcc {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `IOPFEN`" ]
+        pub type IopfenW = AfioenW;
         # [ doc = r" Proxy" ]
         pub struct _IopfenW<'a> {
             w: &'a mut W,
         }
         impl<'a> _IopfenW<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: IopfenW) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Disabled." ]
+            # [ inline ( always ) ]
+            pub fn disabled(self) -> &'a mut W {
+                self.variant(AfioenW::Disabled)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(AfioenW::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 7;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -10433,14 +10359,33 @@ pub mod rcc {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `IOPGEN`" ]
+        pub type IopgenW = AfioenW;
         # [ doc = r" Proxy" ]
         pub struct _IopgenW<'a> {
             w: &'a mut W,
         }
         impl<'a> _IopgenW<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: IopgenW) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Disabled." ]
+            # [ inline ( always ) ]
+            pub fn disabled(self) -> &'a mut W {
+                self.variant(AfioenW::Disabled)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(AfioenW::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 8;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -10448,14 +10393,33 @@ pub mod rcc {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `ADC1EN`" ]
+        pub type Adc1enW = AfioenW;
         # [ doc = r" Proxy" ]
         pub struct _Adc1enW<'a> {
             w: &'a mut W,
         }
         impl<'a> _Adc1enW<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Adc1enW) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Disabled." ]
+            # [ inline ( always ) ]
+            pub fn disabled(self) -> &'a mut W {
+                self.variant(AfioenW::Disabled)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(AfioenW::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 9;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -10463,14 +10427,33 @@ pub mod rcc {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `TIM1EN`" ]
+        pub type Tim1enW = AfioenW;
         # [ doc = r" Proxy" ]
         pub struct _Tim1enW<'a> {
             w: &'a mut W,
         }
         impl<'a> _Tim1enW<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Tim1enW) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Disabled." ]
+            # [ inline ( always ) ]
+            pub fn disabled(self) -> &'a mut W {
+                self.variant(AfioenW::Disabled)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(AfioenW::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 11;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -10478,14 +10461,33 @@ pub mod rcc {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `SPI1EN`" ]
+        pub type Spi1enW = AfioenW;
         # [ doc = r" Proxy" ]
         pub struct _Spi1enW<'a> {
             w: &'a mut W,
         }
         impl<'a> _Spi1enW<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Spi1enW) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Disabled." ]
+            # [ inline ( always ) ]
+            pub fn disabled(self) -> &'a mut W {
+                self.variant(AfioenW::Disabled)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(AfioenW::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 12;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -10493,14 +10495,33 @@ pub mod rcc {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `USART1EN`" ]
+        pub type Usart1enW = AfioenW;
         # [ doc = r" Proxy" ]
         pub struct _Usart1enW<'a> {
             w: &'a mut W,
         }
         impl<'a> _Usart1enW<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Usart1enW) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Disabled." ]
+            # [ inline ( always ) ]
+            pub fn disabled(self) -> &'a mut W {
+                self.variant(AfioenW::Disabled)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(AfioenW::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 14;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -10508,14 +10529,33 @@ pub mod rcc {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `TIM15EN`" ]
+        pub type Tim15enW = AfioenW;
         # [ doc = r" Proxy" ]
         pub struct _Tim15enW<'a> {
             w: &'a mut W,
         }
         impl<'a> _Tim15enW<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Tim15enW) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Disabled." ]
+            # [ inline ( always ) ]
+            pub fn disabled(self) -> &'a mut W {
+                self.variant(AfioenW::Disabled)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(AfioenW::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 16;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -10523,14 +10563,33 @@ pub mod rcc {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `TIM16EN`" ]
+        pub type Tim16enW = AfioenW;
         # [ doc = r" Proxy" ]
         pub struct _Tim16enW<'a> {
             w: &'a mut W,
         }
         impl<'a> _Tim16enW<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Tim16enW) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Disabled." ]
+            # [ inline ( always ) ]
+            pub fn disabled(self) -> &'a mut W {
+                self.variant(AfioenW::Disabled)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(AfioenW::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 17;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -10538,14 +10597,33 @@ pub mod rcc {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `TIM17EN`" ]
+        pub type Tim17enW = AfioenW;
         # [ doc = r" Proxy" ]
         pub struct _Tim17enW<'a> {
             w: &'a mut W,
         }
         impl<'a> _Tim17enW<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Tim17enW) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Disabled." ]
+            # [ inline ( always ) ]
+            pub fn disabled(self) -> &'a mut W {
+                self.variant(AfioenW::Disabled)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(AfioenW::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 18;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -10562,32 +10640,29 @@ pub mod rcc {
             # [ doc = "Bit 0 - Alternate function I/O clock enable" ]
             # [ inline ( always ) ]
             pub fn afioen(&self) -> AfioenR {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 0;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                AfioenR { bits }
+                AfioenR::_from({
+                                   const MASK: u8 = 1;
+                                   const OFFSET: u8 = 0;
+                                   ((self.bits >> OFFSET) & MASK as u32) as u8
+                               })
             }
             # [ doc = "Bit 2 - I/O port A clock enable" ]
             # [ inline ( always ) ]
             pub fn iopaen(&self) -> IopaenR {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 2;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                IopaenR { bits }
+                IopaenR::_from({
+                                   const MASK: u8 = 1;
+                                   const OFFSET: u8 = 2;
+                                   ((self.bits >> OFFSET) & MASK as u32) as u8
+                               })
             }
             # [ doc = "Bit 3 - I/O port B clock enable" ]
             # [ inline ( always ) ]
             pub fn iopben(&self) -> IopbenR {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 3;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                IopbenR { bits }
+                IopbenR::_from({
+                                   const MASK: u8 = 1;
+                                   const OFFSET: u8 = 3;
+                                   ((self.bits >> OFFSET) & MASK as u32) as u8
+                               })
             }
             # [ doc = "Bit 4 - I/O port C clock enable" ]
             # [ inline ( always ) ]
@@ -10601,12 +10676,11 @@ pub mod rcc {
             # [ doc = "Bit 5 - I/O port D clock enable" ]
             # [ inline ( always ) ]
             pub fn iopden(&self) -> IopdenR {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 5;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                IopdenR { bits }
+                IopdenR::_from({
+                                   const MASK: u8 = 1;
+                                   const OFFSET: u8 = 5;
+                                   ((self.bits >> OFFSET) & MASK as u32) as u8
+                               })
             }
             # [ doc = "Bit 6 - I/O port E clock enable" ]
             # [ inline ( always ) ]
@@ -10620,92 +10694,83 @@ pub mod rcc {
             # [ doc = "Bit 7 - I/O port F clock enable" ]
             # [ inline ( always ) ]
             pub fn iopfen(&self) -> IopfenR {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 7;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                IopfenR { bits }
+                IopfenR::_from({
+                                   const MASK: u8 = 1;
+                                   const OFFSET: u8 = 7;
+                                   ((self.bits >> OFFSET) & MASK as u32) as u8
+                               })
             }
             # [ doc = "Bit 8 - I/O port G clock enable" ]
             # [ inline ( always ) ]
             pub fn iopgen(&self) -> IopgenR {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 8;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                IopgenR { bits }
+                IopgenR::_from({
+                                   const MASK: u8 = 1;
+                                   const OFFSET: u8 = 8;
+                                   ((self.bits >> OFFSET) & MASK as u32) as u8
+                               })
             }
             # [ doc = "Bit 9 - ADC 1 interface clock enable" ]
             # [ inline ( always ) ]
             pub fn adc1en(&self) -> Adc1enR {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 9;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Adc1enR { bits }
+                Adc1enR::_from({
+                                   const MASK: u8 = 1;
+                                   const OFFSET: u8 = 9;
+                                   ((self.bits >> OFFSET) & MASK as u32) as u8
+                               })
             }
             # [ doc = "Bit 11 - TIM1 Timer clock enable" ]
             # [ inline ( always ) ]
             pub fn tim1en(&self) -> Tim1enR {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 11;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Tim1enR { bits }
+                Tim1enR::_from({
+                                   const MASK: u8 = 1;
+                                   const OFFSET: u8 = 11;
+                                   ((self.bits >> OFFSET) & MASK as u32) as u8
+                               })
             }
             # [ doc = "Bit 12 - SPI 1 clock enable" ]
             # [ inline ( always ) ]
             pub fn spi1en(&self) -> Spi1enR {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 12;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Spi1enR { bits }
+                Spi1enR::_from({
+                                   const MASK: u8 = 1;
+                                   const OFFSET: u8 = 12;
+                                   ((self.bits >> OFFSET) & MASK as u32) as u8
+                               })
             }
             # [ doc = "Bit 14 - USART1 clock enable" ]
             # [ inline ( always ) ]
             pub fn usart1en(&self) -> Usart1enR {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 14;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Usart1enR { bits }
+                Usart1enR::_from({
+                                     const MASK: u8 = 1;
+                                     const OFFSET: u8 = 14;
+                                     ((self.bits >> OFFSET) & MASK as u32) as u8
+                                 })
             }
             # [ doc = "Bit 16 - TIM15 Timer clock enable" ]
             # [ inline ( always ) ]
             pub fn tim15en(&self) -> Tim15enR {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 16;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Tim15enR { bits }
+                Tim15enR::_from({
+                                    const MASK: u8 = 1;
+                                    const OFFSET: u8 = 16;
+                                    ((self.bits >> OFFSET) & MASK as u32) as u8
+                                })
             }
             # [ doc = "Bit 17 - TIM16 Timer clock enable" ]
             # [ inline ( always ) ]
             pub fn tim16en(&self) -> Tim16enR {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 17;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Tim16enR { bits }
+                Tim16enR::_from({
+                                    const MASK: u8 = 1;
+                                    const OFFSET: u8 = 17;
+                                    ((self.bits >> OFFSET) & MASK as u32) as u8
+                                })
             }
             # [ doc = "Bit 18 - TIM17 Timer clock enable" ]
             # [ inline ( always ) ]
             pub fn tim17en(&self) -> Tim17enR {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 18;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Tim17enR { bits }
+                Tim17enR::_from({
+                                    const MASK: u8 = 1;
+                                    const OFFSET: u8 = 18;
+                                    ((self.bits >> OFFSET) & MASK as u32) as u8
+                                })
             }
         }
         impl W {
@@ -10838,273 +10903,102 @@ pub mod rcc {
                 self.register.set(w.bits);
             }
         }
-        # [ doc = r" Value of the field" ]
-        pub struct Tim2enR {
-            bits: u8,
-        }
-        impl Tim2enR {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
-        # [ doc = r" Value of the field" ]
-        pub struct Tim3enR {
-            bits: u8,
-        }
-        impl Tim3enR {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
-        # [ doc = r" Value of the field" ]
-        pub struct Tim4enR {
-            bits: u8,
-        }
-        impl Tim4enR {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
-        # [ doc = r" Value of the field" ]
-        pub struct Tim5enR {
-            bits: u8,
-        }
-        impl Tim5enR {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
-        # [ doc = r" Value of the field" ]
-        pub struct Tim6enR {
-            bits: u8,
-        }
-        impl Tim6enR {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
-        # [ doc = "Possible values of the field `TIM7EN`" ]
+        # [ doc = "Possible values of the field `TIM2EN`" ]
         # [ derive ( Clone , Copy , Debug , PartialEq ) ]
-        pub enum Tim7enR {
+        pub enum Tim2enR {
             # [ doc = "Disabled." ]
             Disabled,
             # [ doc = "Enabled." ]
             Enabled,
         }
-        impl Tim7enR {
+        impl Tim2enR {
             # [ doc = r" Value of the field as raw bits" ]
             # [ inline ( always ) ]
             pub fn bits(&self) -> u8 {
                 match *self {
-                    Tim7enR::Disabled => 0,
-                    Tim7enR::Enabled => 1,
+                    Tim2enR::Disabled => 0,
+                    Tim2enR::Enabled => 1,
                 }
             }
             # [ allow ( missing_docs ) ]
             # [ doc ( hidden ) ]
             # [ inline ( always ) ]
-            pub fn _from(bits: u8) -> Tim7enR {
+            pub fn _from(bits: u8) -> Tim2enR {
                 match bits {
-                    0 => Tim7enR::Disabled,
-                    1 => Tim7enR::Enabled,
+                    0 => Tim2enR::Disabled,
+                    1 => Tim2enR::Enabled,
                     _ => unreachable!(),
                 }
             }
             # [ doc = "Checks if the value of the field is `Disabled`" ]
             # [ inline ( always ) ]
             pub fn is_disabled(&self) -> bool {
-                *self == Tim7enR::Disabled
+                *self == Tim2enR::Disabled
             }
             # [ doc = "Checks if the value of the field is `Enabled`" ]
             # [ inline ( always ) ]
             pub fn is_enabled(&self) -> bool {
-                *self == Tim7enR::Enabled
+                *self == Tim2enR::Enabled
             }
         }
-        # [ doc = r" Value of the field" ]
-        pub struct Tim12enR {
-            bits: u8,
+        # [ doc = "Possible values of the field `TIM3EN`" ]
+        pub type Tim3enR = Tim2enR;
+        # [ doc = "Possible values of the field `TIM4EN`" ]
+        pub type Tim4enR = Tim2enR;
+        # [ doc = "Possible values of the field `TIM5EN`" ]
+        pub type Tim5enR = Tim2enR;
+        # [ doc = "Possible values of the field `TIM6EN`" ]
+        pub type Tim6enR = Tim2enR;
+        # [ doc = "Possible values of the field `TIM7EN`" ]
+        pub type Tim7enR = Tim2enR;
+        # [ doc = "Possible values of the field `TIM12EN`" ]
+        pub type Tim12enR = Tim2enR;
+        # [ doc = "Possible values of the field `TIM13EN`" ]
+        pub type Tim13enR = Tim2enR;
+        # [ doc = "Possible values of the field `TIM14EN`" ]
+        pub type Tim14enR = Tim2enR;
+        # [ doc = "Possible values of the field `WWDGEN`" ]
+        pub type WwdgenR = Tim2enR;
+        # [ doc = "Possible values of the field `SPI2EN`" ]
+        pub type Spi2enR = Tim2enR;
+        # [ doc = "Possible values of the field `SPI3EN`" ]
+        pub type Spi3enR = Tim2enR;
+        # [ doc = "Possible values of the field `USART2EN`" ]
+        pub type Usart2enR = Tim2enR;
+        # [ doc = "Possible values of the field `USART3EN`" ]
+        pub type Usart3enR = Tim2enR;
+        # [ doc = "Possible values of the field `UART4EN`" ]
+        pub type Uart4enR = Tim2enR;
+        # [ doc = "Possible values of the field `UART5EN`" ]
+        pub type Uart5enR = Tim2enR;
+        # [ doc = "Possible values of the field `I2C1EN`" ]
+        pub type I2c1enR = Tim2enR;
+        # [ doc = "Possible values of the field `I2C2EN`" ]
+        pub type I2c2enR = Tim2enR;
+        # [ doc = "Possible values of the field `BKPEN`" ]
+        pub type BkpenR = Tim2enR;
+        # [ doc = "Possible values of the field `PWREN`" ]
+        pub type PwrenR = Tim2enR;
+        # [ doc = "Possible values of the field `DACEN`" ]
+        pub type DacenR = Tim2enR;
+        # [ doc = "Possible values of the field `CECEN`" ]
+        pub type CecenR = Tim2enR;
+        # [ doc = "Values that can be written to the field `TIM2EN`" ]
+        pub enum Tim2enW {
+            # [ doc = "Disabled." ]
+            Disabled,
+            # [ doc = "Enabled." ]
+            Enabled,
         }
-        impl Tim12enR {
-            # [ doc = r" Value of the field as raw bits" ]
+        impl Tim2enW {
+            # [ allow ( missing_docs ) ]
+            # [ doc ( hidden ) ]
             # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
-        # [ doc = r" Value of the field" ]
-        pub struct Tim13enR {
-            bits: u8,
-        }
-        impl Tim13enR {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
-        # [ doc = r" Value of the field" ]
-        pub struct Tim14enR {
-            bits: u8,
-        }
-        impl Tim14enR {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
-        # [ doc = r" Value of the field" ]
-        pub struct WwdgenR {
-            bits: u8,
-        }
-        impl WwdgenR {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
-        # [ doc = r" Value of the field" ]
-        pub struct Spi2enR {
-            bits: u8,
-        }
-        impl Spi2enR {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
-        # [ doc = r" Value of the field" ]
-        pub struct Spi3enR {
-            bits: u8,
-        }
-        impl Spi3enR {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
-        # [ doc = r" Value of the field" ]
-        pub struct Usart2enR {
-            bits: u8,
-        }
-        impl Usart2enR {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
-        # [ doc = r" Value of the field" ]
-        pub struct Usart3enR {
-            bits: u8,
-        }
-        impl Usart3enR {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
-        # [ doc = r" Value of the field" ]
-        pub struct Uart4enR {
-            bits: u8,
-        }
-        impl Uart4enR {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
-        # [ doc = r" Value of the field" ]
-        pub struct Uart5enR {
-            bits: u8,
-        }
-        impl Uart5enR {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
-        # [ doc = r" Value of the field" ]
-        pub struct I2c1enR {
-            bits: u8,
-        }
-        impl I2c1enR {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
-        # [ doc = r" Value of the field" ]
-        pub struct I2c2enR {
-            bits: u8,
-        }
-        impl I2c2enR {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
-        # [ doc = r" Value of the field" ]
-        pub struct BkpenR {
-            bits: u8,
-        }
-        impl BkpenR {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
-        # [ doc = r" Value of the field" ]
-        pub struct PwrenR {
-            bits: u8,
-        }
-        impl PwrenR {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
-        # [ doc = r" Value of the field" ]
-        pub struct DacenR {
-            bits: u8,
-        }
-        impl DacenR {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
-            }
-        }
-        # [ doc = r" Value of the field" ]
-        pub struct CecenR {
-            bits: u8,
-        }
-        impl CecenR {
-            # [ doc = r" Value of the field as raw bits" ]
-            # [ inline ( always ) ]
-            pub fn bits(&self) -> u8 {
-                self.bits
+            pub fn _bits(&self) -> u8 {
+                match *self {
+                    Tim2enW::Disabled => 0,
+                    Tim2enW::Enabled => 1,
+                }
             }
         }
         # [ doc = r" Proxy" ]
@@ -11112,9 +11006,26 @@ pub mod rcc {
             w: &'a mut W,
         }
         impl<'a> _Tim2enW<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Tim2enW) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Disabled." ]
+            # [ inline ( always ) ]
+            pub fn disabled(self) -> &'a mut W {
+                self.variant(Tim2enW::Disabled)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(Tim2enW::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 0;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -11122,14 +11033,33 @@ pub mod rcc {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `TIM3EN`" ]
+        pub type Tim3enW = Tim2enW;
         # [ doc = r" Proxy" ]
         pub struct _Tim3enW<'a> {
             w: &'a mut W,
         }
         impl<'a> _Tim3enW<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Tim3enW) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Disabled." ]
+            # [ inline ( always ) ]
+            pub fn disabled(self) -> &'a mut W {
+                self.variant(Tim2enW::Disabled)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(Tim2enW::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 1;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -11137,14 +11067,33 @@ pub mod rcc {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `TIM4EN`" ]
+        pub type Tim4enW = Tim2enW;
         # [ doc = r" Proxy" ]
         pub struct _Tim4enW<'a> {
             w: &'a mut W,
         }
         impl<'a> _Tim4enW<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Tim4enW) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Disabled." ]
+            # [ inline ( always ) ]
+            pub fn disabled(self) -> &'a mut W {
+                self.variant(Tim2enW::Disabled)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(Tim2enW::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 2;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -11152,14 +11101,33 @@ pub mod rcc {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `TIM5EN`" ]
+        pub type Tim5enW = Tim2enW;
         # [ doc = r" Proxy" ]
         pub struct _Tim5enW<'a> {
             w: &'a mut W,
         }
         impl<'a> _Tim5enW<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Tim5enW) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Disabled." ]
+            # [ inline ( always ) ]
+            pub fn disabled(self) -> &'a mut W {
+                self.variant(Tim2enW::Disabled)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(Tim2enW::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 3;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -11167,14 +11135,33 @@ pub mod rcc {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `TIM6EN`" ]
+        pub type Tim6enW = Tim2enW;
         # [ doc = r" Proxy" ]
         pub struct _Tim6enW<'a> {
             w: &'a mut W,
         }
         impl<'a> _Tim6enW<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Tim6enW) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Disabled." ]
+            # [ inline ( always ) ]
+            pub fn disabled(self) -> &'a mut W {
+                self.variant(Tim2enW::Disabled)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(Tim2enW::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 4;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -11183,23 +11170,7 @@ pub mod rcc {
             }
         }
         # [ doc = "Values that can be written to the field `TIM7EN`" ]
-        pub enum Tim7enW {
-            # [ doc = "Disabled." ]
-            Disabled,
-            # [ doc = "Enabled." ]
-            Enabled,
-        }
-        impl Tim7enW {
-            # [ allow ( missing_docs ) ]
-            # [ doc ( hidden ) ]
-            # [ inline ( always ) ]
-            pub fn _bits(&self) -> u8 {
-                match *self {
-                    Tim7enW::Disabled => 0,
-                    Tim7enW::Enabled => 1,
-                }
-            }
-        }
+        pub type Tim7enW = Tim2enW;
         # [ doc = r" Proxy" ]
         pub struct _Tim7enW<'a> {
             w: &'a mut W,
@@ -11215,12 +11186,12 @@ pub mod rcc {
             # [ doc = "Disabled." ]
             # [ inline ( always ) ]
             pub fn disabled(self) -> &'a mut W {
-                self.variant(Tim7enW::Disabled)
+                self.variant(Tim2enW::Disabled)
             }
             # [ doc = "Enabled." ]
             # [ inline ( always ) ]
             pub fn enabled(self) -> &'a mut W {
-                self.variant(Tim7enW::Enabled)
+                self.variant(Tim2enW::Enabled)
             }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
@@ -11232,14 +11203,33 @@ pub mod rcc {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `TIM12EN`" ]
+        pub type Tim12enW = Tim2enW;
         # [ doc = r" Proxy" ]
         pub struct _Tim12enW<'a> {
             w: &'a mut W,
         }
         impl<'a> _Tim12enW<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Tim12enW) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Disabled." ]
+            # [ inline ( always ) ]
+            pub fn disabled(self) -> &'a mut W {
+                self.variant(Tim2enW::Disabled)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(Tim2enW::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 6;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -11247,14 +11237,33 @@ pub mod rcc {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `TIM13EN`" ]
+        pub type Tim13enW = Tim2enW;
         # [ doc = r" Proxy" ]
         pub struct _Tim13enW<'a> {
             w: &'a mut W,
         }
         impl<'a> _Tim13enW<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Tim13enW) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Disabled." ]
+            # [ inline ( always ) ]
+            pub fn disabled(self) -> &'a mut W {
+                self.variant(Tim2enW::Disabled)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(Tim2enW::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 7;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -11262,14 +11271,33 @@ pub mod rcc {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `TIM14EN`" ]
+        pub type Tim14enW = Tim2enW;
         # [ doc = r" Proxy" ]
         pub struct _Tim14enW<'a> {
             w: &'a mut W,
         }
         impl<'a> _Tim14enW<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Tim14enW) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Disabled." ]
+            # [ inline ( always ) ]
+            pub fn disabled(self) -> &'a mut W {
+                self.variant(Tim2enW::Disabled)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(Tim2enW::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 8;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -11277,14 +11305,33 @@ pub mod rcc {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `WWDGEN`" ]
+        pub type WwdgenW = Tim2enW;
         # [ doc = r" Proxy" ]
         pub struct _WwdgenW<'a> {
             w: &'a mut W,
         }
         impl<'a> _WwdgenW<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: WwdgenW) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Disabled." ]
+            # [ inline ( always ) ]
+            pub fn disabled(self) -> &'a mut W {
+                self.variant(Tim2enW::Disabled)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(Tim2enW::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 11;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -11292,14 +11339,33 @@ pub mod rcc {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `SPI2EN`" ]
+        pub type Spi2enW = Tim2enW;
         # [ doc = r" Proxy" ]
         pub struct _Spi2enW<'a> {
             w: &'a mut W,
         }
         impl<'a> _Spi2enW<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Spi2enW) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Disabled." ]
+            # [ inline ( always ) ]
+            pub fn disabled(self) -> &'a mut W {
+                self.variant(Tim2enW::Disabled)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(Tim2enW::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 14;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -11307,14 +11373,33 @@ pub mod rcc {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `SPI3EN`" ]
+        pub type Spi3enW = Tim2enW;
         # [ doc = r" Proxy" ]
         pub struct _Spi3enW<'a> {
             w: &'a mut W,
         }
         impl<'a> _Spi3enW<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Spi3enW) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Disabled." ]
+            # [ inline ( always ) ]
+            pub fn disabled(self) -> &'a mut W {
+                self.variant(Tim2enW::Disabled)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(Tim2enW::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 15;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -11322,14 +11407,33 @@ pub mod rcc {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `USART2EN`" ]
+        pub type Usart2enW = Tim2enW;
         # [ doc = r" Proxy" ]
         pub struct _Usart2enW<'a> {
             w: &'a mut W,
         }
         impl<'a> _Usart2enW<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Usart2enW) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Disabled." ]
+            # [ inline ( always ) ]
+            pub fn disabled(self) -> &'a mut W {
+                self.variant(Tim2enW::Disabled)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(Tim2enW::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 17;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -11337,14 +11441,33 @@ pub mod rcc {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `USART3EN`" ]
+        pub type Usart3enW = Tim2enW;
         # [ doc = r" Proxy" ]
         pub struct _Usart3enW<'a> {
             w: &'a mut W,
         }
         impl<'a> _Usart3enW<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Usart3enW) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Disabled." ]
+            # [ inline ( always ) ]
+            pub fn disabled(self) -> &'a mut W {
+                self.variant(Tim2enW::Disabled)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(Tim2enW::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 18;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -11352,14 +11475,33 @@ pub mod rcc {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `UART4EN`" ]
+        pub type Uart4enW = Tim2enW;
         # [ doc = r" Proxy" ]
         pub struct _Uart4enW<'a> {
             w: &'a mut W,
         }
         impl<'a> _Uart4enW<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Uart4enW) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Disabled." ]
+            # [ inline ( always ) ]
+            pub fn disabled(self) -> &'a mut W {
+                self.variant(Tim2enW::Disabled)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(Tim2enW::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 19;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -11367,14 +11509,33 @@ pub mod rcc {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `UART5EN`" ]
+        pub type Uart5enW = Tim2enW;
         # [ doc = r" Proxy" ]
         pub struct _Uart5enW<'a> {
             w: &'a mut W,
         }
         impl<'a> _Uart5enW<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: Uart5enW) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Disabled." ]
+            # [ inline ( always ) ]
+            pub fn disabled(self) -> &'a mut W {
+                self.variant(Tim2enW::Disabled)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(Tim2enW::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 20;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -11382,14 +11543,33 @@ pub mod rcc {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `I2C1EN`" ]
+        pub type I2c1enW = Tim2enW;
         # [ doc = r" Proxy" ]
         pub struct _I2c1enW<'a> {
             w: &'a mut W,
         }
         impl<'a> _I2c1enW<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: I2c1enW) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Disabled." ]
+            # [ inline ( always ) ]
+            pub fn disabled(self) -> &'a mut W {
+                self.variant(Tim2enW::Disabled)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(Tim2enW::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 21;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -11397,14 +11577,33 @@ pub mod rcc {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `I2C2EN`" ]
+        pub type I2c2enW = Tim2enW;
         # [ doc = r" Proxy" ]
         pub struct _I2c2enW<'a> {
             w: &'a mut W,
         }
         impl<'a> _I2c2enW<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: I2c2enW) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Disabled." ]
+            # [ inline ( always ) ]
+            pub fn disabled(self) -> &'a mut W {
+                self.variant(Tim2enW::Disabled)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(Tim2enW::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 22;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -11412,14 +11611,33 @@ pub mod rcc {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `BKPEN`" ]
+        pub type BkpenW = Tim2enW;
         # [ doc = r" Proxy" ]
         pub struct _BkpenW<'a> {
             w: &'a mut W,
         }
         impl<'a> _BkpenW<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: BkpenW) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Disabled." ]
+            # [ inline ( always ) ]
+            pub fn disabled(self) -> &'a mut W {
+                self.variant(Tim2enW::Disabled)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(Tim2enW::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 27;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -11427,14 +11645,33 @@ pub mod rcc {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `PWREN`" ]
+        pub type PwrenW = Tim2enW;
         # [ doc = r" Proxy" ]
         pub struct _PwrenW<'a> {
             w: &'a mut W,
         }
         impl<'a> _PwrenW<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: PwrenW) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Disabled." ]
+            # [ inline ( always ) ]
+            pub fn disabled(self) -> &'a mut W {
+                self.variant(Tim2enW::Disabled)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(Tim2enW::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 28;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -11442,14 +11679,33 @@ pub mod rcc {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `DACEN`" ]
+        pub type DacenW = Tim2enW;
         # [ doc = r" Proxy" ]
         pub struct _DacenW<'a> {
             w: &'a mut W,
         }
         impl<'a> _DacenW<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: DacenW) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Disabled." ]
+            # [ inline ( always ) ]
+            pub fn disabled(self) -> &'a mut W {
+                self.variant(Tim2enW::Disabled)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(Tim2enW::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 29;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -11457,14 +11713,33 @@ pub mod rcc {
                 self.w
             }
         }
+        # [ doc = "Values that can be written to the field `CECEN`" ]
+        pub type CecenW = Tim2enW;
         # [ doc = r" Proxy" ]
         pub struct _CecenW<'a> {
             w: &'a mut W,
         }
         impl<'a> _CecenW<'a> {
+            # [ doc = r" Writes `variant` to the field" ]
+            # [ inline ( always ) ]
+            pub fn variant(self, variant: CecenW) -> &'a mut W {
+                {
+                    self.bits(variant._bits())
+                }
+            }
+            # [ doc = "Disabled." ]
+            # [ inline ( always ) ]
+            pub fn disabled(self) -> &'a mut W {
+                self.variant(Tim2enW::Disabled)
+            }
+            # [ doc = "Enabled." ]
+            # [ inline ( always ) ]
+            pub fn enabled(self) -> &'a mut W {
+                self.variant(Tim2enW::Enabled)
+            }
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u8) -> &'a mut W {
+            pub fn bits(self, bits: u8) -> &'a mut W {
                 const MASK: u8 = 1;
                 const OFFSET: u8 = 30;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -11481,52 +11756,47 @@ pub mod rcc {
             # [ doc = "Bit 0 - Timer 2 clock enable" ]
             # [ inline ( always ) ]
             pub fn tim2en(&self) -> Tim2enR {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 0;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Tim2enR { bits }
+                Tim2enR::_from({
+                                   const MASK: u8 = 1;
+                                   const OFFSET: u8 = 0;
+                                   ((self.bits >> OFFSET) & MASK as u32) as u8
+                               })
             }
             # [ doc = "Bit 1 - Timer 3 clock enable" ]
             # [ inline ( always ) ]
             pub fn tim3en(&self) -> Tim3enR {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 1;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Tim3enR { bits }
+                Tim3enR::_from({
+                                   const MASK: u8 = 1;
+                                   const OFFSET: u8 = 1;
+                                   ((self.bits >> OFFSET) & MASK as u32) as u8
+                               })
             }
             # [ doc = "Bit 2 - Timer 4 clock enable" ]
             # [ inline ( always ) ]
             pub fn tim4en(&self) -> Tim4enR {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 2;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Tim4enR { bits }
+                Tim4enR::_from({
+                                   const MASK: u8 = 1;
+                                   const OFFSET: u8 = 2;
+                                   ((self.bits >> OFFSET) & MASK as u32) as u8
+                               })
             }
             # [ doc = "Bit 3 - Timer 5 clock enable" ]
             # [ inline ( always ) ]
             pub fn tim5en(&self) -> Tim5enR {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 3;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Tim5enR { bits }
+                Tim5enR::_from({
+                                   const MASK: u8 = 1;
+                                   const OFFSET: u8 = 3;
+                                   ((self.bits >> OFFSET) & MASK as u32) as u8
+                               })
             }
             # [ doc = "Bit 4 - Timer 6 clock enable" ]
             # [ inline ( always ) ]
             pub fn tim6en(&self) -> Tim6enR {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 4;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Tim6enR { bits }
+                Tim6enR::_from({
+                                   const MASK: u8 = 1;
+                                   const OFFSET: u8 = 4;
+                                   ((self.bits >> OFFSET) & MASK as u32) as u8
+                               })
             }
             # [ doc = "Bit 5 - Timer 7 clock enable" ]
             # [ inline ( always ) ]
@@ -11540,162 +11810,146 @@ pub mod rcc {
             # [ doc = "Bit 6 - Timer 12 clock enable" ]
             # [ inline ( always ) ]
             pub fn tim12en(&self) -> Tim12enR {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 6;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Tim12enR { bits }
+                Tim12enR::_from({
+                                    const MASK: u8 = 1;
+                                    const OFFSET: u8 = 6;
+                                    ((self.bits >> OFFSET) & MASK as u32) as u8
+                                })
             }
             # [ doc = "Bit 7 - Timer 13 clock enable" ]
             # [ inline ( always ) ]
             pub fn tim13en(&self) -> Tim13enR {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 7;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Tim13enR { bits }
+                Tim13enR::_from({
+                                    const MASK: u8 = 1;
+                                    const OFFSET: u8 = 7;
+                                    ((self.bits >> OFFSET) & MASK as u32) as u8
+                                })
             }
             # [ doc = "Bit 8 - Timer 14 clock enable" ]
             # [ inline ( always ) ]
             pub fn tim14en(&self) -> Tim14enR {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 8;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Tim14enR { bits }
+                Tim14enR::_from({
+                                    const MASK: u8 = 1;
+                                    const OFFSET: u8 = 8;
+                                    ((self.bits >> OFFSET) & MASK as u32) as u8
+                                })
             }
             # [ doc = "Bit 11 - Window watchdog clock enable" ]
             # [ inline ( always ) ]
             pub fn wwdgen(&self) -> WwdgenR {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 11;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                WwdgenR { bits }
+                WwdgenR::_from({
+                                   const MASK: u8 = 1;
+                                   const OFFSET: u8 = 11;
+                                   ((self.bits >> OFFSET) & MASK as u32) as u8
+                               })
             }
             # [ doc = "Bit 14 - SPI 2 clock enable" ]
             # [ inline ( always ) ]
             pub fn spi2en(&self) -> Spi2enR {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 14;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Spi2enR { bits }
+                Spi2enR::_from({
+                                   const MASK: u8 = 1;
+                                   const OFFSET: u8 = 14;
+                                   ((self.bits >> OFFSET) & MASK as u32) as u8
+                               })
             }
             # [ doc = "Bit 15 - SPI 3 clock enable" ]
             # [ inline ( always ) ]
             pub fn spi3en(&self) -> Spi3enR {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 15;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Spi3enR { bits }
+                Spi3enR::_from({
+                                   const MASK: u8 = 1;
+                                   const OFFSET: u8 = 15;
+                                   ((self.bits >> OFFSET) & MASK as u32) as u8
+                               })
             }
             # [ doc = "Bit 17 - USART 2 clock enable" ]
             # [ inline ( always ) ]
             pub fn usart2en(&self) -> Usart2enR {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 17;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Usart2enR { bits }
+                Usart2enR::_from({
+                                     const MASK: u8 = 1;
+                                     const OFFSET: u8 = 17;
+                                     ((self.bits >> OFFSET) & MASK as u32) as u8
+                                 })
             }
             # [ doc = "Bit 18 - USART 3 clock enable" ]
             # [ inline ( always ) ]
             pub fn usart3en(&self) -> Usart3enR {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 18;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Usart3enR { bits }
+                Usart3enR::_from({
+                                     const MASK: u8 = 1;
+                                     const OFFSET: u8 = 18;
+                                     ((self.bits >> OFFSET) & MASK as u32) as u8
+                                 })
             }
             # [ doc = "Bit 19 - UART 4 clock enable" ]
             # [ inline ( always ) ]
             pub fn uart4en(&self) -> Uart4enR {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 19;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Uart4enR { bits }
+                Uart4enR::_from({
+                                    const MASK: u8 = 1;
+                                    const OFFSET: u8 = 19;
+                                    ((self.bits >> OFFSET) & MASK as u32) as u8
+                                })
             }
             # [ doc = "Bit 20 - UART 5 clock enable" ]
             # [ inline ( always ) ]
             pub fn uart5en(&self) -> Uart5enR {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 20;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                Uart5enR { bits }
+                Uart5enR::_from({
+                                    const MASK: u8 = 1;
+                                    const OFFSET: u8 = 20;
+                                    ((self.bits >> OFFSET) & MASK as u32) as u8
+                                })
             }
             # [ doc = "Bit 21 - I2C 1 clock enable" ]
             # [ inline ( always ) ]
             pub fn i2c1en(&self) -> I2c1enR {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 21;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                I2c1enR { bits }
+                I2c1enR::_from({
+                                   const MASK: u8 = 1;
+                                   const OFFSET: u8 = 21;
+                                   ((self.bits >> OFFSET) & MASK as u32) as u8
+                               })
             }
             # [ doc = "Bit 22 - I2C 2 clock enable" ]
             # [ inline ( always ) ]
             pub fn i2c2en(&self) -> I2c2enR {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 22;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                I2c2enR { bits }
+                I2c2enR::_from({
+                                   const MASK: u8 = 1;
+                                   const OFFSET: u8 = 22;
+                                   ((self.bits >> OFFSET) & MASK as u32) as u8
+                               })
             }
             # [ doc = "Bit 27 - Backup interface clock enable" ]
             # [ inline ( always ) ]
             pub fn bkpen(&self) -> BkpenR {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 27;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                BkpenR { bits }
+                BkpenR::_from({
+                                  const MASK: u8 = 1;
+                                  const OFFSET: u8 = 27;
+                                  ((self.bits >> OFFSET) & MASK as u32) as u8
+                              })
             }
             # [ doc = "Bit 28 - Power interface clock enable" ]
             # [ inline ( always ) ]
             pub fn pwren(&self) -> PwrenR {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 28;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                PwrenR { bits }
+                PwrenR::_from({
+                                  const MASK: u8 = 1;
+                                  const OFFSET: u8 = 28;
+                                  ((self.bits >> OFFSET) & MASK as u32) as u8
+                              })
             }
             # [ doc = "Bit 29 - DAC interface clock enable" ]
             # [ inline ( always ) ]
             pub fn dacen(&self) -> DacenR {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 29;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                DacenR { bits }
+                DacenR::_from({
+                                  const MASK: u8 = 1;
+                                  const OFFSET: u8 = 29;
+                                  ((self.bits >> OFFSET) & MASK as u32) as u8
+                              })
             }
             # [ doc = "Bit 30 - CEC clock enable" ]
             # [ inline ( always ) ]
             pub fn cecen(&self) -> CecenR {
-                let bits = {
-                    const MASK: u8 = 1;
-                    const OFFSET: u8 = 30;
-                    ((self.bits >> OFFSET) & MASK as u32) as u8
-                };
-                CecenR { bits }
+                CecenR::_from({
+                                  const MASK: u8 = 1;
+                                  const OFFSET: u8 = 30;
+                                  ((self.bits >> OFFSET) & MASK as u32) as u8
+                              })
             }
         }
         impl W {
