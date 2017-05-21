@@ -51,6 +51,7 @@ extern crate stm32f100;
 
 use cortex_m::asm;
 use stm32f100::{GPIOA, RCC, EXTI, AFIO};
+use stm32f100::interrupt;
 
 
 #[inline(never)]
@@ -98,15 +99,33 @@ fn main() {
 
             }
     );
+
+    unsafe {
+        cortex_m::interrupt::enable();
+    }
+
+    let mut count = 0;
+    loop {
+        count += 1; 
+    }
+
+}
+
+extern "C" fn rotary_encoder_handler(_ctxt: interrupt::Exti0Irq) {
+    asm::bkpt();
 }
 
 
 #[allow(dead_code)]
 #[used]
 #[link_section = ".rodata.interrupts"]
-static INTERRUPTS: [extern "C" fn(); 240] = [default_handler; 240];
+static INTERRUPTS: interrupt::Handlers = interrupt::Handlers {
+    Exti0Irq: rotary_encoder_handler,
+    ..interrupt::DEFAULT_HANDLERS
+};
 
+/*
 extern "C" fn default_handler() {
     asm::bkpt();
 }
-
+*/

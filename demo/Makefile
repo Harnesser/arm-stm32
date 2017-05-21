@@ -28,4 +28,7 @@ crash:
 blinky01:
 	arm-none-eabi-gdb target/thumbv7m-none-eabi/debug/examples/blinky01
 
+rotary:
+	arm-none-eabi-gdb target/thumbv7m-none-eabi/debug/examples/rotary-encoder
+
 
