@@ -55,6 +55,7 @@ use stm32f100::{GPIOA, RCC, EXTI, AFIO, NVIC};
 use stm32f100::interrupt;
 use stm32f100::interrupt::{Interrupt};
 
+static mut counter: i32 = 0;
 
 #[inline(never)]
 fn main() {
@@ -97,6 +98,8 @@ fn main() {
 
             // set up posedge interrupt on PA0
             exti.rtsr.modify(|_,w| w.tr0().enabled());
+
+            // unmask the interrupt on PA0
             exti.imr.modify(|_,w| w.mr0().enabled());
 
             // wire PA0 posedge to interrupt EXTI0
@@ -105,7 +108,7 @@ fn main() {
             }
 
 
-            // And set up NVIC - do I have enable the NVIC periph too?
+            // And set up NVIC - do I have enable the NVIC periph too? No.
             nvic.clear_pending(Interrupt::Exti0Irq);
             unsafe {
                 nvic.set_priority(Interrupt::Exti0Irq, 13);
@@ -116,8 +119,6 @@ fn main() {
             // test-fire of interrupt
             //hprintln!("Test-firing interrupt");
             //nvic.set_pending(Interrupt::Exti0Irq); // don't have to clear
-            //hprintln!("whopo");
-            //nvic.clear_pending(Interrupt::Exti0Irq);
 
 
             hprintln!("Setup complete asdf asdf");
@@ -129,30 +130,35 @@ fn main() {
         cortex_m::interrupt::enable();
     }
 
-    let mut count = 0;
-    loop {
-        count += 1; 
-    }
+    loop {}
 
 }
 
 extern "C" fn rotary_encoder_handler(_ctxt: interrupt::Exti0Irq) {
-    // help!
-    // hprintln!("Hello, interrupt!");
-    asm::bkpt();
+    //asm::bkpt();
 
     // have to clear the pending bit in the peripheral
+    // don't have to clear pending bit in NVIC
     cortex_m::interrupt::free(
         |cs| {
             let exti = EXTI.borrow(cs);
+            let gpioa = GPIOA.borrow(cs);
             // write one to clear
             unsafe {
                 exti.pr.modify(|_,w| w.pr0().bits(1)); 
+                if gpioa.idr.read().idr2().bits() == 0 {
+                    counter += 1;
+                } else {
+                    counter -= 1;
+                }
             }
+
         }
     );
 
-
+    unsafe {
+        hprintln!("{}", counter);
+    }
 
 }
 
