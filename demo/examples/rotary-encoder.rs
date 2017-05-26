@@ -44,14 +44,16 @@
 #![no_std]
 
 extern crate cast;
+#[macro_use]
 extern crate cortex_m;
 extern crate cortex_m_rt;
 
 extern crate stm32f100;
 
 use cortex_m::asm;
-use stm32f100::{GPIOA, RCC, EXTI, AFIO};
+use stm32f100::{GPIOA, RCC, EXTI, AFIO, NVIC};
 use stm32f100::interrupt;
+use stm32f100::interrupt::{Interrupt};
 
 
 #[inline(never)]
@@ -67,9 +69,11 @@ fn main() {
             let gpioa = GPIOA.borrow(cs);
             let exti = EXTI.borrow(cs);
             let afio = AFIO.borrow(cs);
+            let nvic = NVIC.borrow(cs);
 
             // power up the relevant peripherals
             rcc.apb2enr.modify(|_,w| w.iopaen().enabled());
+            rcc.apb2enr.modify(|_,w| w.afioen().enabled());
 
 
             // configure PA0 as an input with a pull-up
@@ -92,12 +96,33 @@ fn main() {
 
 
             // set up posedge interrupt on PA0
+            exti.rtsr.modify(|_,w| w.tr0().enabled());
             exti.imr.modify(|_,w| w.mr0().enabled());
+
+            // wire PA0 posedge to interrupt EXTI0
             unsafe {
                 afio.exticr1.modify(|_,w| w.exti0().bits(0));
             }
 
+
+            // And set up NVIC - do I have enable the NVIC periph too?
+            nvic.clear_pending(Interrupt::Exti0Irq);
+            unsafe {
+                nvic.set_priority(Interrupt::Exti0Irq, 13);
             }
+            nvic.enable(Interrupt::Exti0Irq);
+
+
+            // test-fire of interrupt
+            //hprintln!("Test-firing interrupt");
+            //nvic.set_pending(Interrupt::Exti0Irq); // don't have to clear
+            //hprintln!("whopo");
+            //nvic.clear_pending(Interrupt::Exti0Irq);
+
+
+            hprintln!("Setup complete asdf asdf");
+            }
+
     );
 
     unsafe {
@@ -112,7 +137,23 @@ fn main() {
 }
 
 extern "C" fn rotary_encoder_handler(_ctxt: interrupt::Exti0Irq) {
+    // help!
+    // hprintln!("Hello, interrupt!");
     asm::bkpt();
+
+    // have to clear the pending bit in the peripheral
+    cortex_m::interrupt::free(
+        |cs| {
+            let exti = EXTI.borrow(cs);
+            // write one to clear
+            unsafe {
+                exti.pr.modify(|_,w| w.pr0().bits(1)); 
+            }
+        }
+    );
+
+
+
 }
 
 
