@@ -12,7 +12,7 @@ build_blinky01:
 	xargo build -j1 --example blinky01
 
 build_rotary_encoder:
-	xargo build -j1 --example rotary-encoder
+	xargo build -j1 --example rotary-encoder --release
 
 upload:
 	openocd -f board/stm32vldiscovery.cfg
@@ -29,6 +29,7 @@ blinky01:
 	arm-none-eabi-gdb target/thumbv7m-none-eabi/debug/examples/blinky01
 
 rotary:
-	arm-none-eabi-gdb target/thumbv7m-none-eabi/debug/examples/rotary-encoder
+	#arm-none-eabi-gdb target/thumbv7m-none-eabi/debug/examples/rotary-encoder
+	arm-none-eabi-gdb target/thumbv7m-none-eabi/release/examples/rotary-encoder
 
 

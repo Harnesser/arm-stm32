@@ -56,6 +56,7 @@ use stm32f100::interrupt;
 use stm32f100::interrupt::{Interrupt};
 
 static mut counter: i32 = 0;
+static mut call_counter: i32 = 0;
 
 #[inline(never)]
 fn main() {
@@ -130,7 +131,31 @@ fn main() {
         cortex_m::interrupt::enable();
     }
 
-    loop {}
+    let mut cnt = 0;
+    loop {
+        if cnt == 8_000_000 {
+            cnt = 0;
+        } else {
+            cnt += 1;
+        }
+        if cnt == 0 {
+            unsafe {
+                hprintln!("{} {}", counter, call_counter);
+            }
+        }
+    }
+
+    /*
+    let mut prev_call_counter = 0;
+    loop {
+        unsafe {
+            if prev_call_counter < call_counter {
+                hprintln!("{} {}", counter, call_counter);
+                prev_call_counter = call_counter;
+            }
+        }
+    }
+*/
 
 }
 
@@ -143,22 +168,19 @@ extern "C" fn rotary_encoder_handler(_ctxt: interrupt::Exti0Irq) {
         |cs| {
             let exti = EXTI.borrow(cs);
             let gpioa = GPIOA.borrow(cs);
-            // write one to clear
             unsafe {
-                exti.pr.modify(|_,w| w.pr0().bits(1)); 
                 if gpioa.idr.read().idr2().bits() == 0 {
                     counter += 1;
                 } else {
                     counter -= 1;
                 }
+                call_counter += 1;
+                // write one to clear
+                exti.pr.modify(|_,w| w.pr0().bits(1)); 
             }
 
         }
     );
-
-    unsafe {
-        hprintln!("{}", counter);
-    }
 
 }
 
