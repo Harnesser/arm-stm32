@@ -27,6 +27,6 @@ pub extern crate stm32f100;
 
 pub mod led;
 //pub mod serial;
-//pub mod timer;
+pub mod timer;
 
-//mod frequency;
+mod frequency;

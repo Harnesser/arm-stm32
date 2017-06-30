@@ -6,7 +6,7 @@ dependencies = [
  "cortex-m 0.2.11 (registry+https://github.com/rust-lang/crates.io-index)",
  "cortex-m-rt 0.2.4 (registry+https://github.com/rust-lang/crates.io-index)",
  "cortex-m-rtfm 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)",
- "stm32f100 0.1.0",
+ "stm32f100 0.1.1",
 ]
 
 [[package]]
@@ -72,7 +72,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
 name = "stm32f100"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "cortex-m 0.2.11 (registry+https://github.com/rust-lang/crates.io-index)",
  "vcell 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
