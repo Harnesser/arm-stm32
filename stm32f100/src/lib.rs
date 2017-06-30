@@ -57625,7 +57625,7 @@ pub mod tim6 {
         impl<'a> _PscW<'a> {
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u16) -> &'a mut W {
+            pub fn bits(self, bits: u16) -> &'a mut W {
                 const MASK: u16 = 65535;
                 const OFFSET: u8 = 0;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -57728,7 +57728,7 @@ pub mod tim6 {
         impl<'a> _ArrW<'a> {
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u16) -> &'a mut W {
+            pub fn bits(self, bits: u16) -> &'a mut W {
                 const MASK: u16 = 65535;
                 const OFFSET: u8 = 0;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -79808,7 +79808,7 @@ pub mod tim15 {
         impl<'a> _PscW<'a> {
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u16) -> &'a mut W {
+            pub fn bits(self, bits: u16) -> &'a mut W {
                 const MASK: u16 = 65535;
                 const OFFSET: u8 = 0;
                 self.w.bits &= !((MASK as u32) << OFFSET);
@@ -79911,7 +79911,7 @@ pub mod tim15 {
         impl<'a> _ArrW<'a> {
             # [ doc = r" Writes raw bits to the field" ]
             # [ inline ( always ) ]
-            pub unsafe fn bits(self, bits: u16) -> &'a mut W {
+            pub fn bits(self, bits: u16) -> &'a mut W {
                 const MASK: u16 = 65535;
                 const OFFSET: u8 = 0;
                 self.w.bits &= !((MASK as u32) << OFFSET);

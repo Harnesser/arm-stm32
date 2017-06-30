@@ -1,6 +1,6 @@
 [root]
 name = "stm32f100"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "cortex-m 0.2.6 (registry+https://github.com/rust-lang/crates.io-index)",
  "vcell 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
