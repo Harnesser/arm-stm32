@@ -9,6 +9,9 @@ build_hello:
 build_blinky:
 	xargo build -j2 --example blinky
 
+build_roulette:
+	xargo build -j2 --example roulette
+
 build_rotary_encoder:
 	xargo build -j2 --example rotary-encoder --release
 
@@ -22,6 +25,9 @@ hello:
 
 blinky:
 	arm-none-eabi-gdb target/thumbv7m-none-eabi/debug/examples/blinky
+
+roulette:
+	arm-none-eabi-gdb target/thumbv7m-none-eabi/debug/examples/roulette
 
 rotary:
 	arm-none-eabi-gdb target/thumbv7m-none-eabi/debug/examples/rotary-encoder
