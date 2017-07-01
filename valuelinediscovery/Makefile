@@ -1,7 +1,9 @@
 #NAME:=hello
 #NAME:=blinky
 #NAME:=roulette
-NAME:=loopback
+#NAME:=loopback
+NAME:=concurrency
+
 TTY:=/dev/ttyACM0
 BAUD:=115200
 
