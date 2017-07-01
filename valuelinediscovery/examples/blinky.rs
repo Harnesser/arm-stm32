@@ -35,14 +35,14 @@ peripherals!(stm32f100, {
 });
 
 
-//! Initialisation
-//!
-//! This runs at the maximum pre-emption threshold, essentially in 
-//! a `interrupt::free` context.
-//!
-//! Threshold ndicates the priority that a task must have to preempt the current
-//! context. A `threshold` of `T0` means that only tasks with a priority of `P1`
-//! or *higher* can preempt the current context.
+// Initialisation
+//
+// This runs at the maximum pre-emption threshold, essentially in 
+// a `interrupt::free` context.
+//
+// Threshold ndicates the priority that a task must have to preempt the current
+// context. A `threshold` of `T0` means that only tasks with a priority of `P1`
+// or *higher* can preempt the current context.
 fn init(ref priority: P0, threshold: &TMax) {
     let gpioc = GPIOC.access(priority, threshold);
     let rcc = RCC.access(priority, threshold);
@@ -62,20 +62,20 @@ fn init(ref priority: P0, threshold: &TMax) {
 
 fn idle(_priority: P0, _threshold: T0) -> ! {
     loop {
-        rtfm::wfi();
+        //rtfm::wfi(); // this freezes JTAG, so don't do it
     }
 }
 
 
-//! TASKS
-//!
-//! In the RTFM framework tasks are implemented on top of interrupt handlers;
-//! in fact each task *is* an interrupt handler.
-//! This thing below says to call the function `periodic()` when the `Tim7Irq`
-//! interrupt fires.
-//!
-//! `P1` is the lowest priority a task can have, otherwise it won't be able to
-//! preempt `idle()`. 
+// TASKS
+//
+// In the RTFM framework tasks are implemented on top of interrupt handlers;
+// in fact each task *is* an interrupt handler.
+// This thing below says to call the function `periodic()` when the `Tim7Irq`
+// interrupt fires.
+//
+// `P1` is the lowest priority a task can have, otherwise it won't be able to
+// preempt `idle()`. 
 tasks!(stm32f100, {
     periodic: Task {
         interrupt: Tim7Irq,
@@ -84,17 +84,17 @@ tasks!(stm32f100, {
     },
 });
 
-//! Interrupt handler, essentially.
-//! These must run to completion - no loops or lower priority task won't get
-//! a chance to run.
+// Interrupt handler, essentially.
+// These must run to completion - no loops or lower priority task won't get
+// a chance to run.
 fn periodic(mut task: Tim7Irq, ref priority: P1, ref threshold: T1) {
 
-    //! Task local data
-    //! We can hold state for this function call using safe local data
-    //! abstraction `Local`.
-    //! The `task` token pins this data to this function. No other functions
-    //! can use it (cos they can't provide a matching token), and data races
-    //! are avoided.
+    // Task local data
+    // We can hold state for this function call using safe local data
+    // abstraction `Local`.
+    // The `task` token pins this data to this function. No other functions
+    // can use it (cos they can't provide a matching token), and data races
+    // are avoided.
     static STATE: Local<bool, Tim7Irq> = Local::new(false);
 
     // can access TIM7 without extra synchoronisation as the ceiling value

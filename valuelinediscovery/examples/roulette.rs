@@ -59,7 +59,7 @@ fn init(ref priority: P0, threshold: &TMax) {
 
 fn idle(_priority: P0, _threshold: T0) -> ! {
     loop {
-        rtfm::wfi();
+        //rtfm::wfi(); // this freezes JTAG, so don't
     }
 }
 

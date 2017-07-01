@@ -25,7 +25,7 @@ fn idle(_priority: P0, _threshold: T0) -> ! {
     hprintln!("World");
 
     loop {
-        rtfm::wfi();
+        //rtfm::wfi(); // this freezes JTAG, so don't do it
     }
 }
 
