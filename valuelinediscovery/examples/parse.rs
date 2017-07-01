@@ -11,7 +11,9 @@ extern crate cortex_m_rt;
 // Real time for the masses - scheduler (RTFM)
 #[macro_use]
 extern crate cortex_m_rtfm as rtfm;
-use rtfm::{ Local, C1, P0, P1, T0, T1, TMax};
+use rtfm::Local;
+use rtfm::{ P0, P1, P2, T0, T1, T2, TMax };
+use rtfm::{ C2 };
 use rtfm::Resource; // data to share between tasks
 
 // common datastructures backed by statically allocated memory
@@ -57,7 +59,7 @@ peripherals!(stm32f100, {
     },
     TIM7: Peripheral {
         register_block: Tim7,
-        ceiling: C1,
+        ceiling: C2,
     },
 });
 
@@ -118,7 +120,7 @@ enum Mode {
 
 // RTFM framework provides a `Resource` abstraction used to share
 // memory between two or more tasks in a data race free manner.
-static SHARED: Resource<State, C1> = Resource::new(State::new());
+static SHARED: Resource<State, C2> = Resource::new(State::new());
 
 // TASKS
 tasks!(stm32f100, {
@@ -129,7 +131,7 @@ tasks!(stm32f100, {
     },
     roulette: Task {
         interrupt: Tim7Irq,
-        priority: P1,
+        priority: P2,
         enabled: true,
     },
 });
@@ -159,11 +161,33 @@ fn receive(mut task: Usart1Irq, ref priority: P1, ref threshold: T1) {
             // end of command
 
             // borrow the shared data
-            let shared = SHARED.access(priority, threshold);
             match &**buffer {
-                b"both" => shared.mode.set(Mode::Both),
-                b"blue" => shared.mode.set(Mode::Blue),
-                b"green" => shared.mode.set(Mode::Green),
+                b"both" => {
+                    // temporary raise threshold so we can't be pre-empted
+                    // while modifying this data
+                    threshold.raise(
+                        &SHARED, |threshold| {
+                            let shared = SHARED.access(priority, threshold);
+                            shared.mode.set(Mode::Both)
+                        }
+                    );
+                }
+                b"blue" => { 
+                    threshold.raise(
+                        &SHARED, |threshold| {
+                            let shared = SHARED.access(priority, threshold);
+                            shared.mode.set(Mode::Blue)
+                        }
+                    );
+                }
+                b"green" => {
+                    threshold.raise(
+                        &SHARED, |threshold| {
+                            let shared = SHARED.access(priority, threshold);
+                            shared.mode.set(Mode::Green)
+                        }
+                    );
+                }
                 _ => {}
             }
 
@@ -188,7 +212,7 @@ fn receive(mut task: Usart1Irq, ref priority: P1, ref threshold: T1) {
 }
 
 // Roulette
-fn roulette(mut task: Tim7Irq, ref priority: P1, ref threshold: T1) {
+fn roulette(mut task: Tim7Irq, ref priority: P2, ref threshold: T2) {
 
     // Task local data
     static STATE: Local<u8, Tim7Irq> = Local::new(0);
