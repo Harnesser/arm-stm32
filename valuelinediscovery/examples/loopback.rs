@@ -10,18 +10,11 @@ extern crate cortex_m_rt;
 extern crate cortex_m_rtfm as rtfm;
 extern crate valuelinediscovery as dsc;
 
-//use dsc::led::{self, LEDS};
 use dsc::serial::Serial;
 use dsc::stm32f100::interrupt::Usart1Irq;
 use dsc::stm32f100;
-//use dsc::timer::Timer;
-//use rtfm::{ Local, P0, P1, T0, T1, TMax};
 use rtfm::{ P0, P1, T0, T1, TMax};
 
-//extern crate cast;
-//use cast::{u8, usize};
-
-//const FREQUENCY: u32 = 2; // Hz
 pub const BAUD_RATE: u32 = 115_200; // bits per second
 
 // RESOURCES
@@ -31,10 +24,6 @@ peripherals!(stm32f100, {
         register_block: Gpioa,
         ceiling: C0, // kinda like a priority
     },
-//    GPIOC:  Peripheral {
-//        register_block: Gpioc,
-//        ceiling: C0, // kinda like a priority
-//    },
     RCC: Peripheral {
         register_block: Rcc,
         ceiling: C0,
@@ -43,10 +32,6 @@ peripherals!(stm32f100, {
         register_block: Usart1,
         ceiling: C1,
     },
-//    TIM7: Peripheral {
-//        register_block: Tim7,
-//        ceiling: C1,
-//    },
 });
 
 
@@ -58,21 +43,6 @@ fn init(ref priority: P0, threshold: &TMax) {
 
     let serial = Serial(&usart1);
     serial.init(&gpioa, &rcc, BAUD_RATE);
-
-/*
-    let gpioc = GPIOC.access(priority, threshold);
-    let tim7 = TIM7.access(priority, threshold);
-    let timer = Timer(&tim7);
-
-    // configure the PCx pins as outputs
-    led::init(&gpioc, &rcc);
-
-    // configure timer7 for periodic update events
-    timer.init(&rcc, FREQUENCY);
-
-    // start the timer
-    timer.resume();
-    */
 }
 
 
@@ -112,32 +82,3 @@ fn loopback(_task: Usart1Irq, ref priority: P1, ref threshold: T1) {
 
 
 }
-
-/*
-// Roulette
-fn roulette(mut task: Tim7Irq, ref priority: P1, ref threshold: T1) {
-
-    // Task local data
-    static STATE: Local<u8, Tim7Irq> = Local::new(0);
-
-    let tim7 = TIM7.access(priority, threshold);
-    let timer = Timer(&tim7);
-
-    // clear the interrupt flag
-    if timer.clear_update_flag().is_ok() {
-        let state = STATE.borrow_mut(&mut task);
-
-        let curr = *state;
-        let next = (curr + 1) % u8(LEDS.len()).unwrap();
-
-        LEDS[usize(curr)].off();
-        LEDS[usize(next)].on();
-
-        *state = next;
-    } else {
-        // only reachable thru `rtfm::request(periodic)
-        #[cfg(debug_assertion)]
-        unreachable!()
-    }
-}
-*/
