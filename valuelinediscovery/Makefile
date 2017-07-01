@@ -2,7 +2,8 @@
 #NAME:=blinky
 #NAME:=roulette
 #NAME:=loopback
-NAME:=concurrency
+#NAME:=concurrency
+NAME:=parse
 
 TTY:=/dev/ttyACM0
 BAUD:=115200
