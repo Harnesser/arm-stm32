@@ -1,6 +1,9 @@
 #NAME:=hello
 #NAME:=blinky
-NAME:=roulette
+#NAME:=roulette
+NAME:=loopback
+TTY:=/dev/ttyACM0
+BAUD:=115200
 
 TGT:=debug
 LINK:=
@@ -15,3 +18,5 @@ upload:
 gdb:
 	arm-none-eabi-gdb target/thumbv7m-none-eabi/${TGT}/examples/${NAME}
 
+minicom:
+	minicom -D ${TTY} -b ${BAUD}
