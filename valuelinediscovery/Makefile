@@ -3,7 +3,8 @@
 #NAME:=roulette
 #NAME:=loopback
 #NAME:=concurrency
-NAME:=parse
+#NAME:=parse
+NAME:=count_button_presses
 
 TTY:=/dev/ttyACM0
 BAUD:=115200
