@@ -30,4 +30,7 @@ pub mod serial;
 pub mod timer;
 pub mod button;
 
+// non-board stuff
+pub mod lcd;
+
 mod frequency;

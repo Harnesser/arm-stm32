@@ -4,7 +4,8 @@
 #NAME:=loopback
 #NAME:=concurrency
 #NAME:=parse
-NAME:=count_button_presses
+#NAME:=count_button_presses
+NAME:=liquid_crystal
 
 TTY:=/dev/ttyACM0
 BAUD:=115200
