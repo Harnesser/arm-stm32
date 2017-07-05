@@ -2,8 +2,8 @@
 //! JHD 204A
 
 /// LCD     Pin     Direction   Function
-/// RS      PC15    Output      H: Data Register L: Instruction Register
-/// R/Wb    PC14    Output      H: Read L: Write (mostly write)
+/// RS      PC5     Output      H: Data Register L: Instruction Register
+/// R/Wb    PC4     Output      H: Read L: Write (mostly write)
 /// E       PC13    Output      Enable signal (falling edge)
 /// DB4     PC0     Output      Data line
 /// DB5     PC1     Output      Data line
@@ -55,6 +55,8 @@ impl<'a> Lcd<'a> {
                      .mode1().output_10mhz().cnf1().push_pull()
                      .mode2().output_10mhz().cnf2().push_pull()
                      .mode3().output_10mhz().cnf3().push_pull()
+                     .mode4().output_10mhz().cnf4().push_pull()
+                     .mode5().output_10mhz().cnf5().push_pull()
                 },
             );
         gpioc
@@ -62,37 +64,61 @@ impl<'a> Lcd<'a> {
             .modify(
                 |_,w| {
                     w.mode13().output_10mhz().cnf13().push_pull()
-                     .mode14().output_10mhz().cnf14().push_pull()
-                     .mode15().output_10mhz().cnf15().push_pull()
                 },
             );
 
 
+/*
+        /// tap 3 times to put LCD in a known state
+        self.nibble(Register::Instruction, Operation::Write, 0x3);
+        self.nibble(Register::Instruction, Operation::Write, 0x3);
+        self.nibble(Register::Instruction, Operation::Write, 0x3);
+
+        /// put it into 4-bit mode
+        self.nibble(Register::Instruction, Operation::Write, 0x2);
+
+        // from now on, 4-bit mode
+        /// 2-line mode
+        self.word(Register::Instruction, Operation::Write, 0x28);
+
+        /// Clear display
+        self.word(Register::Instruction, Operation::Write, 0x01);
+
+        // Switch it on for now
+        //self.word(Register::Instruction, Operation::Write, );
+        */
 
         /// tap 3 times to put LCD in a known state
-        self.nibble(Register::Instruction, Operation::Write, 0x03);
-        self.nibble(Register::Instruction, Operation::Write, 0x03);
-        self.nibble(Register::Instruction, Operation::Write, 0x03);
+        self.nibble(Register::Instruction, Operation::Write, 0x3);
+        self.nibble(Register::Instruction, Operation::Read, 0x3);
+        self.nibble(Register::Data, Operation::Write, 0x3);
+
+        /// put it into 4-bit mode
+        self.nibble(Register::Data, Operation::Write, 0x2);
+
+        // from now on, 4-bit mode
+        /// 2-line mode
+        self.word(Register::Instruction, Operation::Write, 0x28);
+
+        /// Clear display
+        self.word(Register::Instruction, Operation::Write, 0x01);
+
+        // Switch it on for now
+        //self.word(Register::Instruction, Operation::Write, );
+
     }
 
-/*
-    /// Wiggle the pins appropriately to write a byte to the LCD
-    fn write(self, op: Operation, data: u8) {
-        self.nibble(op, data >> 4);
-        self.nibble(op, data);
-    }
-*/
 
-    /// Send a nibble to the LCD module
-    fn nibble(self, reg: Register, op: Operation, data: u8) {
+    /// Wiggle the pins appropriately to write a byte to the LCD ib 4-bit mode
+    fn word(self, reg: Register, op: Operation, data: u8) {
         let gpioc = self.0;
         let mut cs = gpioc.odr.read().bits();
-        cs &= 0xFFFF_1FF0;
+        cs &= 0xFFFF_DFC0;
 
         if op == Operation::Read {
-            cs |= 0x0000_4000; // C14
+            cs |= 0x0000_0010; // C4
         } else {
-            cs &= 0xFFFF_BFFF; // C14
+            cs &= 0xFFFF_FFEF; // C4
         }
 
         if reg == Register::Data {
@@ -101,19 +127,58 @@ impl<'a> Lcd<'a> {
             cs &= 0xFFFF_7FFF;
         }
 
+        // Send 4 MSBs
+        let msbs = (data >> 4) as u32 & 0x0000_000F;
+        cs |= msbs;
+        unsafe { gpioc.odr.write( |w| w.bits(cs) ) };
+
+        // Toggle Enable
+        gpioc.bsrr.write(|w| w.bs13().set());
+        // TODO: hold for at least 450ns
+        gpioc.bsrr.write(|w| w.br13().reset());
+
+        // Send 4 LSBs
+        cs &= 0xFFFF_FFF0;
+        let lsbs = data as u32 & 0x0000_000F;
+        cs |= lsbs;
+        unsafe { gpioc.odr.write( |w| w.bits(cs) ) };
+        
+        // Toggle Enable
+        gpioc.bsrr.write(|w| w.bs13().set());
+        // TODO: hold for at least 450ns
+        gpioc.bsrr.write(|w| w.br13().reset());
+
+    }
+
+    /// Send a nibble to the LCD module
+    fn nibble(self, reg: Register, op: Operation, data: u8) {
+        let gpioc = self.0;
+        let mut cs = gpioc.odr.read().bits();
+        cs &= 0xFFFF_DFC0;
+
+        cs = match op {
+            Operation::Read  => cs | 0x0000_0010,
+            Operation::Write => cs & 0xFFFF_FFEF,
+        };
+
+        cs = match reg {
+            Register::Data        => cs | 0x0000_0020,
+            Register::Instruction => cs & 0xFFFF_FFDF,
+        };
+
         let d32 = data as u32 & 0x0000_000F;
         cs |= d32;
 
         // Setup cycle
-        unsafe { gpioc.odr.write( |w| w.bits(cs) ) };
+        unsafe { gpioc.odr.modify( |_,w| w.bits(cs) ) };
 
         // Enable cycle
-        cs |= 0x0000_2000; // set enable on C13
-        unsafe { gpioc.odr.write( |w| w.bits(cs) ) };
+        cs |= 0x0000_F000; // set enable on C13
+        unsafe { gpioc.odr.modify( |_,w| w.bits(cs) ) };
 
         // Leadout cycle
-        cs &= 0xFFFF_DFFF;  // clear enable on C13
-        unsafe { gpioc.odr.write( |w| w.bits(cs) ) };
+        cs &= 0xFFFF_0FFF;  // clear enable on C13
+        unsafe { gpioc.odr.modify( |_,w| w.bits(cs) ) };
 
     }
 
