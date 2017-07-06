@@ -5,7 +5,8 @@
 #NAME:=concurrency
 #NAME:=parse
 #NAME:=count_button_presses
-NAME:=liquid_crystal
+#NAME:=liquid_crystal
+NAME:=button_and_lcd
 
 TTY:=/dev/ttyACM0
 BAUD:=115200

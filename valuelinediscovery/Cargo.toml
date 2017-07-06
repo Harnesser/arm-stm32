@@ -11,6 +11,7 @@ cortex-m-rtfm = "0.1.0"
 heapless = "0.1.0"
 stm32f100 = { path = "../stm32f100" }
 cast = { version = "*", default-features = false }
+numtoa = "0.0.7"
 
 [profile.release]
 lto = true
