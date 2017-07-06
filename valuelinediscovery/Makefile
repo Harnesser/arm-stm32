@@ -25,3 +25,6 @@ gdb:
 
 minicom:
 	minicom -D ${TTY} -b ${BAUD}
+
+objdump:
+	arm-none-eabi-objdump -Cd target/thumbv7m-none-eabi/${TGT}/examples/${NAME}

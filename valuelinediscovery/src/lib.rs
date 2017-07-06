@@ -22,6 +22,8 @@
 extern crate cast;
 pub extern crate stm32f100;
 
+extern crate cortex_m;
+
 // For documentation only
 //pub mod examples;
 
