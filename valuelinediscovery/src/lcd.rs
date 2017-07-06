@@ -68,7 +68,6 @@ impl<'a> Lcd<'a> {
             );
 
 
-/*
         /// tap 3 times to put LCD in a known state
         self.nibble(Register::Instruction, Operation::Write, 0x3);
         self.nibble(Register::Instruction, Operation::Write, 0x3);
@@ -76,25 +75,6 @@ impl<'a> Lcd<'a> {
 
         /// put it into 4-bit mode
         self.nibble(Register::Instruction, Operation::Write, 0x2);
-
-        // from now on, 4-bit mode
-        /// 2-line mode
-        self.word(Register::Instruction, Operation::Write, 0x28);
-
-        /// Clear display
-        self.word(Register::Instruction, Operation::Write, 0x01);
-
-        // Switch it on for now
-        //self.word(Register::Instruction, Operation::Write, );
-        */
-
-        /// tap 3 times to put LCD in a known state
-        self.nibble(Register::Instruction, Operation::Write, 0x3);
-        self.nibble(Register::Instruction, Operation::Read, 0x3);
-        self.nibble(Register::Data, Operation::Write, 0x3);
-
-        /// put it into 4-bit mode
-        self.nibble(Register::Data, Operation::Write, 0x2);
 
         // from now on, 4-bit mode
         /// 2-line mode
@@ -115,17 +95,15 @@ impl<'a> Lcd<'a> {
         let mut cs = gpioc.odr.read().bits();
         cs &= 0xFFFF_DFC0;
 
-        if op == Operation::Read {
-            cs |= 0x0000_0010; // C4
-        } else {
-            cs &= 0xFFFF_FFEF; // C4
-        }
+        cs = match op {
+            Operation::Read  => cs | 0x0000_0010,
+            Operation::Write => cs & 0xFFFF_FFEF,
+        };
 
-        if reg == Register::Data {
-            cs |= 0x0000_8000; // C15
-        } else {
-            cs &= 0xFFFF_7FFF;
-        }
+        cs = match reg {
+            Register::Data        => cs | 0x0000_0020,
+            Register::Instruction => cs & 0xFFFF_FFDF,
+        };
 
         // Send 4 MSBs
         let msbs = (data >> 4) as u32 & 0x0000_000F;
