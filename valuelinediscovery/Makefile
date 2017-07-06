@@ -17,6 +17,9 @@ LINK:=
 build:
 	xargo build -j2 --example ${NAME}
 
+release:
+	xargo build -j2 --release --example ${NAME}
+
 upload:
 	openocd -f board/stm32vldiscovery.cfg ${LINK}
 

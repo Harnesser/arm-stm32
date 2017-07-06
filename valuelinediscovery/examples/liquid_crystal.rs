@@ -38,6 +38,17 @@ fn init(ref priority: P0, threshold: &TMax) {
 
     // configure the PCx pins as outputs
     lcd.init(&rcc);
+
+    lcd.clear();
+    lcd.set_position(0,0);
+    lcd.write(b"Marty");
+    lcd.set_position(1,0);
+    lcd.write(b"is");
+    lcd.set_position(2,0);
+    lcd.write(b"kinda");
+    lcd.set_position(3,4);
+    lcd.write(b"CLASS!!!!!");
+
 }
 
 

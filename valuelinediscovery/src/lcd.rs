@@ -10,6 +10,8 @@
 /// DB6     PC2     Output      Data line
 /// DB7     PC3     Output      Data line (MSB)
 
+/// !!!FIXME!!! timing screws up in release build
+
 use stm32f100::{Gpioc, Rcc};
 
 use cortex_m::asm;
@@ -83,10 +85,7 @@ impl<'a> Lcd<'a> {
         self.word(Register::Instruction, Operation::Write, 0x28);
 
         /// Clear display
-        self.word(Register::Instruction, Operation::Write, 0x01);
-        for _ in 0..40 { // 1.6ms min
-            asm::nop();
-        }
+        self.clear();
 
         // Switch it on for now
         self.word(Register::Instruction, Operation::Write, 0x0F);
@@ -100,6 +99,7 @@ impl<'a> Lcd<'a> {
         for c in 0x20..0x70 {
             self.word(Register::Data, Operation::Write, c as u8);
         }
+
     }
 
 
@@ -174,5 +174,39 @@ impl<'a> Lcd<'a> {
 
     }
 
+    /// Clear the display
+    pub fn clear(self) {
+        self.word(Register::Instruction, Operation::Write, 0x01);
+        for _ in 0..40 { // 1.6ms min
+            asm::nop();
+        }
+    }
+
+    /// Write an ascii string (`u8` slice) to the display
+    /// The user can deal with the line-skipping if the `u8` slice
+    /// is going to overflow an LCD line
+    pub fn write(self, msg: &[u8]) {
+        for c in msg {
+            self.word(Register::Data, Operation::Write, *c);
+        }
+    }
+
+    /// Set the position of the cursor - the position of the next char
+    pub fn set_position(self, row:u8, col:u8) {
+        // should assert or return an error or something?
+        if col > 19 || row > 3 {
+            return;
+        }
+        let mut adr:u8 = match row {
+            0 => 0x00 + col,
+            1 => 0x40 + col,
+            2 => 0x14 + col,
+            3 => 0x54 + col,
+            _ => 0x00
+        };
+        adr &= 0x7F;
+        adr |= 0x80;
+        self.word(Register::Instruction, Operation::Write, adr);
+    }
 }
 
