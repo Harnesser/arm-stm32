@@ -72,75 +72,33 @@ impl<'a> Lcd<'a> {
 
         /// tap 3 times to put LCD in a known state
         self.nibble(Register::Instruction, Operation::Write, 0x3);
-        for _ in 0..6 {
-            asm::nop();
-        }
         self.nibble(Register::Instruction, Operation::Write, 0x3);
-        for _ in 0..6 {
-            asm::nop();
-        }
         self.nibble(Register::Instruction, Operation::Write, 0x3);
-        for _ in 0..6 {
-            asm::nop();
-        }
 
         /// put it into 4-bit mode
         self.nibble(Register::Instruction, Operation::Write, 0x2);
-        for _ in 0..6 {
-            asm::nop();
-        }
 
         // from now on, 4-bit mode
         /// 2-line mode
         self.word(Register::Instruction, Operation::Write, 0x28);
-        for _ in 0..6 {
-            asm::nop();
-        }
 
         /// Clear display
         self.word(Register::Instruction, Operation::Write, 0x01);
-        for _ in 0..40 {
+        for _ in 0..40 { // 1.6ms min
             asm::nop();
         }
 
         // Switch it on for now
-        self.word(Register::Instruction, Operation::Write, 0x02);
-        for _ in 0..40 {
-            asm::nop();
-        }
-        //self.word(Register::Instruction, Operation::Write, 0x07);
         self.word(Register::Instruction, Operation::Write, 0x0F);
-        for _ in 0..6 {
-            asm::nop();
-        }
-
-        
 
         // write shit
         self.word(Register::Data, Operation::Write, 0x30);
-        for _ in 0..16 {
-            asm::nop();
-        }
         self.word(Register::Data, Operation::Write, 0x41);
-        for _ in 0..16 {
-            asm::nop();
-        }
         self.word(Register::Data, Operation::Write, 0x52);
-        for _ in 0..16 {
-            asm::nop();
-        }
         self.word(Register::Data, Operation::Write, 0x63);
-        for _ in 0..16 {
-            asm::nop();
-        }
 
-        //self.nop_timer();
-        //spam
-        for c in 0x20..0x50 {
+        for c in 0x20..0x70 {
             self.word(Register::Data, Operation::Write, c as u8);
-            for _ in 0..16 {
-                asm::nop();
-            }
         }
     }
 
@@ -167,21 +125,9 @@ impl<'a> Lcd<'a> {
         cs |= msbs;
         unsafe { gpioc.odr.write( |w| w.bits(cs) ) };
 
-        //
         // Toggle Enable
-        //
-
-        // tAS - Address Setup Time (140ns min)
-        //asm:::nop(); // 125ns (8MHz)
-
-        asm::nop();
-        asm::nop();
         gpioc.bsrr.write(|w| w.bs13().set());
-        asm::nop();
-        asm::nop();
         gpioc.bsrr.write(|w| w.br13().reset());
-        asm::nop();
-        asm::nop();
 
         // Send 4 LSBs
         cs &= 0xFFFF_FFF0;
@@ -190,16 +136,11 @@ impl<'a> Lcd<'a> {
         unsafe { gpioc.odr.write( |w| w.bits(cs) ) };
         
         // Toggle Enable
-        asm::nop();
-        asm::nop();
         gpioc.bsrr.write(|w| w.bs13().set());
-        asm::nop();
-        asm::nop();
         gpioc.bsrr.write(|w| w.br13().reset());
-        asm::nop();
-        asm::nop();
-
     }
+
+
 
     /// Send a nibble to the LCD module
     fn nibble(self, reg: Register, op: Operation, data: u8) {
@@ -233,48 +174,5 @@ impl<'a> Lcd<'a> {
 
     }
 
-    /*
-    /// Set the LCD driver to the idle state
-    fn idle(self){
-        let gpioc = self.0;
-        gpioc
-            .bsrr
-            .write(|w|
-                w.br().
-
-    }
-*/
-
-    /*
-    fn nop_timer(self) {
-        let gpioc = self.0;
-
-        gpioc.bsrr.write(|w| w.bs13().set());
-        for _ in 0..4 {
-            asm::nop();
-        }
-        gpioc.bsrr.write(|w| w.br13().reset());
-
-        gpioc.bsrr.write(|w| w.bs13().set());
-        for _ in 0..8 {
-            asm::nop();
-        }
-        gpioc.bsrr.write(|w| w.br13().reset());
-
-
-        gpioc.bsrr.write(|w| w.bs13().set());
-        for _ in 0..16 {
-            asm::nop();
-        }
-        gpioc.bsrr.write(|w| w.br13().reset());
-
-        gpioc.bsrr.write(|w| w.bs13().set());
-        for _ in 0..32 {
-            asm::nop();
-        }
-        gpioc.bsrr.write(|w| w.br13().reset());
-
-    }
-    */
 }
 
