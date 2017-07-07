@@ -22,7 +22,7 @@ use rtfm::{Local, P0, P1, T0, T1, TMax};
 extern crate numtoa;
 use numtoa::NumToA;
 
-const FREQUENCY: u32 = 200; // Hz
+const FREQUENCY: u32 = 400; // Hz
 
 // RESOURCES
 // have to register all periphs that we're using

@@ -47,7 +47,7 @@ impl<'a> Lcd<'a> {
     pub fn init(self, rcc: &Rcc) {
         let gpioc = self.0;
 
-        // Power up GPIOA peripheral
+        // Power up GPIOC peripheral
         rcc.apb2enr.modify(|_,w| w.iopcen().enabled());
 
         // set up the pin directions
