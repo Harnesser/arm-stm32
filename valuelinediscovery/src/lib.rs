@@ -15,8 +15,8 @@
 //!
 //! [examples]: ./examples/index.html
 
-#![deny(missing_docs)]
-#![deny(warnings)]
+//#![deny(missing_docs)]
+//#![deny(warnings)]
 #![no_std]
 
 extern crate cast;
